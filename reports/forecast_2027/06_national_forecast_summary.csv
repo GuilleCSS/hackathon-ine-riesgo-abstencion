@@ -1,0 +1,2 @@
+target_year,sections_primary,mean_pred_abstention,median_pred_abstention,p10_pred_abstention,p90_pred_abstention,median_history_disagreement_pp,uncertainty_source,note
+2027,54772,0.4268504388732542,0.42817272182325317,0.29841193157720497,0.5543767375005222,8.118180016895604,2021 temporal out-of-sample residual distribution,Projection universe is defined by sections comparable between 2021 and 2024. It is not yet reconciled with the official 2027 cartographic universe.

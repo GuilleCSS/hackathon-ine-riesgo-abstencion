@@ -1,0 +1,27 @@
+{
+  "target_year": 2027,
+  "architecture": "two_history_linear",
+  "features": [
+    "SAME_PCT_ABSTENCION",
+    "RECENT_PCT_ABSTENCION"
+  ],
+  "same_family_year": 2021,
+  "recent_year": 2024,
+  "training_target_years": [
+    2015,
+    2018,
+    2021,
+    2024
+  ],
+  "intercept": 0.0480035682377713,
+  "coefficients": {
+    "SAME_PCT_ABSTENCION": 0.6773394064067463,
+    "RECENT_PCT_ABSTENCION": 0.1797807065215364
+  },
+  "uncertainty": {
+    "primary_source": "2021_temporal_dual out-of-sample signed residuals",
+    "interval": "empirical 90% using q05/q95 signed residuals",
+    "warning": "This is an empirical uncertainty band, not a guarantee of future coverage under structural electoral or cartographic changes."
+  },
+  "projection_universe_warning": "The section universe is based on 2021–2024 comparability and must later be reconciled with official current cartography before operational use."
+}

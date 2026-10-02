@@ -1,0 +1,2 @@
+n,mae_pp,rmse_pp,r2_in_sample,bias_pp,training_target_years,selected_architecture
+201487,6.143452868083582,8.167185747779413,0.6038628848729434,-5.2897412916969846e-15,"2015,2018,2021,2024",two_history_linear
