@@ -1,0 +1,15 @@
+scenario_id,scenario_label,BASELINE_RISK_LEVEL,SCENARIO_RISK_LEVEL,sections
+S0_BASELINE,Sin intervención,ALTO,ALTO,10955
+S0_BASELINE,Sin intervención,BAJO,BAJO,27386
+S0_BASELINE,Sin intervención,MEDIO,MEDIO,16431
+S1_TOP10_MINUS2,Intervención focal Top10 · -2 pp,ALTO,ALTO,10955
+S1_TOP10_MINUS2,Intervención focal Top10 · -2 pp,BAJO,BAJO,27386
+S1_TOP10_MINUS2,Intervención focal Top10 · -2 pp,MEDIO,MEDIO,16431
+S2_HIGH_MINUS2,Intervención focal ALTO · -2 pp,ALTO,ALTO,8122
+S2_HIGH_MINUS2,Intervención focal ALTO · -2 pp,ALTO,MEDIO,2833
+S2_HIGH_MINUS2,Intervención focal ALTO · -2 pp,BAJO,BAJO,27386
+S2_HIGH_MINUS2,Intervención focal ALTO · -2 pp,MEDIO,MEDIO,16431
+S3_HIGH_MINUS5,Intervención focal ALTO · -5 pp,ALTO,ALTO,4886
+S3_HIGH_MINUS5,Intervención focal ALTO · -5 pp,ALTO,MEDIO,6069
+S3_HIGH_MINUS5,Intervención focal ALTO · -5 pp,BAJO,BAJO,27386
+S3_HIGH_MINUS5,Intervención focal ALTO · -5 pp,MEDIO,MEDIO,16431

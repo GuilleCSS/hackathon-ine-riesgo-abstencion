@@ -1,0 +1,39 @@
+{
+  "classification_thresholds_frozen_from_baseline": {
+    "q50": 0.42817272182325317,
+    "q80": 0.5107279760442693,
+    "q90": 0.5543767375005222
+  },
+  "scenarios": [
+    {
+      "scenario_id": "S0_BASELINE",
+      "label": "Sin intervención",
+      "target": "none",
+      "delta_pp": 0.0,
+      "description": "Escenario base: conserva la estimación territorial 2027."
+    },
+    {
+      "scenario_id": "S1_TOP10_MINUS2",
+      "label": "Intervención focal Top10 · -2 pp",
+      "target": "top10",
+      "delta_pp": 2.0,
+      "description": "Supuesto de sensibilidad: reducción de 2 puntos porcentuales únicamente en las secciones PRIORITY_TOP10."
+    },
+    {
+      "scenario_id": "S2_HIGH_MINUS2",
+      "label": "Intervención focal ALTO · -2 pp",
+      "target": "high",
+      "delta_pp": 2.0,
+      "description": "Supuesto de sensibilidad: reducción de 2 puntos porcentuales en todas las secciones clasificadas como ALTO en el escenario base."
+    },
+    {
+      "scenario_id": "S3_HIGH_MINUS5",
+      "label": "Intervención focal ALTO · -5 pp",
+      "target": "high",
+      "delta_pp": 5.0,
+      "description": "Supuesto de sensibilidad más intenso: reducción de 5 puntos porcentuales en todas las secciones clasificadas como ALTO en el escenario base."
+    }
+  ],
+  "interpretation": "Scenario deltas are planning assumptions for sensitivity analysis. They are not causal estimates of any specific intervention.",
+  "important_design_choice": "Risk thresholds remain fixed at baseline 2027 levels so that territories can move between categories under a scenario. Re-ranking each scenario would force 20% to remain ALTO."
+}
