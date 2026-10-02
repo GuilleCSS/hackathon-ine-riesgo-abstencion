@@ -27,8 +27,10 @@ streamlit run dashboard\app.py
 ## Dependencias
 
 ```powershell
-pip install streamlit pydeck geopandas pyogrio
+pip install -r requirements.txt
 ```
+
+Con Docker, desde la raíz: `docker compose up` (http://localhost:8501).
 
 ## Archivos requeridos
 

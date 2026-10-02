@@ -20,6 +20,7 @@ htmlcov/
 .ipynb_checkpoints/
 .vscode/
 .idea/
+CLAUDE.md
 
 # ============================================================
 # OS

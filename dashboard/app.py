@@ -666,7 +666,7 @@ else:
 
     st.pydeck_chart(
         deck,
-        use_container_width=True,
+        width="stretch",
     )
 
 st.subheader("Lectura del escenario")
@@ -706,7 +706,7 @@ with left:
                 columns=["EDOCVE"],
                 errors="ignore",
             ),
-            use_container_width=True,
+            width="stretch",
             hide_index=True,
         )
 
@@ -726,7 +726,7 @@ with right:
                 ],
                 errors="ignore",
             ),
-            use_container_width=True,
+            width="stretch",
             hide_index=True,
         )
 

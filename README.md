@@ -452,15 +452,19 @@ python -m venv .venv
 pip install -r requirements.txt
 ```
 
-Dependencias geoespaciales y dashboard:
+`requirements.txt` incluye las dependencias geoespaciales y del dashboard
+(geopandas, pyogrio, shapely, pyproj, streamlit, pydeck).
 
-```text
-geopandas
-pyogrio
-shapely
-pyproj
-streamlit
-pydeck
+### Docker
+
+Alternativa sin entorno local. El contenedor monta la carpeta del proyecto,
+así que `data/` y `reports/` se leen y escriben en el disco local y los cambios
+de código no requieren reconstruir la imagen (sólo cambios en `requirements.txt`).
+
+```powershell
+docker compose build
+docker compose run --rm app python src/00_check_setup.py   # cualquier etapa del pipeline
+docker compose up                                          # dashboard en http://localhost:8501
 ```
 
 ## Archivos que no deben subirse
