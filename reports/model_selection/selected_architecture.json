@@ -1,0 +1,36 @@
+{
+  "selected_model": "two_history_linear",
+  "selection_status": "selected_by_predefined_rule",
+  "selection_rule": {
+    "required_temporal_backtests": [
+      "2021_temporal_dual",
+      "2024_temporal_dual"
+    ],
+    "baseline": "baseline_same_family",
+    "require_mae_improvement_each_year": true,
+    "require_bootstrap_95pct_improvement_each_year": true,
+    "primary_criterion": "minimize_max_mae_ratio_vs_baseline",
+    "tie_breakers": [
+      "minimize_mean_mae_ratio_vs_baseline",
+      "maximize_mean_top20_overlap"
+    ]
+  },
+  "selected_summary": {
+    "model": "two_history_linear",
+    "years_evaluated": 2,
+    "improved_mae_both_years": true,
+    "bootstrap_improvement_95pct_both_years": true,
+    "eligible_primary": true,
+    "max_mae_ratio_vs_baseline": 0.9230732030203174,
+    "mean_mae_ratio_vs_baseline": 0.8494512673506629,
+    "mean_mae_improvement_pct": 15.054873264933716,
+    "worst_mae_improvement_pct": 7.692679697968262,
+    "mean_r2": 0.5094864420798365,
+    "worst_r2": 0.3467110067722878,
+    "mean_top20": 0.6284787101724407,
+    "worst_top20": 0.5364631277487982,
+    "mean_top10": 0.5551999520239366,
+    "max_abs_bias_pp": 1.8837533975619765
+  },
+  "note": "Archivo generado por 09_select_architecture.py. Los scripts posteriores deben leer este lock en lugar de escoger retrospectivamente un modelo."
+}
