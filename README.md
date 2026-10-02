@@ -467,6 +467,86 @@ docker compose run --rm app python src/00_check_setup.py   # cualquier etapa del
 docker compose up                                          # dashboard en http://localhost:8501
 ```
 
+## Obtención de datos
+
+`data/` no se versiona, así que en un clon nuevo hay que descargar las fuentes
+oficiales (~455 MB) y correr el pipeline. Los comandos son para bash/zsh
+(macOS, Linux, Git Bash o WSL) y se ejecutan desde la raíz del proyecto.
+
+### 1. Carpetas
+
+```bash
+mkdir -p data/raw/cartography_2027 data/interim data/processed models notebooks
+```
+
+### 2. Conteos Censales de Participación Ciudadana (6 ZIP, ~290 MB)
+
+Fuente: [Conteos Censales de Participación](https://ine.mx/transparencia/datos-abiertos/visualizacion-datos/conteos-censales-participacion/)
+(INE, datos abiertos). Sólo se usan los seis ZIP de elecciones federales; los de
+Prisión Preventiva, Voto Anticipado y Poder Judicial 2025 no entran al pipeline.
+
+```bash
+for f in 2022/04/DatosAbiertos_DECEyEC_ConteosCensales{2009,2012,2015,2018,2021}.zip \
+         2025/08/DatosAbiertos_DECEyEC_ConteosCensales2024.zip; do
+  curl -fL -o "data/raw/$(basename "$f")" "https://ine.mx/wp-content/uploads/$f"
+done
+```
+
+### 3. Cartografía MGS por entidad (32 ZIP, ~165 MB)
+
+Fuente: [SIGE · Sistema de Información Geográfica Electoral](https://cartografia.ine.mx/sige8/),
+Marco Geográfico Seccional en Shapefile, corte 15-DIC-2025 (el más reciente
+publicado). Cada ZIP trae `SECCION.shp`, que es la capa que usan los scripts 14 y 15.
+
+```bash
+for e in $(seq 1 32); do
+  curl -fL -o "data/raw/cartography_2027/mgs_${e}_Shapefile.zip" \
+    "https://cartografia.ine.mx/mapoteca/MGS_UTM_SHAPEFILE_15DIC2025/$(printf %02d "$e").zip"
+done
+```
+
+Descargar desde la interfaz web del SIGE también funciona: genera el mismo nombre
+`mgs_N_Shapefile.zip`, pero con el ZIP oficial anidado dentro, y
+`14_reconcile_cartography.py` lo extrae.
+
+Cuando se publique un corte nuevo (p. ej. el Marco Geográfico Electoral
+2026–2027), la API del SIGE indica el corte vigente y la ruta de cada archivo:
+
+```text
+https://cartografia.ine.mx/sige8/api/corte/?tipo=base
+https://cartografia.ine.mx/sige8/api/bases/?producto=mgs&entidad=1&formato=Shapefile
+→ archivo en https://cartografia.ine.mx/mapoteca/<path><archivo>
+```
+
+### 4. Verificar
+
+```bash
+docker compose run --rm app python src/00_check_setup.py
+```
+
+Debe terminar con `La estructura básica está lista`. Los registros por año deben
+coincidir con la tabla de auditoría de la sección [Datos](#datos), y la
+cartografía suma 73,268 secciones.
+
+### 5. Correr el pipeline completo y levantar el dashboard
+
+```bash
+docker compose run --rm app sh -c 'for s in src/[01]*.py; do python "$s" || exit 1; done'
+docker compose up -d     # http://localhost:8501
+```
+
+Tarda ~10 minutos (Docker con 8 GB de RAM) y se detiene en el primer paso que
+falle.
+
+El pipeline reescribe las tablas versionadas de `reports/`. Aunque los resultados
+coinciden, `git status` las marcará como modificadas por rutas locales, tiempos
+de ejecución y diferencias de redondeo entre máquinas. Si no se cambió la
+metodología, descartarlas antes de hacer commit:
+
+```bash
+git checkout -- reports/
+```
+
 ## Archivos que no deben subirse
 
 ```text
@@ -478,8 +558,9 @@ reports/*/predictions/
 models/*
 ```
 
-La cartografía y los CCPC originales se descargan desde sus fuentes oficiales y
-los productos derivados se reconstruyen con el pipeline.
+La cartografía y los CCPC originales se descargan desde sus fuentes oficiales
+(ver [Obtención de datos](#obtención-de-datos)) y los productos derivados se
+reconstruyen con el pipeline.
 
 ## Limitaciones actuales
 
