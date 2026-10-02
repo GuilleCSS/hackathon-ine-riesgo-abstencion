@@ -1,0 +1,17 @@
+{
+  "architecture": "two_history_linear",
+  "score": "PRED_ABSTENCION_2027",
+  "classification_type": "relative_territorial_priority",
+  "rules": {
+    "BAJO": "risk_percentile <= 0.50",
+    "MEDIO": "0.50 < risk_percentile <= 0.80",
+    "ALTO": "risk_percentile > 0.80",
+    "PRIORITY_TOP10": "risk_percentile >= 0.90"
+  },
+  "2027_thresholds": {
+    "q50": 0.42817272182325317,
+    "q80": 0.5107279760442693,
+    "q90": 0.5543767375005222
+  },
+  "warning": "Risk levels are relative to the primary comparable universe and are not individual-level probabilities."
+}
