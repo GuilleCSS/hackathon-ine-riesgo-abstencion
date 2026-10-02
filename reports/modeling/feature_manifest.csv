@@ -1,0 +1,29 @@
+column,role,available_before_target,description
+EDOCVE,feature_categorical,True,Entidad de la sección en la elección origen.
+TIPOSEC_SRC,feature_categorical,True,Tipo de sección observado en la elección origen.
+TIPO_ELECCION,feature_categorical,True,Familia electoral: intermedia o presidencial.
+SRC_LOG1P_LN,feature_numeric,True,Logaritmo de la lista nominal de la elección origen.
+SRC_PCT_ABSTENCION,feature_numeric,True,Abstención histórica de la elección comparable anterior.
+SRC_PCT_PARTICIPACION,feature_numeric,True,Participación histórica de la elección origen.
+SRC_PCT_NS_LN,feature_numeric,True,Proporción de registros no especificados en la elección origen.
+SRC_LN,feature_numeric,True,Lista nominal de la elección origen.
+SRC_EDAD_PROM_LN,feature_numeric,True,Edad media ponderada de la lista nominal de origen.
+SRC_PROP_LN_H,feature_numeric,True,Proporción de hombres en lista nominal de origen.
+SRC_PROP_LN_M,feature_numeric,True,Proporción de mujeres en lista nominal de origen.
+SRC_PROP_LN_18_24,feature_numeric,True,Proporción de lista nominal de 18 a 24 años.
+SRC_PROP_LN_25_34,feature_numeric,True,Proporción de lista nominal de 25 a 34 años.
+SRC_PROP_LN_35_44,feature_numeric,True,Proporción de lista nominal de 35 a 44 años.
+SRC_PROP_LN_45_59,feature_numeric,True,Proporción de lista nominal de 45 a 59 años.
+SRC_PROP_LN_60_plus,feature_numeric,True,Proporción de lista nominal de 60 años o más.
+SRC_PCT_ABST_H,feature_numeric,True,Abstención histórica entre hombres.
+SRC_PCT_ABST_M,feature_numeric,True,Abstención histórica entre mujeres.
+SRC_PCT_ABST_18_24,feature_numeric,True,Abstención histórica del grupo de 18 a 24 años.
+SRC_PCT_ABST_25_34,feature_numeric,True,Abstención histórica del grupo de 25 a 34 años.
+SRC_PCT_ABST_35_44,feature_numeric,True,Abstención histórica del grupo de 35 a 44 años.
+SRC_PCT_ABST_45_59,feature_numeric,True,Abstención histórica del grupo de 45 a 59 años.
+SRC_PCT_ABST_60_plus,feature_numeric,True,Abstención histórica del grupo de 60 años o más.
+SRC_BRECHA_PART_MENOS_H,feature_numeric,True,Brecha histórica de participación mujeres menos hombres.
+Y_ABSTENCION,target,False,Abstención observada en la elección objetivo.
+Y_DELTA_ABSTENCION,target_alternative,False,Cambio observado de abstención frente a la elección comparable anterior.
+TGT_PCT_NS_LN,evaluation_quality_only,False,Se usa únicamente para evaluar calidad del target; nunca como predictor.
+TGT_LN,metadata_target,False,"Se conserva para análisis, pero no entra al modelo estricto."

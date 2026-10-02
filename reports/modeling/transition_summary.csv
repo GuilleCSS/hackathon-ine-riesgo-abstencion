@@ -1,0 +1,5 @@
+source_year,target_year,tipo_eleccion,pairs_total,eligible_all,eligible_clean10,same_mpio,same_tiposec,src_ns_le_10,tgt_ns_le_10
+2009,2015,intermedia,64616,61097,55011,64616,63803,61992,57928
+2012,2018,presidencial,65377,62425,56440,65377,64784,65110,57166
+2015,2021,intermedia,67598,63481,55112,67534,67100,60574,61851
+2018,2024,presidencial,66810,61937,51559,66557,66364,58590,58926

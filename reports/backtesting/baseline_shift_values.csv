@@ -1,0 +1,5 @@
+experiment,train_scope,historical_mean_shift,historical_mean_shift_pp
+2021_temporal_all,temporal_all,-0.03998959918852898,-3.998959918852898
+2021_same_family,same_family,-0.03998959918852898,-3.998959918852898
+2024_temporal_all,temporal_all,-0.007346452389118325,-0.7346452389118325
+2024_same_family,same_family,-0.007346452389118325,-0.7346452389118325

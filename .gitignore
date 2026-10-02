@@ -1,0 +1,86 @@
+# ============================================================
+# Python
+# ============================================================
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# ============================================================
+# Jupyter / IDE
+# ============================================================
+.ipynb_checkpoints/
+.vscode/
+.idea/
+
+# ============================================================
+# OS
+# ============================================================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ============================================================
+# Datos RAW oficiales
+# Se descargan desde INE y no deben versionarse.
+# ============================================================
+data/raw/*
+!data/raw/.gitkeep
+
+# ============================================================
+# Datos intermedios / procesados pesados
+# Todos son reproducibles mediante src/
+# ============================================================
+data/interim/*
+!data/interim/.gitkeep
+
+data/processed/*
+!data/processed/.gitkeep
+!data/processed/modeling/
+!data/processed/dual_history/
+
+data/processed/modeling/*
+!data/processed/modeling/.gitkeep
+
+data/processed/dual_history/*
+!data/processed/dual_history/.gitkeep
+
+# ============================================================
+# Predicciones a nivel sección
+# Mantener sólo tablas de comparación agregadas en Git.
+# ============================================================
+reports/backtesting/predictions/
+reports/backtesting_residual/predictions/
+reports/dual_history/predictions/
+
+# ============================================================
+# Modelos serializados y artefactos pesados
+# ============================================================
+models/*
+!models/.gitkeep
+*.joblib
+*.pkl
+*.pickle
+*.onnx
+
+# ============================================================
+# Documentos oficiales externos
+# Mantener enlaces en README en lugar de duplicar PDFs.
+# ============================================================
+docs/*.pdf
+
+# ============================================================
+# Archivos temporales / logs
+# ============================================================
+*.tmp
+*.temp
+*.log
+~$*
