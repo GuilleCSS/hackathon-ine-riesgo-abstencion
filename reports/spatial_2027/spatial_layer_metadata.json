@@ -1,0 +1,36 @@
+{
+  "status": "PROVISIONAL_CARTOGRAPHY_DIC_2025",
+  "cartography_source": "MGS por entidad federativa, corte DIC 2025",
+  "output_crs": "EPSG:4326",
+  "type_code_mapping": {
+    "2": "U",
+    "3": "M",
+    "4": "R"
+  },
+  "geometry_audit_before_join": {
+    "rows": 73268,
+    "null_geometry": 0,
+    "empty_geometry": 0,
+    "invalid_geometry": 0,
+    "geometry_types": {
+      "Polygon": 73161,
+      "MultiPolygon": 107
+    }
+  },
+  "geometry_audit_after_join": {
+    "rows": 54448,
+    "null_geometry": 0,
+    "empty_geometry": 0,
+    "invalid_geometry": 0,
+    "geometry_types": {
+      "Polygon": 54365,
+      "MultiPolygon": 83
+    }
+  },
+  "outputs": {
+    "gpkg": "data\\processed\\spatial_2027\\risk_2027_provisional.gpkg",
+    "geojson_full": "data\\processed\\spatial_2027\\risk_2027_provisional.geojson",
+    "geojson_dashboard_simplified": "data\\processed\\spatial_2027\\risk_2027_dashboard_simplified.geojson"
+  },
+  "warning": "Esta capa es provisional. Debe reconstruirse con la cartografía oficial del MGE 2026-2027 antes de la entrega final."
+}
