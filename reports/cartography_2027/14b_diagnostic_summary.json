@@ -1,0 +1,20 @@
+{
+  "matched_sections": 54448,
+  "unmatched_sections": 324,
+  "overall_match_rate": 0.9940845687577594,
+  "municipality_mismatches": 2,
+  "recent_tiposec_unique_values": [
+    "U",
+    "R",
+    "M"
+  ],
+  "cartography_tiposec_unique_values": [
+    "2",
+    "4",
+    "3"
+  ],
+  "likely_tiposec_code_mapping_issue": true,
+  "unmatched_high_sections": 184,
+  "unmatched_priority_top10_sections": 120,
+  "unmatched_persistent_high_gt5pp": 110
+}

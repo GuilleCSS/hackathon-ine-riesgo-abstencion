@@ -1,0 +1,11 @@
+metric,value
+cartography_source_files,32.0
+cartography_rows,73268.0
+cartography_unique_section_keys,73268.0
+cartography_invalid_key_rows,0.0
+cartography_duplicate_section_keys,0.0
+risk_primary_sections,54772.0
+matched_sections,54448.0
+risk_sections_without_geometry,324.0
+geometry_sections_without_risk,18820.0
+risk_match_rate,0.9940845687577594
