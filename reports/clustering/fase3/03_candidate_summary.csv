@@ -1,0 +1,7 @@
+model,nota,mae_2021_pp,mae_2024_pp,eligible_primary,max_mae_ratio_vs_baseline,mean_mae_ratio_vs_baseline,mean_top20,beats_current_both_years,bootstrap_vs_current_both_years
+two_history_linear,Modelo actual: regresión lineal con las dos historias.,7.689686910890006,4.356752852789606,True,0.9230732030203159,0.8494512673506593,0.6284787101724407,False,False
+linear_concurrencia_vecinos,Lo anterior + abstención de las secciones vecinas.,7.037077226251412,4.381401841395317,True,0.9282956293621994,0.8191408712708605,0.6409828268727528,False,False
+linear_concurrencia,Modelo actual + elección local y gubernatura concurrentes (objetivo y dos historias).,7.265114772906914,4.510267090022454,False,0.9555985455081306,0.8442959327720336,0.6385488443820926,False,False
+xgb_concurrencia_sin_estado,"XGBoost de la fase 2 + concurrencia, sin la clave de estado (para que no memorice estados).",6.675670298022434,4.538042524473539,False,0.9614833776549959,0.8175031776797161,0.6231036467610369,False,False
+baseline_same_family,Repite la abstención de la última elección del mismo tipo (línea base de la regla).,9.911570234433684,4.719834611745,False,1.0,1.0,0.6117443655792473,False,False
+xgb_concurrencia,XGBoost de la fase 2 + concurrencia.,6.656632849340115,4.903745310254419,False,1.0389654963866253,0.8552838721269541,0.6216051983742645,False,False

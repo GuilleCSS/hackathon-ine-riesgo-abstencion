@@ -11,3 +11,4 @@ shapely==2.1.2
 pyproj==3.7.1
 streamlit>=1.64
 pydeck>=0.9
+xgboost>=2.1,<4

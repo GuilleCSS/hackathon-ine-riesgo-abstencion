@@ -1,0 +1,37 @@
+GRUPO,GRUPO_NOMBRE,AELEC,abstencion,tipo_eleccion
+1,Abstención baja persistente,2009,0.394748338895694,intermedia
+1,Abstención baja persistente,2012,0.26151980498492483,presidencial
+1,Abstención baja persistente,2015,0.34557619637440423,intermedia
+1,Abstención baja persistente,2018,0.25888706903921904,presidencial
+1,Abstención baja persistente,2021,0.3110827241809413,intermedia
+1,Abstención baja persistente,2024,0.2897842655359111,presidencial
+2,En el promedio,2009,0.5530546618751222,intermedia
+2,En el promedio,2012,0.3474952503976611,presidencial
+2,En el promedio,2015,0.5300655147410096,intermedia
+2,En el promedio,2018,0.33118629676833033,presidencial
+2,En el promedio,2021,0.45397298564292315,intermedia
+2,En el promedio,2024,0.34903232580698373,presidencial
+3,Abstención alta persistente,2009,0.6532832972668687,intermedia
+3,Abstención alta persistente,2012,0.4662949185732059,presidencial
+3,Abstención alta persistente,2015,0.6359508952447598,intermedia
+3,Abstención alta persistente,2018,0.459553527662955,presidencial
+3,Abstención alta persistente,2021,0.5881955658591098,intermedia
+3,Abstención alta persistente,2024,0.4880312097996803,presidencial
+4,Mejorando,2009,0.6445424434633777,intermedia
+4,Mejorando,2012,0.3893045426118932,presidencial
+4,Mejorando,2015,0.5298176671182889,intermedia
+4,Mejorando,2018,0.3094867178577131,presidencial
+4,Mejorando,2021,0.34392501290168553,intermedia
+4,Mejorando,2024,0.3251111712672839,presidencial
+5,Empeorando,2009,0.4868427667832762,intermedia
+5,Empeorando,2012,0.3873684429324668,presidencial
+5,Empeorando,2015,0.4917763814285293,intermedia
+5,Empeorando,2018,0.44158317172298595,presidencial
+5,Empeorando,2021,0.5507791184444153,intermedia
+5,Empeorando,2024,0.47797301312020113,presidencial
+0,Nacional (todas las secciones),2009,0.5593921688757226,intermedia
+0,Nacional (todas las secciones),2012,0.37917036135946247,presidencial
+0,Nacional (todas las secciones),2015,0.5292644023443535,intermedia
+0,Nacional (todas las secciones),2018,0.3763489658575247,presidencial
+0,Nacional (todas las secciones),2021,0.48162024453268815,intermedia
+0,Nacional (todas las secciones),2024,0.4032997055563274,presidencial

@@ -76,6 +76,52 @@ elección federal más reciente
 siguiente elección
 ```
 
+### Qué tipo de modelo es
+
+Es una **regresión lineal por mínimos cuadrados** (`LinearRegression` de
+scikit-learn) con sólo dos variables por sección; no es un modelo de árboles:
+
+```text
+abstención 2027 = 0.048 + 0.677 × abstención 2021 + 0.180 × abstención 2024
+```
+
+El resultado se recorta a 0–100%.
+
+**Ya separa los dos tipos de elección.** Las intermedias (sólo diputados:
+2009, 2015, 2021 y 2027) tienen mucha más abstención que las presidenciales
+(2012, 2018, 2024): a nivel nacional, 48–56% contra 38–40%. Comparar años
+seguidos mezclaría ese efecto con cambios reales de comportamiento. Por eso:
+
+- la variable principal es la **última elección del mismo tipo**: para 2027,
+  que es intermedia, la de 2021;
+- la segunda es la **elección federal más reciente** (2024), que aporta
+  información actual aunque sea de otro tipo;
+- el coeficiente de la misma familia (0.677) pesa casi 4 veces más que el de
+  la reciente (0.180);
+- el historial de la base maestra (`PREV_*`, `DELTA_ABST_VS_PREV`) también
+  compara siempre contra la elección anterior del mismo tipo.
+
+Los coeficientes se estimaron juntando todas las ventanas históricas
+comparables, cada una con la misma lógica:
+
+| Elección objetivo | Misma familia | Más reciente |
+|---|---|---|
+| 2015 | 2009 | 2012 |
+| 2018 | 2012 | 2015 |
+| 2021 | 2015 | 2018 |
+| 2024 | 2018 | 2021 |
+
+**Por qué no Random Forest.** Se probaron Random Forest, HistGradientBoosting y
+Ridge con decenas de variables (sexo, edad, NS, historia), además de modelos de
+residuo y de doble historia. En los backtests temporales quedaron por debajo de
+líneas base simples: en 2024 el error medio absoluto fue de 5.42 pp (Random
+Forest) y 5.46 pp (HistGradientBoosting), contra 4.74 pp de repetir la
+abstención de la elección anterior y 4.36 pp de `two_history_linear` (cada
+etapa evalúa un universo de secciones ligeramente distinto). La regla de
+selección predefinida exigía mejorar a la línea base en 2021 y en 2024 con
+respaldo de bootstrap; sólo la cumplieron `two_history_linear` y un promedio
+ponderado de las dos historias, y ganó el lineal.
+
 Backtests temporales principales:
 
 ### 2021
@@ -289,11 +335,27 @@ Funciones:
 - mapa territorial;
 - incertidumbre en tooltip;
 - resumen estatal;
-- resumen municipal.
+- resumen municipal;
+- capa base gris con las secciones sin estimación;
+- cobertura predictiva por vista y por entidad;
+- capa violeta con las secciones de NS alto (estimación de baja confiabilidad,
+  fuera del semáforo);
+- página **Datos por año** (2009–2024, nacional o por entidad, todas las
+  elecciones o sólo intermedias o presidenciales): abstención y NS por año,
+  mapa por año (abstención, NS o cambio contra la elección anterior del mismo
+  tipo, con rangos fijos para comparar entre elecciones), secciones por rango
+  de NS y cambios de secciones entre elecciones, para valorar las
+  restricciones del modelo.
 
-Para evitar enviar más de 200 MB al navegador, la vista nacional utiliza puntos
-representativos de cada sección y la vista por entidad utiliza los polígonos
-seccionales.
+El dashboard tiene dos páginas: `dashboard/app.py` es el punto de entrada y
+la navegación; el mapa está en `dashboard/mapa.py`, la vista anual en
+`dashboard/datos_anuales.py` y las piezas de mapa compartidas en
+`dashboard/comun.py`.
+
+Para no saturar el navegador, la vista nacional es **híbrida** por defecto:
+las secciones de más de 100 km² se dibujan como polígono simplificado y las
+demás como punto. El selector **Vista nacional** permite volver a la vista de
+solo puntos. La vista por entidad siempre usa los polígonos seccionales.
 
 
 ## Nota de interpretación de la vista nacional
@@ -303,10 +365,17 @@ enviar al navegador los más de 54 mil polígonos completos, cada sección con
 estimación disponible se representa mediante un **punto representativo ubicado
 dentro de su polígono**.
 
-Por esta razón, las zonas con secciones rurales de gran extensión pueden verse
-mucho más vacías que las zonas urbanas densas. Un espacio blanco en la vista
-nacional **no debe interpretarse automáticamente como ausencia de sección
-electoral**.
+Por esta razón, en la vista de solo puntos las zonas con secciones rurales de
+gran extensión pueden verse mucho más vacías que las zonas urbanas densas. Un
+espacio blanco **no debe interpretarse automáticamente como ausencia de sección
+electoral**: la cartografía cubre entre 98.8% y 100% de la superficie de cada
+estado. En el norte, una sección promedia entre 75 y 134 km² (Chihuahua,
+Sonora, Coahuila, Durango, Baja California Sur), contra 0.27 km² en la Ciudad
+de México.
+
+La **vista híbrida** (por defecto) corrige este efecto: las 3,902 secciones de
+más de 100 km² (5.3% de las secciones, 68.9% del territorio) se dibujan como
+polígono con el contorno simplificado a 500 m, y las demás como punto.
 
 También debe distinguirse entre:
 
@@ -331,33 +400,39 @@ con geometría conciliada:  1,445
 La cobertura de 99.04% anterior corresponde al **universo predictivo del estado**,
 no a la totalidad de las secciones cartográficas existentes.
 
-### Mejora visual pendiente antes de la entrega final
+### Capa base y cobertura predictiva
 
 Para evitar que las zonas blancas se interpreten como falta de territorio
-electoral, la versión final del dashboard deberá utilizar dos capas:
+electoral, el dashboard dibuja dos capas:
 
 ```text
 CAPA BASE
-todas las secciones de la cartografía
+todas las secciones de la cartografía (73,268)
 → gris claro
 
 CAPA DE RIESGO
-secciones con predicción primary_clean10
+secciones con predicción primary_clean10 (54,448)
 → verde / amarillo / rojo
 ```
 
-La interpretación prevista será:
+Interpretación:
 
 - gris: sección cartográfica existente sin estimación dentro del universo
-  predictivo primario;
+  predictivo primario, o que quedó fuera de los filtros activos;
 - verde: riesgo relativo bajo;
 - amarillo: riesgo relativo medio;
 - rojo: riesgo relativo alto;
 - borde oscuro: Top10 prioritario.
 
-También se deberá mostrar un indicador de **cobertura predictiva por entidad**
-calculado directamente a partir de la cartografía utilizada, distinguiendo entre
-número total de secciones cartográficas y número de secciones con estimación.
+El indicador **Cobertura predictiva** (secciones con estimación / secciones de
+la cartografía) se muestra para la vista actual (nacional, entidad o municipio)
+y por entidad en el resumen estatal. Nacionalmente es 74.3%; en Baja California,
+64.1% (1,445 de 2,254), porque sus secciones rurales extensas no tienen
+estimación. No depende de los filtros de riesgo.
+
+`15_build_spatial_layer.py` genera la capa base en
+`data/processed/spatial_2027/cartography_base_2027.parquet`. Si no existe
+(salidas anteriores), el dashboard funciona sin ella.
 
 Esta mejora es visual y de transparencia metodológica; no modifica el modelo,
 los umbrales del semáforo ni las predicciones.

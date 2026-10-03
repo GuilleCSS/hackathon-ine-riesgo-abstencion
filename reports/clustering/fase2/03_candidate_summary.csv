@@ -1,0 +1,10 @@
+model,nota,mae_2021_pp,mae_2024_pp,improved_mae_both_years,bootstrap_vs_baseline_both_years,eligible_primary,max_mae_ratio_vs_baseline,mean_mae_ratio_vs_baseline,mean_top20,beats_current_both_years,bootstrap_vs_current_both_years
+two_history_linear,Modelo actual: regresión lineal con las dos historias.,7.689686910890006,4.356752852789606,True,True,True,0.9230732030203159,0.8494512673506593,0.6284787101724407,False,False
+linear_vecinos,Modelo actual + abstención de las secciones vecinas en ambas historias.,7.685532706964042,4.3592247667521145,True,True,True,0.9235969319569945,0.8495035684588192,0.6371386827285218,False,False
+linear_grupo,Modelo actual + ajuste fijo por grupo de trayectoria.,8.188199277523879,4.414932383173376,True,True,True,0.9353998066345599,0.8807625706773587,0.623524049065123,False,False
+linear_por_grupo,Una regresión de dos historias por grupo de trayectoria.,8.232567794678195,4.439365751601631,True,True,True,0.9405765491347005,0.885589160297722,0.6077007528649165,False,False
+baseline_same_family,Repite la abstención de la última elección del mismo tipo (línea base de la regla).,9.911570234433684,4.719834611745,False,False,False,1.0,1.0,0.6117443655792473,False,False
+xgb_residual_fase2,Modelo actual + XGBoost que corrige su residuo con todas las variables.,9.245414433737462,5.15338948330756,False,False,False,1.0918580643660027,1.012324074293386,0.6019292747914047,False,False
+linear_contexto,"Ridge con dos historias, trayectoria, grupo, vecinos, municipio y densidad.",9.869533575121936,5.232378999605525,False,False,False,1.1085937177936473,1.052176273645573,0.5911731229413084,False,False
+xgb_fase2,XGBoost con todas las variables.,8.796744481878536,5.33300230109094,False,False,False,1.1299129608948824,1.0087178761603957,0.6000558929731505,False,False
+hgb_fase2,HistGradientBoosting con todas las variables.,8.663622172237467,5.448701381205762,False,False,False,1.1544263368142231,1.014259063624565,0.5987225785343027,False,False

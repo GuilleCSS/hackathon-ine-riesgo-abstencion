@@ -344,6 +344,19 @@ def main():
         engine="pyogrio",
     )
 
+    # Capa base para el dashboard: todas las secciones cartográficas, con o sin
+    # estimación, para distinguir "sin estimación" de "sin territorio".
+    base = carto[
+        ["SECTION_KEY", "CARTO_EDOCVE", "CARTO_MPIOCVE", "geometry"]
+    ].to_crs(epsg=6372)
+    base["HAS_ESTIMATE"] = base["SECTION_KEY"].isin(joined["SECTION_KEY"])
+    base["geometry"] = base.geometry.simplify(
+        tolerance=75,
+        preserve_topology=True,
+    )
+    base_path = OUT_DATA / "cartography_base_2027.parquet"
+    base.to_crs(epsg=4326).to_parquet(base_path, index=False)
+
     coverage = pd.DataFrame([
         {
             "metric": "risk_primary_sections",
@@ -485,6 +498,7 @@ paso 14.
     print(f"  GPKG: {gpkg_path.relative_to(ROOT)}")
     print(f"  GeoJSON: {geojson_path.relative_to(ROOT)}")
     print(f"  Dashboard: {web_path.relative_to(ROOT)}")
+    print(f"  Capa base: {base_path.relative_to(ROOT)}")
 
     print("\n=== Capa espacial provisional terminada ===")
 

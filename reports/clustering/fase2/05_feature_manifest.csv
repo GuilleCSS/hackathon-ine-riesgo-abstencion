@@ -1,0 +1,9 @@
+variable,calculo,antes_del_objetivo
+SAME_PCT_ABSTENCION / RECENT_PCT_ABSTENCION,Abstención en la elección del mismo tipo y en la más reciente (ventanas de la etapa 07).,True
+H_NIVEL_MISMA / H_NIVEL_OTRA,"Abstención frente al promedio nacional, promedio de las elecciones previas del mismo tipo / del otro tipo.",True
+H_TENDENCIA,Mitad reciente menos mitad antigua de las elecciones previas (frente al promedio nacional).,True
+H_VOLATILIDAD,Desviación media de las elecciones previas frente al promedio de la sección.,True
+H_GRUPO,"k-means (k=5) sobre las 4 variables H_*, rehecho para cada elección objetivo con su historia previa.",True
+NB_SAME_ABST / NB_RECENT_ABST,Promedio de abstención de las secciones colindantes (cartografía DIC-2025) en cada historia.,True
+MPIO_SAME_ABST / MPIO_RECENT_ABST,Abstención agregada del municipio en cada historia.,True
+LOG_DENSIDAD,log(1 + lista nominal reciente / km² de la sección en DIC-2025).,True

@@ -1,0 +1,27 @@
+{
+  "status": "FASE_1_DESCRIPTIVA",
+  "k": 5,
+  "silhouette_k": 0.2585133349256163,
+  "features": [
+    "nivel_intermedia",
+    "nivel_presidencial",
+    "tendencia",
+    "volatilidad"
+  ],
+  "max_ns": 0.25,
+  "random_state": 42,
+  "sections_clustered": 41136,
+  "sections_in_master": 72681,
+  "naming_rules_pp": {
+    "trend": 5.0,
+    "level": 5.0
+  },
+  "groups": {
+    "1": "Abstención baja persistente",
+    "2": "En el promedio",
+    "3": "Abstención alta persistente",
+    "4": "Mejorando",
+    "5": "Empeorando"
+  },
+  "warning": "Grupos descriptivos construidos con 2009–2024. Para usarlos en backtests del modelo hay que reconstruirlos sólo con elecciones anteriores a la elección objetivo."
+}
