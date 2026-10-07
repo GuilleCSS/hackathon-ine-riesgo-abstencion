@@ -85,3 +85,11 @@ docs/*.pdf
 *.temp
 *.log
 ~$*
+
+# Grafo y caché de graphify: uso local
+graphify-out/
+
+# Configuración e instrucciones locales de asistentes
+.codex/
+.agents/
+AGENTS.md

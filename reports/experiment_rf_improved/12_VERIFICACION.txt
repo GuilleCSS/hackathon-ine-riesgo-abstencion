@@ -1,0 +1,3 @@
+VERIFICACIÓN INDEPENDIENTE: 80 firmas completas únicas, cero coincidencias con ronda previa,
+log1p(LN) en todos los ajustes y métricas de 80 predicciones directas recalculadas: PASSED.
+No se ejecutó ningún entrenamiento durante esta revisión.

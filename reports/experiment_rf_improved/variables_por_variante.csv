@@ -1,0 +1,1321 @@
+variant,column,description
+R01_logs_grupos,SAME_PCT_ABSTENCION,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,RECENT_PCT_ABSTENCION,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,EDOCVE,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,TIPO_ELECCION,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,SAME_LOG_LN,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,SAME_EDAD_PROM_LN,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,SAME_PROP_LN_M,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,SAME_PROP_U,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,SAME_PROP_R,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,SAME_PROP_LN_18_24,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,SAME_PROP_LN_25_34,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,SAME_PROP_LN_35_44,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,SAME_PROP_LN_45_59,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,SAME_PROP_LN_60_plus,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,RECENT_LOG_LN,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,RECENT_EDAD_PROM_LN,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,RECENT_PROP_LN_M,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,RECENT_PROP_U,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,RECENT_PROP_R,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,RECENT_PROP_LN_18_24,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,RECENT_PROP_LN_25_34,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,RECENT_PROP_LN_35_44,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,RECENT_PROP_LN_45_59,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,RECENT_PROP_LN_60_plus,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,SAME_PCT_ABST_H,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,SAME_PCT_ABST_M,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,SAME_PCT_ABST_18_24,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,SAME_PCT_ABST_25_34,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,SAME_PCT_ABST_35_44,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,SAME_PCT_ABST_45_59,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,SAME_PCT_ABST_60_plus,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,SAME_BRECHA_M_H,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,SAME_BRECHA_JOVEN_MAYOR,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,SAME_EDAD_VOTANTE_MENOS_LN,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,RECENT_PCT_ABST_H,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,RECENT_PCT_ABST_M,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,RECENT_PCT_ABST_18_24,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,RECENT_PCT_ABST_25_34,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,RECENT_PCT_ABST_35_44,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,RECENT_PCT_ABST_45_59,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,RECENT_PCT_ABST_60_plus,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,RECENT_BRECHA_M_H,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,RECENT_BRECHA_JOVEN_MAYOR,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,RECENT_EDAD_VOTANTE_MENOS_LN,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,SAME_TREND_FAMILY,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,SAME_PREV_FAMILY_ABST,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,SAME_GROWTH_LN_FAMILY,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,SAME_DELTA_AGE_FAMILY,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,RECENT_TREND_FAMILY,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,RECENT_PREV_FAMILY_ABST,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,RECENT_GROWTH_LN_FAMILY,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,RECENT_DELTA_AGE_FAMILY,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,DELTA_ABST,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,DELTA_LOG_LN,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,DELTA_AGE,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,DELTA_PROP_18_24,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,DELTA_PROP_25_34,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,DELTA_PROP_35_44,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,DELTA_PROP_45_59,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,DELTA_PROP_60_plus,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,DELTA_PROP_M,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,SAME_MUN_ABST,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,SAME_STATE_ABST,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,SAME_NATIONAL_ABST,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,SAME_GAP_MUN,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,SAME_GAP_STATE,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,SAME_WEIGHT_MUN,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,SAME_WEIGHT_STATE,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,SAME_WEIGHT_NATIONAL,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,SAME_QUALITY_NS,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,RECENT_MUN_ABST,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,RECENT_STATE_ABST,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,RECENT_NATIONAL_ABST,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,RECENT_GAP_MUN,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,RECENT_GAP_STATE,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,RECENT_WEIGHT_MUN,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,RECENT_WEIGHT_STATE,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,RECENT_WEIGHT_NATIONAL,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,RECENT_QUALITY_NS,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,SAME_X_LOG_D,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,SAME_X_LOG_SV,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,SAME_X_LOG_NV,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,SAME_X_LOG_NS,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,SAME_X_LOG_LN_H,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,SAME_X_LOG_D_H,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,SAME_X_LOG_LN_M,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,SAME_X_LOG_D_M,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,SAME_X_LOG_LN_18_24,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,SAME_X_LOG_D_18_24,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,SAME_X_LOG_LN_25_34,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,SAME_X_LOG_D_25_34,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,SAME_X_LOG_LN_35_44,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,SAME_X_LOG_D_35_44,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,SAME_X_LOG_LN_45_59,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,SAME_X_LOG_D_45_59,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,SAME_X_LOG_LN_60_plus,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,SAME_X_LOG_D_60_plus,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,RECENT_X_LOG_D,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,RECENT_X_LOG_SV,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,RECENT_X_LOG_NV,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,RECENT_X_LOG_NS,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,RECENT_X_LOG_LN_H,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,RECENT_X_LOG_D_H,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,RECENT_X_LOG_LN_M,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,RECENT_X_LOG_D_M,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,RECENT_X_LOG_LN_18_24,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,RECENT_X_LOG_D_18_24,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,RECENT_X_LOG_LN_25_34,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,RECENT_X_LOG_D_25_34,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,RECENT_X_LOG_LN_35_44,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,RECENT_X_LOG_D_35_44,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,RECENT_X_LOG_LN_45_59,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,RECENT_X_LOG_D_45_59,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,RECENT_X_LOG_LN_60_plus,B5 + log1p conteos históricos por sexo/edad y participación
+R01_logs_grupos,RECENT_X_LOG_D_60_plus,B5 + log1p conteos históricos por sexo/edad y participación
+R02_pares_soporte,SAME_PCT_ABSTENCION,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,RECENT_PCT_ABSTENCION,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,EDOCVE,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,TIPO_ELECCION,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,SAME_LOG_LN,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,SAME_EDAD_PROM_LN,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,SAME_PROP_LN_M,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,SAME_PROP_U,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,SAME_PROP_R,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,SAME_PROP_LN_18_24,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,SAME_PROP_LN_25_34,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,SAME_PROP_LN_35_44,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,SAME_PROP_LN_45_59,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,SAME_PROP_LN_60_plus,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,RECENT_LOG_LN,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,RECENT_EDAD_PROM_LN,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,RECENT_PROP_LN_M,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,RECENT_PROP_U,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,RECENT_PROP_R,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,RECENT_PROP_LN_18_24,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,RECENT_PROP_LN_25_34,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,RECENT_PROP_LN_35_44,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,RECENT_PROP_LN_45_59,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,RECENT_PROP_LN_60_plus,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,SAME_PCT_ABST_H,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,SAME_PCT_ABST_M,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,SAME_PCT_ABST_18_24,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,SAME_PCT_ABST_25_34,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,SAME_PCT_ABST_35_44,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,SAME_PCT_ABST_45_59,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,SAME_PCT_ABST_60_plus,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,SAME_BRECHA_M_H,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,SAME_BRECHA_JOVEN_MAYOR,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,SAME_EDAD_VOTANTE_MENOS_LN,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,RECENT_PCT_ABST_H,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,RECENT_PCT_ABST_M,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,RECENT_PCT_ABST_18_24,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,RECENT_PCT_ABST_25_34,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,RECENT_PCT_ABST_35_44,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,RECENT_PCT_ABST_45_59,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,RECENT_PCT_ABST_60_plus,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,RECENT_BRECHA_M_H,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,RECENT_BRECHA_JOVEN_MAYOR,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,RECENT_EDAD_VOTANTE_MENOS_LN,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,SAME_TREND_FAMILY,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,SAME_PREV_FAMILY_ABST,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,SAME_GROWTH_LN_FAMILY,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,SAME_DELTA_AGE_FAMILY,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,RECENT_TREND_FAMILY,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,RECENT_PREV_FAMILY_ABST,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,RECENT_GROWTH_LN_FAMILY,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,RECENT_DELTA_AGE_FAMILY,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,DELTA_ABST,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,DELTA_LOG_LN,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,DELTA_AGE,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,DELTA_PROP_18_24,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,DELTA_PROP_25_34,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,DELTA_PROP_35_44,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,DELTA_PROP_45_59,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,DELTA_PROP_60_plus,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,DELTA_PROP_M,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,SAME_MUN_ABST,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,SAME_STATE_ABST,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,SAME_NATIONAL_ABST,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,SAME_GAP_MUN,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,SAME_GAP_STATE,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,SAME_WEIGHT_MUN,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,SAME_WEIGHT_STATE,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,SAME_WEIGHT_NATIONAL,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,SAME_QUALITY_NS,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,RECENT_MUN_ABST,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,RECENT_STATE_ABST,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,RECENT_NATIONAL_ABST,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,RECENT_GAP_MUN,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,RECENT_GAP_STATE,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,RECENT_WEIGHT_MUN,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,RECENT_WEIGHT_STATE,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,RECENT_WEIGHT_NATIONAL,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,RECENT_QUALITY_NS,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,SAME_EXPECTED_MUN_AGE,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,SAME_EXPECTED_STATE_AGE,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,SAME_EXCESS_MUN_AGE,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,SAME_EXCESS_STATE_AGE,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,RECENT_EXPECTED_MUN_AGE,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,RECENT_EXPECTED_STATE_AGE,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,RECENT_EXCESS_MUN_AGE,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,RECENT_EXCESS_STATE_AGE,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,SAME_X_PEER_MUN_A,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,SAME_X_PEER_STATE_A,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,SAME_X_MUN_A_STD,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,SAME_X_MUN_LN_RANK,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,SAME_X_MUN_A_RANK,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,SAME_X_LOG_SIZE_REL_MUN,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,SAME_X_PEER_MUN_GAP,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,SAME_X_EXPECTED_PEER_AGE,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,SAME_X_EXPECTED_PEER_SEX,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,SAME_X_EXCESS_PEER_AGE,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,SAME_X_EXCESS_PEER_SEX,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,RECENT_X_PEER_MUN_A,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,RECENT_X_PEER_STATE_A,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,RECENT_X_MUN_A_STD,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,RECENT_X_MUN_LN_RANK,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,RECENT_X_MUN_A_RANK,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,RECENT_X_LOG_SIZE_REL_MUN,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,RECENT_X_PEER_MUN_GAP,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,RECENT_X_EXPECTED_PEER_AGE,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,RECENT_X_EXPECTED_PEER_SEX,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,RECENT_X_EXCESS_PEER_AGE,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,RECENT_X_EXCESS_PEER_SEX,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,SAME_X_SHRUNK_A_H,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,SAME_X_GROUP_PEER_GAP_H,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,SAME_X_NS_H,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,SAME_X_SHRUNK_A_M,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,SAME_X_GROUP_PEER_GAP_M,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,SAME_X_NS_M,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,SAME_X_SHRUNK_A_18_24,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,SAME_X_GROUP_PEER_GAP_18_24,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,SAME_X_NS_18_24,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,SAME_X_SHRUNK_A_25_34,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,SAME_X_GROUP_PEER_GAP_25_34,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,SAME_X_NS_25_34,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,SAME_X_SHRUNK_A_35_44,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,SAME_X_GROUP_PEER_GAP_35_44,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,SAME_X_NS_35_44,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,SAME_X_SHRUNK_A_45_59,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,SAME_X_GROUP_PEER_GAP_45_59,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,SAME_X_NS_45_59,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,SAME_X_SHRUNK_A_60_plus,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,SAME_X_GROUP_PEER_GAP_60_plus,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,SAME_X_NS_60_plus,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,RECENT_X_SHRUNK_A_H,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,RECENT_X_GROUP_PEER_GAP_H,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,RECENT_X_NS_H,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,RECENT_X_SHRUNK_A_M,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,RECENT_X_GROUP_PEER_GAP_M,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,RECENT_X_NS_M,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,RECENT_X_SHRUNK_A_18_24,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,RECENT_X_GROUP_PEER_GAP_18_24,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,RECENT_X_NS_18_24,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,RECENT_X_SHRUNK_A_25_34,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,RECENT_X_GROUP_PEER_GAP_25_34,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,RECENT_X_NS_25_34,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,RECENT_X_SHRUNK_A_35_44,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,RECENT_X_GROUP_PEER_GAP_35_44,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,RECENT_X_NS_35_44,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,RECENT_X_SHRUNK_A_45_59,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,RECENT_X_GROUP_PEER_GAP_45_59,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,RECENT_X_NS_45_59,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,RECENT_X_SHRUNK_A_60_plus,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,RECENT_X_GROUP_PEER_GAP_60_plus,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R02_pares_soporte,RECENT_X_NS_60_plus,B6 + municipio sin propia sección + suavizado por grupo + NS grupal
+R03_compacto_log,SAME_PCT_ABSTENCION,Historia/demografía/tendencias + logs y formas demográficas; sin contexto original completo
+R03_compacto_log,RECENT_PCT_ABSTENCION,Historia/demografía/tendencias + logs y formas demográficas; sin contexto original completo
+R03_compacto_log,EDOCVE,Historia/demografía/tendencias + logs y formas demográficas; sin contexto original completo
+R03_compacto_log,TIPO_ELECCION,Historia/demografía/tendencias + logs y formas demográficas; sin contexto original completo
+R03_compacto_log,SAME_LOG_LN,Historia/demografía/tendencias + logs y formas demográficas; sin contexto original completo
+R03_compacto_log,SAME_EDAD_PROM_LN,Historia/demografía/tendencias + logs y formas demográficas; sin contexto original completo
+R03_compacto_log,SAME_PROP_LN_M,Historia/demografía/tendencias + logs y formas demográficas; sin contexto original completo
+R03_compacto_log,SAME_PROP_U,Historia/demografía/tendencias + logs y formas demográficas; sin contexto original completo
+R03_compacto_log,SAME_PROP_R,Historia/demografía/tendencias + logs y formas demográficas; sin contexto original completo
+R03_compacto_log,SAME_PROP_LN_18_24,Historia/demografía/tendencias + logs y formas demográficas; sin contexto original completo
+R03_compacto_log,SAME_PROP_LN_25_34,Historia/demografía/tendencias + logs y formas demográficas; sin contexto original completo
+R03_compacto_log,SAME_PROP_LN_35_44,Historia/demografía/tendencias + logs y formas demográficas; sin contexto original completo
+R03_compacto_log,SAME_PROP_LN_45_59,Historia/demografía/tendencias + logs y formas demográficas; sin contexto original completo
+R03_compacto_log,SAME_PROP_LN_60_plus,Historia/demografía/tendencias + logs y formas demográficas; sin contexto original completo
+R03_compacto_log,RECENT_LOG_LN,Historia/demografía/tendencias + logs y formas demográficas; sin contexto original completo
+R03_compacto_log,RECENT_EDAD_PROM_LN,Historia/demografía/tendencias + logs y formas demográficas; sin contexto original completo
+R03_compacto_log,RECENT_PROP_LN_M,Historia/demografía/tendencias + logs y formas demográficas; sin contexto original completo
+R03_compacto_log,RECENT_PROP_U,Historia/demografía/tendencias + logs y formas demográficas; sin contexto original completo
+R03_compacto_log,RECENT_PROP_R,Historia/demografía/tendencias + logs y formas demográficas; sin contexto original completo
+R03_compacto_log,RECENT_PROP_LN_18_24,Historia/demografía/tendencias + logs y formas demográficas; sin contexto original completo
+R03_compacto_log,RECENT_PROP_LN_25_34,Historia/demografía/tendencias + logs y formas demográficas; sin contexto original completo
+R03_compacto_log,RECENT_PROP_LN_35_44,Historia/demografía/tendencias + logs y formas demográficas; sin contexto original completo
+R03_compacto_log,RECENT_PROP_LN_45_59,Historia/demografía/tendencias + logs y formas demográficas; sin contexto original completo
+R03_compacto_log,RECENT_PROP_LN_60_plus,Historia/demografía/tendencias + logs y formas demográficas; sin contexto original completo
+R03_compacto_log,SAME_TREND_FAMILY,Historia/demografía/tendencias + logs y formas demográficas; sin contexto original completo
+R03_compacto_log,SAME_PREV_FAMILY_ABST,Historia/demografía/tendencias + logs y formas demográficas; sin contexto original completo
+R03_compacto_log,SAME_GROWTH_LN_FAMILY,Historia/demografía/tendencias + logs y formas demográficas; sin contexto original completo
+R03_compacto_log,SAME_DELTA_AGE_FAMILY,Historia/demografía/tendencias + logs y formas demográficas; sin contexto original completo
+R03_compacto_log,RECENT_TREND_FAMILY,Historia/demografía/tendencias + logs y formas demográficas; sin contexto original completo
+R03_compacto_log,RECENT_PREV_FAMILY_ABST,Historia/demografía/tendencias + logs y formas demográficas; sin contexto original completo
+R03_compacto_log,RECENT_GROWTH_LN_FAMILY,Historia/demografía/tendencias + logs y formas demográficas; sin contexto original completo
+R03_compacto_log,RECENT_DELTA_AGE_FAMILY,Historia/demografía/tendencias + logs y formas demográficas; sin contexto original completo
+R03_compacto_log,DELTA_ABST,Historia/demografía/tendencias + logs y formas demográficas; sin contexto original completo
+R03_compacto_log,DELTA_LOG_LN,Historia/demografía/tendencias + logs y formas demográficas; sin contexto original completo
+R03_compacto_log,DELTA_AGE,Historia/demografía/tendencias + logs y formas demográficas; sin contexto original completo
+R03_compacto_log,DELTA_PROP_18_24,Historia/demografía/tendencias + logs y formas demográficas; sin contexto original completo
+R03_compacto_log,DELTA_PROP_25_34,Historia/demografía/tendencias + logs y formas demográficas; sin contexto original completo
+R03_compacto_log,DELTA_PROP_35_44,Historia/demografía/tendencias + logs y formas demográficas; sin contexto original completo
+R03_compacto_log,DELTA_PROP_45_59,Historia/demografía/tendencias + logs y formas demográficas; sin contexto original completo
+R03_compacto_log,DELTA_PROP_60_plus,Historia/demografía/tendencias + logs y formas demográficas; sin contexto original completo
+R03_compacto_log,DELTA_PROP_M,Historia/demografía/tendencias + logs y formas demográficas; sin contexto original completo
+R03_compacto_log,SAME_X_LOG_D,Historia/demografía/tendencias + logs y formas demográficas; sin contexto original completo
+R03_compacto_log,SAME_X_LOG_SV,Historia/demografía/tendencias + logs y formas demográficas; sin contexto original completo
+R03_compacto_log,SAME_X_LOG_NV,Historia/demografía/tendencias + logs y formas demográficas; sin contexto original completo
+R03_compacto_log,SAME_X_LOG_NS,Historia/demografía/tendencias + logs y formas demográficas; sin contexto original completo
+R03_compacto_log,SAME_X_LOG_LN_H,Historia/demografía/tendencias + logs y formas demográficas; sin contexto original completo
+R03_compacto_log,SAME_X_LOG_D_H,Historia/demografía/tendencias + logs y formas demográficas; sin contexto original completo
+R03_compacto_log,SAME_X_LOG_LN_M,Historia/demografía/tendencias + logs y formas demográficas; sin contexto original completo
+R03_compacto_log,SAME_X_LOG_D_M,Historia/demografía/tendencias + logs y formas demográficas; sin contexto original completo
+R03_compacto_log,SAME_X_LOG_LN_18_24,Historia/demografía/tendencias + logs y formas demográficas; sin contexto original completo
+R03_compacto_log,SAME_X_LOG_D_18_24,Historia/demografía/tendencias + logs y formas demográficas; sin contexto original completo
+R03_compacto_log,SAME_X_LOG_LN_25_34,Historia/demografía/tendencias + logs y formas demográficas; sin contexto original completo
+R03_compacto_log,SAME_X_LOG_D_25_34,Historia/demografía/tendencias + logs y formas demográficas; sin contexto original completo
+R03_compacto_log,SAME_X_LOG_LN_35_44,Historia/demografía/tendencias + logs y formas demográficas; sin contexto original completo
+R03_compacto_log,SAME_X_LOG_D_35_44,Historia/demografía/tendencias + logs y formas demográficas; sin contexto original completo
+R03_compacto_log,SAME_X_LOG_LN_45_59,Historia/demografía/tendencias + logs y formas demográficas; sin contexto original completo
+R03_compacto_log,SAME_X_LOG_D_45_59,Historia/demografía/tendencias + logs y formas demográficas; sin contexto original completo
+R03_compacto_log,SAME_X_LOG_LN_60_plus,Historia/demografía/tendencias + logs y formas demográficas; sin contexto original completo
+R03_compacto_log,SAME_X_LOG_D_60_plus,Historia/demografía/tendencias + logs y formas demográficas; sin contexto original completo
+R03_compacto_log,RECENT_X_LOG_D,Historia/demografía/tendencias + logs y formas demográficas; sin contexto original completo
+R03_compacto_log,RECENT_X_LOG_SV,Historia/demografía/tendencias + logs y formas demográficas; sin contexto original completo
+R03_compacto_log,RECENT_X_LOG_NV,Historia/demografía/tendencias + logs y formas demográficas; sin contexto original completo
+R03_compacto_log,RECENT_X_LOG_NS,Historia/demografía/tendencias + logs y formas demográficas; sin contexto original completo
+R03_compacto_log,RECENT_X_LOG_LN_H,Historia/demografía/tendencias + logs y formas demográficas; sin contexto original completo
+R03_compacto_log,RECENT_X_LOG_D_H,Historia/demografía/tendencias + logs y formas demográficas; sin contexto original completo
+R03_compacto_log,RECENT_X_LOG_LN_M,Historia/demografía/tendencias + logs y formas demográficas; sin contexto original completo
+R03_compacto_log,RECENT_X_LOG_D_M,Historia/demografía/tendencias + logs y formas demográficas; sin contexto original completo
+R03_compacto_log,RECENT_X_LOG_LN_18_24,Historia/demografía/tendencias + logs y formas demográficas; sin contexto original completo
+R03_compacto_log,RECENT_X_LOG_D_18_24,Historia/demografía/tendencias + logs y formas demográficas; sin contexto original completo
+R03_compacto_log,RECENT_X_LOG_LN_25_34,Historia/demografía/tendencias + logs y formas demográficas; sin contexto original completo
+R03_compacto_log,RECENT_X_LOG_D_25_34,Historia/demografía/tendencias + logs y formas demográficas; sin contexto original completo
+R03_compacto_log,RECENT_X_LOG_LN_35_44,Historia/demografía/tendencias + logs y formas demográficas; sin contexto original completo
+R03_compacto_log,RECENT_X_LOG_D_35_44,Historia/demografía/tendencias + logs y formas demográficas; sin contexto original completo
+R03_compacto_log,RECENT_X_LOG_LN_45_59,Historia/demografía/tendencias + logs y formas demográficas; sin contexto original completo
+R03_compacto_log,RECENT_X_LOG_D_45_59,Historia/demografía/tendencias + logs y formas demográficas; sin contexto original completo
+R03_compacto_log,RECENT_X_LOG_LN_60_plus,Historia/demografía/tendencias + logs y formas demográficas; sin contexto original completo
+R03_compacto_log,RECENT_X_LOG_D_60_plus,Historia/demografía/tendencias + logs y formas demográficas; sin contexto original completo
+R03_compacto_log,SAME_X_AGE_ENTROPY,Historia/demografía/tendencias + logs y formas demográficas; sin contexto original completo
+R03_compacto_log,SAME_X_YOUNG_SHARE,Historia/demografía/tendencias + logs y formas demográficas; sin contexto original completo
+R03_compacto_log,SAME_X_OLD_YOUNG_RATIO,Historia/demografía/tendencias + logs y formas demográficas; sin contexto original completo
+R03_compacto_log,SAME_X_LOG_SEX_RATIO,Historia/demografía/tendencias + logs y formas demográficas; sin contexto original completo
+R03_compacto_log,SAME_X_AGE_RATE_RANGE,Historia/demografía/tendencias + logs y formas demográficas; sin contexto original completo
+R03_compacto_log,SAME_X_AGE_RATE_STD,Historia/demografía/tendencias + logs y formas demográficas; sin contexto original completo
+R03_compacto_log,SAME_X_YOUNG_NV_SHARE,Historia/demografía/tendencias + logs y formas demográficas; sin contexto original completo
+R03_compacto_log,SAME_X_OLDER_NV_SHARE,Historia/demografía/tendencias + logs y formas demográficas; sin contexto original completo
+R03_compacto_log,RECENT_X_AGE_ENTROPY,Historia/demografía/tendencias + logs y formas demográficas; sin contexto original completo
+R03_compacto_log,RECENT_X_YOUNG_SHARE,Historia/demografía/tendencias + logs y formas demográficas; sin contexto original completo
+R03_compacto_log,RECENT_X_OLD_YOUNG_RATIO,Historia/demografía/tendencias + logs y formas demográficas; sin contexto original completo
+R03_compacto_log,RECENT_X_LOG_SEX_RATIO,Historia/demografía/tendencias + logs y formas demográficas; sin contexto original completo
+R03_compacto_log,RECENT_X_AGE_RATE_RANGE,Historia/demografía/tendencias + logs y formas demográficas; sin contexto original completo
+R03_compacto_log,RECENT_X_AGE_RATE_STD,Historia/demografía/tendencias + logs y formas demográficas; sin contexto original completo
+R03_compacto_log,RECENT_X_YOUNG_NV_SHARE,Historia/demografía/tendencias + logs y formas demográficas; sin contexto original completo
+R03_compacto_log,RECENT_X_OLDER_NV_SHARE,Historia/demografía/tendencias + logs y formas demográficas; sin contexto original completo
+R04_combinado,SAME_PCT_ABSTENCION,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,RECENT_PCT_ABSTENCION,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,EDOCVE,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,TIPO_ELECCION,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,SAME_LOG_LN,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,SAME_EDAD_PROM_LN,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,SAME_PROP_LN_M,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,SAME_PROP_U,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,SAME_PROP_R,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,SAME_PROP_LN_18_24,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,SAME_PROP_LN_25_34,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,SAME_PROP_LN_35_44,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,SAME_PROP_LN_45_59,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,SAME_PROP_LN_60_plus,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,RECENT_LOG_LN,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,RECENT_EDAD_PROM_LN,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,RECENT_PROP_LN_M,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,RECENT_PROP_U,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,RECENT_PROP_R,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,RECENT_PROP_LN_18_24,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,RECENT_PROP_LN_25_34,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,RECENT_PROP_LN_35_44,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,RECENT_PROP_LN_45_59,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,RECENT_PROP_LN_60_plus,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,SAME_PCT_ABST_H,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,SAME_PCT_ABST_M,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,SAME_PCT_ABST_18_24,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,SAME_PCT_ABST_25_34,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,SAME_PCT_ABST_35_44,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,SAME_PCT_ABST_45_59,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,SAME_PCT_ABST_60_plus,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,SAME_BRECHA_M_H,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,SAME_BRECHA_JOVEN_MAYOR,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,SAME_EDAD_VOTANTE_MENOS_LN,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,RECENT_PCT_ABST_H,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,RECENT_PCT_ABST_M,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,RECENT_PCT_ABST_18_24,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,RECENT_PCT_ABST_25_34,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,RECENT_PCT_ABST_35_44,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,RECENT_PCT_ABST_45_59,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,RECENT_PCT_ABST_60_plus,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,RECENT_BRECHA_M_H,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,RECENT_BRECHA_JOVEN_MAYOR,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,RECENT_EDAD_VOTANTE_MENOS_LN,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,SAME_TREND_FAMILY,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,SAME_PREV_FAMILY_ABST,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,SAME_GROWTH_LN_FAMILY,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,SAME_DELTA_AGE_FAMILY,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,RECENT_TREND_FAMILY,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,RECENT_PREV_FAMILY_ABST,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,RECENT_GROWTH_LN_FAMILY,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,RECENT_DELTA_AGE_FAMILY,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,DELTA_ABST,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,DELTA_LOG_LN,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,DELTA_AGE,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,DELTA_PROP_18_24,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,DELTA_PROP_25_34,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,DELTA_PROP_35_44,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,DELTA_PROP_45_59,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,DELTA_PROP_60_plus,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,DELTA_PROP_M,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,SAME_MUN_ABST,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,SAME_STATE_ABST,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,SAME_NATIONAL_ABST,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,SAME_GAP_MUN,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,SAME_GAP_STATE,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,SAME_WEIGHT_MUN,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,SAME_WEIGHT_STATE,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,SAME_WEIGHT_NATIONAL,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,SAME_QUALITY_NS,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,RECENT_MUN_ABST,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,RECENT_STATE_ABST,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,RECENT_NATIONAL_ABST,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,RECENT_GAP_MUN,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,RECENT_GAP_STATE,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,RECENT_WEIGHT_MUN,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,RECENT_WEIGHT_STATE,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,RECENT_WEIGHT_NATIONAL,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,RECENT_QUALITY_NS,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,SAME_EXPECTED_MUN_AGE,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,SAME_EXPECTED_STATE_AGE,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,SAME_EXCESS_MUN_AGE,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,SAME_EXCESS_STATE_AGE,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,RECENT_EXPECTED_MUN_AGE,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,RECENT_EXPECTED_STATE_AGE,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,RECENT_EXCESS_MUN_AGE,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,RECENT_EXCESS_STATE_AGE,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,SAME_X_LOG_D,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,SAME_X_LOG_SV,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,SAME_X_LOG_NV,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,SAME_X_LOG_NS,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,SAME_X_LOG_LN_H,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,SAME_X_LOG_D_H,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,SAME_X_LOG_LN_M,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,SAME_X_LOG_D_M,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,SAME_X_LOG_LN_18_24,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,SAME_X_LOG_D_18_24,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,SAME_X_LOG_LN_25_34,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,SAME_X_LOG_D_25_34,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,SAME_X_LOG_LN_35_44,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,SAME_X_LOG_D_35_44,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,SAME_X_LOG_LN_45_59,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,SAME_X_LOG_D_45_59,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,SAME_X_LOG_LN_60_plus,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,SAME_X_LOG_D_60_plus,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,RECENT_X_LOG_D,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,RECENT_X_LOG_SV,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,RECENT_X_LOG_NV,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,RECENT_X_LOG_NS,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,RECENT_X_LOG_LN_H,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,RECENT_X_LOG_D_H,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,RECENT_X_LOG_LN_M,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,RECENT_X_LOG_D_M,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,RECENT_X_LOG_LN_18_24,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,RECENT_X_LOG_D_18_24,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,RECENT_X_LOG_LN_25_34,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,RECENT_X_LOG_D_25_34,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,RECENT_X_LOG_LN_35_44,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,RECENT_X_LOG_D_35_44,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,RECENT_X_LOG_LN_45_59,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,RECENT_X_LOG_D_45_59,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,RECENT_X_LOG_LN_60_plus,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,RECENT_X_LOG_D_60_plus,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,SAME_X_AGE_ENTROPY,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,SAME_X_YOUNG_SHARE,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,SAME_X_OLD_YOUNG_RATIO,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,SAME_X_LOG_SEX_RATIO,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,SAME_X_AGE_RATE_RANGE,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,SAME_X_AGE_RATE_STD,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,SAME_X_YOUNG_NV_SHARE,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,SAME_X_OLDER_NV_SHARE,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,RECENT_X_AGE_ENTROPY,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,RECENT_X_YOUNG_SHARE,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,RECENT_X_OLD_YOUNG_RATIO,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,RECENT_X_LOG_SEX_RATIO,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,RECENT_X_AGE_RATE_RANGE,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,RECENT_X_AGE_RATE_STD,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,RECENT_X_YOUNG_NV_SHARE,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,RECENT_X_OLDER_NV_SHARE,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,SAME_X_PEER_MUN_A,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,SAME_X_PEER_STATE_A,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,SAME_X_MUN_A_STD,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,SAME_X_MUN_LN_RANK,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,SAME_X_MUN_A_RANK,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,SAME_X_LOG_SIZE_REL_MUN,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,SAME_X_PEER_MUN_GAP,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,SAME_X_EXPECTED_PEER_AGE,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,SAME_X_EXPECTED_PEER_SEX,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,SAME_X_EXCESS_PEER_AGE,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,SAME_X_EXCESS_PEER_SEX,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,RECENT_X_PEER_MUN_A,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,RECENT_X_PEER_STATE_A,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,RECENT_X_MUN_A_STD,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,RECENT_X_MUN_LN_RANK,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,RECENT_X_MUN_A_RANK,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,RECENT_X_LOG_SIZE_REL_MUN,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,RECENT_X_PEER_MUN_GAP,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,RECENT_X_EXPECTED_PEER_AGE,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,RECENT_X_EXPECTED_PEER_SEX,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,RECENT_X_EXCESS_PEER_AGE,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,RECENT_X_EXCESS_PEER_SEX,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,SAME_X_SHRUNK_A_H,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,SAME_X_GROUP_PEER_GAP_H,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,SAME_X_NS_H,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,SAME_X_SHRUNK_A_M,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,SAME_X_GROUP_PEER_GAP_M,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,SAME_X_NS_M,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,SAME_X_SHRUNK_A_18_24,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,SAME_X_GROUP_PEER_GAP_18_24,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,SAME_X_NS_18_24,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,SAME_X_SHRUNK_A_25_34,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,SAME_X_GROUP_PEER_GAP_25_34,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,SAME_X_NS_25_34,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,SAME_X_SHRUNK_A_35_44,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,SAME_X_GROUP_PEER_GAP_35_44,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,SAME_X_NS_35_44,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,SAME_X_SHRUNK_A_45_59,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,SAME_X_GROUP_PEER_GAP_45_59,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,SAME_X_NS_45_59,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,SAME_X_SHRUNK_A_60_plus,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,SAME_X_GROUP_PEER_GAP_60_plus,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,SAME_X_NS_60_plus,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,RECENT_X_SHRUNK_A_H,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,RECENT_X_GROUP_PEER_GAP_H,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,RECENT_X_NS_H,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,RECENT_X_SHRUNK_A_M,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,RECENT_X_GROUP_PEER_GAP_M,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,RECENT_X_NS_M,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,RECENT_X_SHRUNK_A_18_24,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,RECENT_X_GROUP_PEER_GAP_18_24,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,RECENT_X_NS_18_24,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,RECENT_X_SHRUNK_A_25_34,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,RECENT_X_GROUP_PEER_GAP_25_34,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,RECENT_X_NS_25_34,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,RECENT_X_SHRUNK_A_35_44,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,RECENT_X_GROUP_PEER_GAP_35_44,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,RECENT_X_NS_35_44,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,RECENT_X_SHRUNK_A_45_59,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,RECENT_X_GROUP_PEER_GAP_45_59,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,RECENT_X_NS_45_59,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,RECENT_X_SHRUNK_A_60_plus,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,RECENT_X_GROUP_PEER_GAP_60_plus,Logs + formas + referencias de pares + soporte junto a B6
+R04_combinado,RECENT_X_NS_60_plus,Logs + formas + referencias de pares + soporte junto a B6
+R05_historia_larga,SAME_PCT_ABSTENCION,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_PCT_ABSTENCION,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,EDOCVE,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,TIPO_ELECCION,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_LOG_LN,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_EDAD_PROM_LN,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_PROP_LN_M,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_PROP_U,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_PROP_R,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_PROP_LN_18_24,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_PROP_LN_25_34,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_PROP_LN_35_44,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_PROP_LN_45_59,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_PROP_LN_60_plus,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_LOG_LN,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_EDAD_PROM_LN,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_PROP_LN_M,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_PROP_U,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_PROP_R,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_PROP_LN_18_24,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_PROP_LN_25_34,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_PROP_LN_35_44,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_PROP_LN_45_59,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_PROP_LN_60_plus,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_PCT_ABST_H,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_PCT_ABST_M,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_PCT_ABST_18_24,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_PCT_ABST_25_34,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_PCT_ABST_35_44,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_PCT_ABST_45_59,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_PCT_ABST_60_plus,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_BRECHA_M_H,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_BRECHA_JOVEN_MAYOR,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_EDAD_VOTANTE_MENOS_LN,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_PCT_ABST_H,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_PCT_ABST_M,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_PCT_ABST_18_24,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_PCT_ABST_25_34,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_PCT_ABST_35_44,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_PCT_ABST_45_59,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_PCT_ABST_60_plus,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_BRECHA_M_H,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_BRECHA_JOVEN_MAYOR,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_EDAD_VOTANTE_MENOS_LN,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_TREND_FAMILY,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_PREV_FAMILY_ABST,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_GROWTH_LN_FAMILY,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_DELTA_AGE_FAMILY,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_TREND_FAMILY,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_PREV_FAMILY_ABST,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_GROWTH_LN_FAMILY,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_DELTA_AGE_FAMILY,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,DELTA_ABST,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,DELTA_LOG_LN,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,DELTA_AGE,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,DELTA_PROP_18_24,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,DELTA_PROP_25_34,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,DELTA_PROP_35_44,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,DELTA_PROP_45_59,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,DELTA_PROP_60_plus,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,DELTA_PROP_M,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_MUN_ABST,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_STATE_ABST,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_NATIONAL_ABST,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_GAP_MUN,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_GAP_STATE,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_WEIGHT_MUN,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_WEIGHT_STATE,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_WEIGHT_NATIONAL,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_QUALITY_NS,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_MUN_ABST,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_STATE_ABST,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_NATIONAL_ABST,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_GAP_MUN,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_GAP_STATE,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_WEIGHT_MUN,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_WEIGHT_STATE,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_WEIGHT_NATIONAL,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_QUALITY_NS,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_EXPECTED_MUN_AGE,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_EXPECTED_STATE_AGE,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_EXCESS_MUN_AGE,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_EXCESS_STATE_AGE,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_EXPECTED_MUN_AGE,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_EXPECTED_STATE_AGE,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_EXCESS_MUN_AGE,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_EXCESS_STATE_AGE,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_X_LOG_D,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_X_LOG_SV,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_X_LOG_NV,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_X_LOG_NS,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_X_LOG_LN_H,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_X_LOG_D_H,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_X_LOG_LN_M,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_X_LOG_D_M,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_X_LOG_LN_18_24,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_X_LOG_D_18_24,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_X_LOG_LN_25_34,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_X_LOG_D_25_34,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_X_LOG_LN_35_44,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_X_LOG_D_35_44,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_X_LOG_LN_45_59,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_X_LOG_D_45_59,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_X_LOG_LN_60_plus,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_X_LOG_D_60_plus,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_X_LOG_D,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_X_LOG_SV,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_X_LOG_NV,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_X_LOG_NS,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_X_LOG_LN_H,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_X_LOG_D_H,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_X_LOG_LN_M,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_X_LOG_D_M,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_X_LOG_LN_18_24,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_X_LOG_D_18_24,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_X_LOG_LN_25_34,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_X_LOG_D_25_34,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_X_LOG_LN_35_44,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_X_LOG_D_35_44,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_X_LOG_LN_45_59,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_X_LOG_D_45_59,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_X_LOG_LN_60_plus,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_X_LOG_D_60_plus,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_X_AGE_ENTROPY,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_X_YOUNG_SHARE,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_X_OLD_YOUNG_RATIO,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_X_LOG_SEX_RATIO,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_X_AGE_RATE_RANGE,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_X_AGE_RATE_STD,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_X_YOUNG_NV_SHARE,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_X_OLDER_NV_SHARE,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_X_AGE_ENTROPY,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_X_YOUNG_SHARE,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_X_OLD_YOUNG_RATIO,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_X_LOG_SEX_RATIO,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_X_AGE_RATE_RANGE,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_X_AGE_RATE_STD,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_X_YOUNG_NV_SHARE,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_X_OLDER_NV_SHARE,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_X_PEER_MUN_A,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_X_PEER_STATE_A,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_X_MUN_A_STD,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_X_MUN_LN_RANK,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_X_MUN_A_RANK,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_X_LOG_SIZE_REL_MUN,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_X_PEER_MUN_GAP,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_X_EXPECTED_PEER_AGE,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_X_EXPECTED_PEER_SEX,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_X_EXCESS_PEER_AGE,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_X_EXCESS_PEER_SEX,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_X_PEER_MUN_A,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_X_PEER_STATE_A,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_X_MUN_A_STD,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_X_MUN_LN_RANK,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_X_MUN_A_RANK,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_X_LOG_SIZE_REL_MUN,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_X_PEER_MUN_GAP,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_X_EXPECTED_PEER_AGE,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_X_EXPECTED_PEER_SEX,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_X_EXCESS_PEER_AGE,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_X_EXCESS_PEER_SEX,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_X_SHRUNK_A_H,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_X_GROUP_PEER_GAP_H,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_X_NS_H,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_X_SHRUNK_A_M,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_X_GROUP_PEER_GAP_M,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_X_NS_M,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_X_SHRUNK_A_18_24,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_X_GROUP_PEER_GAP_18_24,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_X_NS_18_24,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_X_SHRUNK_A_25_34,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_X_GROUP_PEER_GAP_25_34,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_X_NS_25_34,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_X_SHRUNK_A_35_44,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_X_GROUP_PEER_GAP_35_44,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_X_NS_35_44,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_X_SHRUNK_A_45_59,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_X_GROUP_PEER_GAP_45_59,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_X_NS_45_59,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_X_SHRUNK_A_60_plus,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_X_GROUP_PEER_GAP_60_plus,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_X_NS_60_plus,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_X_SHRUNK_A_H,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_X_GROUP_PEER_GAP_H,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_X_NS_H,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_X_SHRUNK_A_M,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_X_GROUP_PEER_GAP_M,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_X_NS_M,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_X_SHRUNK_A_18_24,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_X_GROUP_PEER_GAP_18_24,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_X_NS_18_24,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_X_SHRUNK_A_25_34,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_X_GROUP_PEER_GAP_25_34,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_X_NS_25_34,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_X_SHRUNK_A_35_44,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_X_GROUP_PEER_GAP_35_44,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_X_NS_35_44,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_X_SHRUNK_A_45_59,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_X_GROUP_PEER_GAP_45_59,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_X_NS_45_59,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_X_SHRUNK_A_60_plus,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_X_GROUP_PEER_GAP_60_plus,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_X_NS_60_plus,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_X_HIST_ALL_N,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_X_HIST_ALL_MEAN,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_X_HIST_ALL_STD,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_X_HIST_ALL_MIN,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_X_HIST_ALL_MAX,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_X_HIST_ALL_LAST_CHANGE,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_X_HIST_FAMILY_N,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_X_HIST_FAMILY_MEAN,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_X_HIST_FAMILY_STD,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_X_HIST_FAMILY_MIN,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_X_HIST_FAMILY_MAX,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_X_HIST_FAMILY_LAST_CHANGE,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_X_HIST_LOG_LN_CHANGE,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,SAME_X_HIST_AGE_CHANGE,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_X_HIST_ALL_N,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_X_HIST_ALL_MEAN,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_X_HIST_ALL_STD,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_X_HIST_ALL_MIN,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_X_HIST_ALL_MAX,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_X_HIST_ALL_LAST_CHANGE,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_X_HIST_FAMILY_N,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_X_HIST_FAMILY_MEAN,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_X_HIST_FAMILY_STD,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_X_HIST_FAMILY_MIN,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_X_HIST_FAMILY_MAX,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_X_HIST_FAMILY_LAST_CHANGE,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_X_HIST_LOG_LN_CHANGE,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R05_historia_larga,RECENT_X_HIST_AGE_CHANGE,R04 + resúmenes acumulados as-of de toda la historia y por familia
+R06_cambio_compacto,SAME_PCT_ABSTENCION,"Mismas variables nuevas de R03, aprende Y menos SAME y reconstruye tasa"
+R06_cambio_compacto,RECENT_PCT_ABSTENCION,"Mismas variables nuevas de R03, aprende Y menos SAME y reconstruye tasa"
+R06_cambio_compacto,EDOCVE,"Mismas variables nuevas de R03, aprende Y menos SAME y reconstruye tasa"
+R06_cambio_compacto,TIPO_ELECCION,"Mismas variables nuevas de R03, aprende Y menos SAME y reconstruye tasa"
+R06_cambio_compacto,SAME_LOG_LN,"Mismas variables nuevas de R03, aprende Y menos SAME y reconstruye tasa"
+R06_cambio_compacto,SAME_EDAD_PROM_LN,"Mismas variables nuevas de R03, aprende Y menos SAME y reconstruye tasa"
+R06_cambio_compacto,SAME_PROP_LN_M,"Mismas variables nuevas de R03, aprende Y menos SAME y reconstruye tasa"
+R06_cambio_compacto,SAME_PROP_U,"Mismas variables nuevas de R03, aprende Y menos SAME y reconstruye tasa"
+R06_cambio_compacto,SAME_PROP_R,"Mismas variables nuevas de R03, aprende Y menos SAME y reconstruye tasa"
+R06_cambio_compacto,SAME_PROP_LN_18_24,"Mismas variables nuevas de R03, aprende Y menos SAME y reconstruye tasa"
+R06_cambio_compacto,SAME_PROP_LN_25_34,"Mismas variables nuevas de R03, aprende Y menos SAME y reconstruye tasa"
+R06_cambio_compacto,SAME_PROP_LN_35_44,"Mismas variables nuevas de R03, aprende Y menos SAME y reconstruye tasa"
+R06_cambio_compacto,SAME_PROP_LN_45_59,"Mismas variables nuevas de R03, aprende Y menos SAME y reconstruye tasa"
+R06_cambio_compacto,SAME_PROP_LN_60_plus,"Mismas variables nuevas de R03, aprende Y menos SAME y reconstruye tasa"
+R06_cambio_compacto,RECENT_LOG_LN,"Mismas variables nuevas de R03, aprende Y menos SAME y reconstruye tasa"
+R06_cambio_compacto,RECENT_EDAD_PROM_LN,"Mismas variables nuevas de R03, aprende Y menos SAME y reconstruye tasa"
+R06_cambio_compacto,RECENT_PROP_LN_M,"Mismas variables nuevas de R03, aprende Y menos SAME y reconstruye tasa"
+R06_cambio_compacto,RECENT_PROP_U,"Mismas variables nuevas de R03, aprende Y menos SAME y reconstruye tasa"
+R06_cambio_compacto,RECENT_PROP_R,"Mismas variables nuevas de R03, aprende Y menos SAME y reconstruye tasa"
+R06_cambio_compacto,RECENT_PROP_LN_18_24,"Mismas variables nuevas de R03, aprende Y menos SAME y reconstruye tasa"
+R06_cambio_compacto,RECENT_PROP_LN_25_34,"Mismas variables nuevas de R03, aprende Y menos SAME y reconstruye tasa"
+R06_cambio_compacto,RECENT_PROP_LN_35_44,"Mismas variables nuevas de R03, aprende Y menos SAME y reconstruye tasa"
+R06_cambio_compacto,RECENT_PROP_LN_45_59,"Mismas variables nuevas de R03, aprende Y menos SAME y reconstruye tasa"
+R06_cambio_compacto,RECENT_PROP_LN_60_plus,"Mismas variables nuevas de R03, aprende Y menos SAME y reconstruye tasa"
+R06_cambio_compacto,SAME_TREND_FAMILY,"Mismas variables nuevas de R03, aprende Y menos SAME y reconstruye tasa"
+R06_cambio_compacto,SAME_PREV_FAMILY_ABST,"Mismas variables nuevas de R03, aprende Y menos SAME y reconstruye tasa"
+R06_cambio_compacto,SAME_GROWTH_LN_FAMILY,"Mismas variables nuevas de R03, aprende Y menos SAME y reconstruye tasa"
+R06_cambio_compacto,SAME_DELTA_AGE_FAMILY,"Mismas variables nuevas de R03, aprende Y menos SAME y reconstruye tasa"
+R06_cambio_compacto,RECENT_TREND_FAMILY,"Mismas variables nuevas de R03, aprende Y menos SAME y reconstruye tasa"
+R06_cambio_compacto,RECENT_PREV_FAMILY_ABST,"Mismas variables nuevas de R03, aprende Y menos SAME y reconstruye tasa"
+R06_cambio_compacto,RECENT_GROWTH_LN_FAMILY,"Mismas variables nuevas de R03, aprende Y menos SAME y reconstruye tasa"
+R06_cambio_compacto,RECENT_DELTA_AGE_FAMILY,"Mismas variables nuevas de R03, aprende Y menos SAME y reconstruye tasa"
+R06_cambio_compacto,DELTA_ABST,"Mismas variables nuevas de R03, aprende Y menos SAME y reconstruye tasa"
+R06_cambio_compacto,DELTA_LOG_LN,"Mismas variables nuevas de R03, aprende Y menos SAME y reconstruye tasa"
+R06_cambio_compacto,DELTA_AGE,"Mismas variables nuevas de R03, aprende Y menos SAME y reconstruye tasa"
+R06_cambio_compacto,DELTA_PROP_18_24,"Mismas variables nuevas de R03, aprende Y menos SAME y reconstruye tasa"
+R06_cambio_compacto,DELTA_PROP_25_34,"Mismas variables nuevas de R03, aprende Y menos SAME y reconstruye tasa"
+R06_cambio_compacto,DELTA_PROP_35_44,"Mismas variables nuevas de R03, aprende Y menos SAME y reconstruye tasa"
+R06_cambio_compacto,DELTA_PROP_45_59,"Mismas variables nuevas de R03, aprende Y menos SAME y reconstruye tasa"
+R06_cambio_compacto,DELTA_PROP_60_plus,"Mismas variables nuevas de R03, aprende Y menos SAME y reconstruye tasa"
+R06_cambio_compacto,DELTA_PROP_M,"Mismas variables nuevas de R03, aprende Y menos SAME y reconstruye tasa"
+R06_cambio_compacto,SAME_X_LOG_D,"Mismas variables nuevas de R03, aprende Y menos SAME y reconstruye tasa"
+R06_cambio_compacto,SAME_X_LOG_SV,"Mismas variables nuevas de R03, aprende Y menos SAME y reconstruye tasa"
+R06_cambio_compacto,SAME_X_LOG_NV,"Mismas variables nuevas de R03, aprende Y menos SAME y reconstruye tasa"
+R06_cambio_compacto,SAME_X_LOG_NS,"Mismas variables nuevas de R03, aprende Y menos SAME y reconstruye tasa"
+R06_cambio_compacto,SAME_X_LOG_LN_H,"Mismas variables nuevas de R03, aprende Y menos SAME y reconstruye tasa"
+R06_cambio_compacto,SAME_X_LOG_D_H,"Mismas variables nuevas de R03, aprende Y menos SAME y reconstruye tasa"
+R06_cambio_compacto,SAME_X_LOG_LN_M,"Mismas variables nuevas de R03, aprende Y menos SAME y reconstruye tasa"
+R06_cambio_compacto,SAME_X_LOG_D_M,"Mismas variables nuevas de R03, aprende Y menos SAME y reconstruye tasa"
+R06_cambio_compacto,SAME_X_LOG_LN_18_24,"Mismas variables nuevas de R03, aprende Y menos SAME y reconstruye tasa"
+R06_cambio_compacto,SAME_X_LOG_D_18_24,"Mismas variables nuevas de R03, aprende Y menos SAME y reconstruye tasa"
+R06_cambio_compacto,SAME_X_LOG_LN_25_34,"Mismas variables nuevas de R03, aprende Y menos SAME y reconstruye tasa"
+R06_cambio_compacto,SAME_X_LOG_D_25_34,"Mismas variables nuevas de R03, aprende Y menos SAME y reconstruye tasa"
+R06_cambio_compacto,SAME_X_LOG_LN_35_44,"Mismas variables nuevas de R03, aprende Y menos SAME y reconstruye tasa"
+R06_cambio_compacto,SAME_X_LOG_D_35_44,"Mismas variables nuevas de R03, aprende Y menos SAME y reconstruye tasa"
+R06_cambio_compacto,SAME_X_LOG_LN_45_59,"Mismas variables nuevas de R03, aprende Y menos SAME y reconstruye tasa"
+R06_cambio_compacto,SAME_X_LOG_D_45_59,"Mismas variables nuevas de R03, aprende Y menos SAME y reconstruye tasa"
+R06_cambio_compacto,SAME_X_LOG_LN_60_plus,"Mismas variables nuevas de R03, aprende Y menos SAME y reconstruye tasa"
+R06_cambio_compacto,SAME_X_LOG_D_60_plus,"Mismas variables nuevas de R03, aprende Y menos SAME y reconstruye tasa"
+R06_cambio_compacto,RECENT_X_LOG_D,"Mismas variables nuevas de R03, aprende Y menos SAME y reconstruye tasa"
+R06_cambio_compacto,RECENT_X_LOG_SV,"Mismas variables nuevas de R03, aprende Y menos SAME y reconstruye tasa"
+R06_cambio_compacto,RECENT_X_LOG_NV,"Mismas variables nuevas de R03, aprende Y menos SAME y reconstruye tasa"
+R06_cambio_compacto,RECENT_X_LOG_NS,"Mismas variables nuevas de R03, aprende Y menos SAME y reconstruye tasa"
+R06_cambio_compacto,RECENT_X_LOG_LN_H,"Mismas variables nuevas de R03, aprende Y menos SAME y reconstruye tasa"
+R06_cambio_compacto,RECENT_X_LOG_D_H,"Mismas variables nuevas de R03, aprende Y menos SAME y reconstruye tasa"
+R06_cambio_compacto,RECENT_X_LOG_LN_M,"Mismas variables nuevas de R03, aprende Y menos SAME y reconstruye tasa"
+R06_cambio_compacto,RECENT_X_LOG_D_M,"Mismas variables nuevas de R03, aprende Y menos SAME y reconstruye tasa"
+R06_cambio_compacto,RECENT_X_LOG_LN_18_24,"Mismas variables nuevas de R03, aprende Y menos SAME y reconstruye tasa"
+R06_cambio_compacto,RECENT_X_LOG_D_18_24,"Mismas variables nuevas de R03, aprende Y menos SAME y reconstruye tasa"
+R06_cambio_compacto,RECENT_X_LOG_LN_25_34,"Mismas variables nuevas de R03, aprende Y menos SAME y reconstruye tasa"
+R06_cambio_compacto,RECENT_X_LOG_D_25_34,"Mismas variables nuevas de R03, aprende Y menos SAME y reconstruye tasa"
+R06_cambio_compacto,RECENT_X_LOG_LN_35_44,"Mismas variables nuevas de R03, aprende Y menos SAME y reconstruye tasa"
+R06_cambio_compacto,RECENT_X_LOG_D_35_44,"Mismas variables nuevas de R03, aprende Y menos SAME y reconstruye tasa"
+R06_cambio_compacto,RECENT_X_LOG_LN_45_59,"Mismas variables nuevas de R03, aprende Y menos SAME y reconstruye tasa"
+R06_cambio_compacto,RECENT_X_LOG_D_45_59,"Mismas variables nuevas de R03, aprende Y menos SAME y reconstruye tasa"
+R06_cambio_compacto,RECENT_X_LOG_LN_60_plus,"Mismas variables nuevas de R03, aprende Y menos SAME y reconstruye tasa"
+R06_cambio_compacto,RECENT_X_LOG_D_60_plus,"Mismas variables nuevas de R03, aprende Y menos SAME y reconstruye tasa"
+R06_cambio_compacto,SAME_X_AGE_ENTROPY,"Mismas variables nuevas de R03, aprende Y menos SAME y reconstruye tasa"
+R06_cambio_compacto,SAME_X_YOUNG_SHARE,"Mismas variables nuevas de R03, aprende Y menos SAME y reconstruye tasa"
+R06_cambio_compacto,SAME_X_OLD_YOUNG_RATIO,"Mismas variables nuevas de R03, aprende Y menos SAME y reconstruye tasa"
+R06_cambio_compacto,SAME_X_LOG_SEX_RATIO,"Mismas variables nuevas de R03, aprende Y menos SAME y reconstruye tasa"
+R06_cambio_compacto,SAME_X_AGE_RATE_RANGE,"Mismas variables nuevas de R03, aprende Y menos SAME y reconstruye tasa"
+R06_cambio_compacto,SAME_X_AGE_RATE_STD,"Mismas variables nuevas de R03, aprende Y menos SAME y reconstruye tasa"
+R06_cambio_compacto,SAME_X_YOUNG_NV_SHARE,"Mismas variables nuevas de R03, aprende Y menos SAME y reconstruye tasa"
+R06_cambio_compacto,SAME_X_OLDER_NV_SHARE,"Mismas variables nuevas de R03, aprende Y menos SAME y reconstruye tasa"
+R06_cambio_compacto,RECENT_X_AGE_ENTROPY,"Mismas variables nuevas de R03, aprende Y menos SAME y reconstruye tasa"
+R06_cambio_compacto,RECENT_X_YOUNG_SHARE,"Mismas variables nuevas de R03, aprende Y menos SAME y reconstruye tasa"
+R06_cambio_compacto,RECENT_X_OLD_YOUNG_RATIO,"Mismas variables nuevas de R03, aprende Y menos SAME y reconstruye tasa"
+R06_cambio_compacto,RECENT_X_LOG_SEX_RATIO,"Mismas variables nuevas de R03, aprende Y menos SAME y reconstruye tasa"
+R06_cambio_compacto,RECENT_X_AGE_RATE_RANGE,"Mismas variables nuevas de R03, aprende Y menos SAME y reconstruye tasa"
+R06_cambio_compacto,RECENT_X_AGE_RATE_STD,"Mismas variables nuevas de R03, aprende Y menos SAME y reconstruye tasa"
+R06_cambio_compacto,RECENT_X_YOUNG_NV_SHARE,"Mismas variables nuevas de R03, aprende Y menos SAME y reconstruye tasa"
+R06_cambio_compacto,RECENT_X_OLDER_NV_SHARE,"Mismas variables nuevas de R03, aprende Y menos SAME y reconstruye tasa"
+R07_mayor_detalle,SAME_PCT_ABSTENCION,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,RECENT_PCT_ABSTENCION,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,EDOCVE,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,TIPO_ELECCION,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,SAME_LOG_LN,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,SAME_EDAD_PROM_LN,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,SAME_PROP_LN_M,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,SAME_PROP_U,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,SAME_PROP_R,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,SAME_PROP_LN_18_24,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,SAME_PROP_LN_25_34,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,SAME_PROP_LN_35_44,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,SAME_PROP_LN_45_59,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,SAME_PROP_LN_60_plus,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,RECENT_LOG_LN,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,RECENT_EDAD_PROM_LN,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,RECENT_PROP_LN_M,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,RECENT_PROP_U,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,RECENT_PROP_R,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,RECENT_PROP_LN_18_24,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,RECENT_PROP_LN_25_34,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,RECENT_PROP_LN_35_44,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,RECENT_PROP_LN_45_59,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,RECENT_PROP_LN_60_plus,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,SAME_PCT_ABST_H,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,SAME_PCT_ABST_M,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,SAME_PCT_ABST_18_24,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,SAME_PCT_ABST_25_34,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,SAME_PCT_ABST_35_44,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,SAME_PCT_ABST_45_59,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,SAME_PCT_ABST_60_plus,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,SAME_BRECHA_M_H,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,SAME_BRECHA_JOVEN_MAYOR,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,SAME_EDAD_VOTANTE_MENOS_LN,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,RECENT_PCT_ABST_H,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,RECENT_PCT_ABST_M,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,RECENT_PCT_ABST_18_24,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,RECENT_PCT_ABST_25_34,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,RECENT_PCT_ABST_35_44,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,RECENT_PCT_ABST_45_59,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,RECENT_PCT_ABST_60_plus,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,RECENT_BRECHA_M_H,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,RECENT_BRECHA_JOVEN_MAYOR,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,RECENT_EDAD_VOTANTE_MENOS_LN,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,SAME_TREND_FAMILY,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,SAME_PREV_FAMILY_ABST,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,SAME_GROWTH_LN_FAMILY,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,SAME_DELTA_AGE_FAMILY,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,RECENT_TREND_FAMILY,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,RECENT_PREV_FAMILY_ABST,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,RECENT_GROWTH_LN_FAMILY,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,RECENT_DELTA_AGE_FAMILY,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,DELTA_ABST,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,DELTA_LOG_LN,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,DELTA_AGE,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,DELTA_PROP_18_24,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,DELTA_PROP_25_34,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,DELTA_PROP_35_44,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,DELTA_PROP_45_59,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,DELTA_PROP_60_plus,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,DELTA_PROP_M,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,SAME_MUN_ABST,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,SAME_STATE_ABST,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,SAME_NATIONAL_ABST,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,SAME_GAP_MUN,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,SAME_GAP_STATE,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,SAME_WEIGHT_MUN,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,SAME_WEIGHT_STATE,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,SAME_WEIGHT_NATIONAL,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,SAME_QUALITY_NS,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,RECENT_MUN_ABST,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,RECENT_STATE_ABST,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,RECENT_NATIONAL_ABST,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,RECENT_GAP_MUN,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,RECENT_GAP_STATE,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,RECENT_WEIGHT_MUN,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,RECENT_WEIGHT_STATE,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,RECENT_WEIGHT_NATIONAL,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,RECENT_QUALITY_NS,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,SAME_EXPECTED_MUN_AGE,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,SAME_EXPECTED_STATE_AGE,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,SAME_EXCESS_MUN_AGE,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,SAME_EXCESS_STATE_AGE,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,RECENT_EXPECTED_MUN_AGE,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,RECENT_EXPECTED_STATE_AGE,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,RECENT_EXCESS_MUN_AGE,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,RECENT_EXCESS_STATE_AGE,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,SAME_X_LOG_D,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,SAME_X_LOG_SV,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,SAME_X_LOG_NV,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,SAME_X_LOG_NS,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,SAME_X_LOG_LN_H,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,SAME_X_LOG_D_H,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,SAME_X_LOG_LN_M,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,SAME_X_LOG_D_M,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,SAME_X_LOG_LN_18_24,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,SAME_X_LOG_D_18_24,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,SAME_X_LOG_LN_25_34,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,SAME_X_LOG_D_25_34,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,SAME_X_LOG_LN_35_44,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,SAME_X_LOG_D_35_44,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,SAME_X_LOG_LN_45_59,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,SAME_X_LOG_D_45_59,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,SAME_X_LOG_LN_60_plus,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,SAME_X_LOG_D_60_plus,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,RECENT_X_LOG_D,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,RECENT_X_LOG_SV,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,RECENT_X_LOG_NV,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,RECENT_X_LOG_NS,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,RECENT_X_LOG_LN_H,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,RECENT_X_LOG_D_H,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,RECENT_X_LOG_LN_M,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,RECENT_X_LOG_D_M,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,RECENT_X_LOG_LN_18_24,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,RECENT_X_LOG_D_18_24,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,RECENT_X_LOG_LN_25_34,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,RECENT_X_LOG_D_25_34,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,RECENT_X_LOG_LN_35_44,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,RECENT_X_LOG_D_35_44,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,RECENT_X_LOG_LN_45_59,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,RECENT_X_LOG_D_45_59,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,RECENT_X_LOG_LN_60_plus,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,RECENT_X_LOG_D_60_plus,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,SAME_X_AGE_ENTROPY,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,SAME_X_YOUNG_SHARE,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,SAME_X_OLD_YOUNG_RATIO,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,SAME_X_LOG_SEX_RATIO,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,SAME_X_AGE_RATE_RANGE,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,SAME_X_AGE_RATE_STD,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,SAME_X_YOUNG_NV_SHARE,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,SAME_X_OLDER_NV_SHARE,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,RECENT_X_AGE_ENTROPY,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,RECENT_X_YOUNG_SHARE,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,RECENT_X_OLD_YOUNG_RATIO,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,RECENT_X_LOG_SEX_RATIO,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,RECENT_X_AGE_RATE_RANGE,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,RECENT_X_AGE_RATE_STD,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,RECENT_X_YOUNG_NV_SHARE,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,RECENT_X_OLDER_NV_SHARE,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,SAME_X_PEER_MUN_A,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,SAME_X_PEER_STATE_A,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,SAME_X_MUN_A_STD,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,SAME_X_MUN_LN_RANK,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,SAME_X_MUN_A_RANK,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,SAME_X_LOG_SIZE_REL_MUN,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,SAME_X_PEER_MUN_GAP,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,SAME_X_EXPECTED_PEER_AGE,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,SAME_X_EXPECTED_PEER_SEX,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,SAME_X_EXCESS_PEER_AGE,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,SAME_X_EXCESS_PEER_SEX,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,RECENT_X_PEER_MUN_A,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,RECENT_X_PEER_STATE_A,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,RECENT_X_MUN_A_STD,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,RECENT_X_MUN_LN_RANK,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,RECENT_X_MUN_A_RANK,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,RECENT_X_LOG_SIZE_REL_MUN,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,RECENT_X_PEER_MUN_GAP,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,RECENT_X_EXPECTED_PEER_AGE,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,RECENT_X_EXPECTED_PEER_SEX,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,RECENT_X_EXCESS_PEER_AGE,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,RECENT_X_EXCESS_PEER_SEX,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,SAME_X_SHRUNK_A_H,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,SAME_X_GROUP_PEER_GAP_H,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,SAME_X_NS_H,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,SAME_X_SHRUNK_A_M,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,SAME_X_GROUP_PEER_GAP_M,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,SAME_X_NS_M,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,SAME_X_SHRUNK_A_18_24,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,SAME_X_GROUP_PEER_GAP_18_24,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,SAME_X_NS_18_24,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,SAME_X_SHRUNK_A_25_34,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,SAME_X_GROUP_PEER_GAP_25_34,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,SAME_X_NS_25_34,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,SAME_X_SHRUNK_A_35_44,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,SAME_X_GROUP_PEER_GAP_35_44,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,SAME_X_NS_35_44,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,SAME_X_SHRUNK_A_45_59,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,SAME_X_GROUP_PEER_GAP_45_59,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,SAME_X_NS_45_59,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,SAME_X_SHRUNK_A_60_plus,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,SAME_X_GROUP_PEER_GAP_60_plus,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,SAME_X_NS_60_plus,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,RECENT_X_SHRUNK_A_H,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,RECENT_X_GROUP_PEER_GAP_H,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,RECENT_X_NS_H,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,RECENT_X_SHRUNK_A_M,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,RECENT_X_GROUP_PEER_GAP_M,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,RECENT_X_NS_M,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,RECENT_X_SHRUNK_A_18_24,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,RECENT_X_GROUP_PEER_GAP_18_24,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,RECENT_X_NS_18_24,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,RECENT_X_SHRUNK_A_25_34,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,RECENT_X_GROUP_PEER_GAP_25_34,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,RECENT_X_NS_25_34,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,RECENT_X_SHRUNK_A_35_44,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,RECENT_X_GROUP_PEER_GAP_35_44,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,RECENT_X_NS_35_44,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,RECENT_X_SHRUNK_A_45_59,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,RECENT_X_GROUP_PEER_GAP_45_59,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,RECENT_X_NS_45_59,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,RECENT_X_SHRUNK_A_60_plus,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,RECENT_X_GROUP_PEER_GAP_60_plus,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R07_mayor_detalle,RECENT_X_NS_60_plus,"R04 con 96 árboles, profundidad 16 y hojas menores"
+R08_cambio_historia,SAME_PCT_ABSTENCION,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_PCT_ABSTENCION,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,EDOCVE,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,TIPO_ELECCION,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_LOG_LN,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_EDAD_PROM_LN,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_PROP_LN_M,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_PROP_U,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_PROP_R,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_PROP_LN_18_24,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_PROP_LN_25_34,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_PROP_LN_35_44,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_PROP_LN_45_59,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_PROP_LN_60_plus,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_LOG_LN,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_EDAD_PROM_LN,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_PROP_LN_M,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_PROP_U,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_PROP_R,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_PROP_LN_18_24,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_PROP_LN_25_34,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_PROP_LN_35_44,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_PROP_LN_45_59,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_PROP_LN_60_plus,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_PCT_ABST_H,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_PCT_ABST_M,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_PCT_ABST_18_24,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_PCT_ABST_25_34,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_PCT_ABST_35_44,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_PCT_ABST_45_59,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_PCT_ABST_60_plus,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_BRECHA_M_H,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_BRECHA_JOVEN_MAYOR,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_EDAD_VOTANTE_MENOS_LN,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_PCT_ABST_H,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_PCT_ABST_M,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_PCT_ABST_18_24,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_PCT_ABST_25_34,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_PCT_ABST_35_44,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_PCT_ABST_45_59,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_PCT_ABST_60_plus,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_BRECHA_M_H,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_BRECHA_JOVEN_MAYOR,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_EDAD_VOTANTE_MENOS_LN,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_TREND_FAMILY,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_PREV_FAMILY_ABST,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_GROWTH_LN_FAMILY,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_DELTA_AGE_FAMILY,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_TREND_FAMILY,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_PREV_FAMILY_ABST,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_GROWTH_LN_FAMILY,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_DELTA_AGE_FAMILY,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,DELTA_ABST,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,DELTA_LOG_LN,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,DELTA_AGE,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,DELTA_PROP_18_24,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,DELTA_PROP_25_34,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,DELTA_PROP_35_44,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,DELTA_PROP_45_59,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,DELTA_PROP_60_plus,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,DELTA_PROP_M,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_MUN_ABST,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_STATE_ABST,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_NATIONAL_ABST,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_GAP_MUN,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_GAP_STATE,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_WEIGHT_MUN,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_WEIGHT_STATE,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_WEIGHT_NATIONAL,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_QUALITY_NS,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_MUN_ABST,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_STATE_ABST,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_NATIONAL_ABST,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_GAP_MUN,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_GAP_STATE,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_WEIGHT_MUN,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_WEIGHT_STATE,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_WEIGHT_NATIONAL,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_QUALITY_NS,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_EXPECTED_MUN_AGE,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_EXPECTED_STATE_AGE,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_EXCESS_MUN_AGE,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_EXCESS_STATE_AGE,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_EXPECTED_MUN_AGE,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_EXPECTED_STATE_AGE,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_EXCESS_MUN_AGE,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_EXCESS_STATE_AGE,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_X_LOG_D,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_X_LOG_SV,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_X_LOG_NV,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_X_LOG_NS,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_X_LOG_LN_H,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_X_LOG_D_H,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_X_LOG_LN_M,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_X_LOG_D_M,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_X_LOG_LN_18_24,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_X_LOG_D_18_24,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_X_LOG_LN_25_34,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_X_LOG_D_25_34,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_X_LOG_LN_35_44,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_X_LOG_D_35_44,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_X_LOG_LN_45_59,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_X_LOG_D_45_59,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_X_LOG_LN_60_plus,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_X_LOG_D_60_plus,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_X_LOG_D,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_X_LOG_SV,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_X_LOG_NV,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_X_LOG_NS,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_X_LOG_LN_H,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_X_LOG_D_H,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_X_LOG_LN_M,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_X_LOG_D_M,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_X_LOG_LN_18_24,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_X_LOG_D_18_24,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_X_LOG_LN_25_34,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_X_LOG_D_25_34,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_X_LOG_LN_35_44,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_X_LOG_D_35_44,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_X_LOG_LN_45_59,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_X_LOG_D_45_59,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_X_LOG_LN_60_plus,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_X_LOG_D_60_plus,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_X_AGE_ENTROPY,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_X_YOUNG_SHARE,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_X_OLD_YOUNG_RATIO,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_X_LOG_SEX_RATIO,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_X_AGE_RATE_RANGE,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_X_AGE_RATE_STD,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_X_YOUNG_NV_SHARE,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_X_OLDER_NV_SHARE,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_X_AGE_ENTROPY,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_X_YOUNG_SHARE,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_X_OLD_YOUNG_RATIO,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_X_LOG_SEX_RATIO,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_X_AGE_RATE_RANGE,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_X_AGE_RATE_STD,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_X_YOUNG_NV_SHARE,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_X_OLDER_NV_SHARE,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_X_PEER_MUN_A,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_X_PEER_STATE_A,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_X_MUN_A_STD,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_X_MUN_LN_RANK,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_X_MUN_A_RANK,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_X_LOG_SIZE_REL_MUN,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_X_PEER_MUN_GAP,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_X_EXPECTED_PEER_AGE,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_X_EXPECTED_PEER_SEX,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_X_EXCESS_PEER_AGE,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_X_EXCESS_PEER_SEX,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_X_PEER_MUN_A,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_X_PEER_STATE_A,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_X_MUN_A_STD,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_X_MUN_LN_RANK,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_X_MUN_A_RANK,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_X_LOG_SIZE_REL_MUN,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_X_PEER_MUN_GAP,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_X_EXPECTED_PEER_AGE,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_X_EXPECTED_PEER_SEX,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_X_EXCESS_PEER_AGE,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_X_EXCESS_PEER_SEX,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_X_SHRUNK_A_H,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_X_GROUP_PEER_GAP_H,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_X_NS_H,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_X_SHRUNK_A_M,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_X_GROUP_PEER_GAP_M,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_X_NS_M,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_X_SHRUNK_A_18_24,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_X_GROUP_PEER_GAP_18_24,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_X_NS_18_24,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_X_SHRUNK_A_25_34,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_X_GROUP_PEER_GAP_25_34,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_X_NS_25_34,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_X_SHRUNK_A_35_44,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_X_GROUP_PEER_GAP_35_44,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_X_NS_35_44,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_X_SHRUNK_A_45_59,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_X_GROUP_PEER_GAP_45_59,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_X_NS_45_59,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_X_SHRUNK_A_60_plus,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_X_GROUP_PEER_GAP_60_plus,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_X_NS_60_plus,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_X_SHRUNK_A_H,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_X_GROUP_PEER_GAP_H,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_X_NS_H,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_X_SHRUNK_A_M,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_X_GROUP_PEER_GAP_M,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_X_NS_M,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_X_SHRUNK_A_18_24,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_X_GROUP_PEER_GAP_18_24,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_X_NS_18_24,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_X_SHRUNK_A_25_34,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_X_GROUP_PEER_GAP_25_34,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_X_NS_25_34,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_X_SHRUNK_A_35_44,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_X_GROUP_PEER_GAP_35_44,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_X_NS_35_44,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_X_SHRUNK_A_45_59,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_X_GROUP_PEER_GAP_45_59,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_X_NS_45_59,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_X_SHRUNK_A_60_plus,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_X_GROUP_PEER_GAP_60_plus,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_X_NS_60_plus,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_X_HIST_ALL_N,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_X_HIST_ALL_MEAN,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_X_HIST_ALL_STD,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_X_HIST_ALL_MIN,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_X_HIST_ALL_MAX,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_X_HIST_ALL_LAST_CHANGE,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_X_HIST_FAMILY_N,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_X_HIST_FAMILY_MEAN,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_X_HIST_FAMILY_STD,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_X_HIST_FAMILY_MIN,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_X_HIST_FAMILY_MAX,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_X_HIST_FAMILY_LAST_CHANGE,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_X_HIST_LOG_LN_CHANGE,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,SAME_X_HIST_AGE_CHANGE,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_X_HIST_ALL_N,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_X_HIST_ALL_MEAN,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_X_HIST_ALL_STD,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_X_HIST_ALL_MIN,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_X_HIST_ALL_MAX,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_X_HIST_ALL_LAST_CHANGE,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_X_HIST_FAMILY_N,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_X_HIST_FAMILY_MEAN,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_X_HIST_FAMILY_STD,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_X_HIST_FAMILY_MIN,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_X_HIST_FAMILY_MAX,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_X_HIST_FAMILY_LAST_CHANGE,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_X_HIST_LOG_LN_CHANGE,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"
+R08_cambio_historia,RECENT_X_HIST_AGE_CHANGE,"Mismas variables nuevas de R05, aprende cambio respecto de SAME"

@@ -1,0 +1,1 @@
+PASSED: actual Edge browser, isolated headless profile; national WebGL canvas; state filter; polygon click reveals details; desktop/mobile screenshots. Runtime exceptions: []

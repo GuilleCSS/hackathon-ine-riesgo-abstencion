@@ -1,0 +1,9 @@
+year,level,A,B,A_model,A_block,B_model,B_block,delta_mae_A_minus_B_pp,ci95_low,ci95_high,clusters
+2021,entidad,directo,agregado,random_forest,B6_completo_esperado,random_forest,B6_completo_esperado,0.47041790219640134,-0.27161210442306627,1.2309095363256537,32
+2024,entidad,directo,agregado,random_forest,B6_completo_esperado,random_forest,B6_completo_esperado,0.2704525617264759,-0.2900882998421498,0.850612970092035,32
+2021,municipio,directo,agregado,random_forest,B5_completo,random_forest,B6_completo_esperado,0.44779053677811764,0.2529672794878257,0.632063597557976,32
+2024,municipio,directo,agregado,random_forest,B5_completo,random_forest,B6_completo_esperado,0.35346407934556845,0.07062305630337533,0.6104502604281209,32
+2021,distrito_federal,directo,agregado,random_forest,B5_completo,random_forest,B5_completo,0.423199491349793,-0.07597909662116638,0.8263362311234577,32
+2024,distrito_federal,directo,agregado,random_forest,B5_completo,random_forest,B5_completo,0.2599109860831688,0.024607796520843873,0.48226449073517147,32
+2021,distrito_local,directo,agregado,random_forest,B5_completo,random_forest,B5_completo,0.24312849271588557,-0.05333079991660264,0.533782320822054,32
+2024,distrito_local,directo,agregado,random_forest,B5_completo,random_forest,B5_completo,0.27576092808660047,0.11621178831290169,0.4362663964896211,32

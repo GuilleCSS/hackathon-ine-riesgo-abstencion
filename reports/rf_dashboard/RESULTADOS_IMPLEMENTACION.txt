@@ -1,0 +1,256 @@
+IMPLEMENTACION RANDOM FOREST M17
+
+PASSED: original default and return; 12 year/level views; four state/territory detail selections; scenarios; empty risk filter; GeoJSON click extraction; unique rows and count conservation.
+
+CONFIGURACION
+{
+  "model": "M17_rf_logs_history",
+  "approach": "section_predictions_weighted_RECENT_LN",
+  "data_sha256": "1e87ee02bfb673bd5c576af6f5fd0cfcc061168b940b27ef8e384026ccfdc5f4",
+  "signature": "00518e86e910b67ae6c6dfbd07303e3762edb6c86a4858da32540ebd09d305cc",
+  "features": [
+    "SAME_PCT_ABSTENCION",
+    "RECENT_PCT_ABSTENCION",
+    "EDOCVE",
+    "TIPO_ELECCION",
+    "SAME_LOG_LN",
+    "SAME_EDAD_PROM_LN",
+    "SAME_PROP_LN_M",
+    "SAME_PROP_U",
+    "SAME_PROP_R",
+    "SAME_PROP_LN_18_24",
+    "SAME_PROP_LN_25_34",
+    "SAME_PROP_LN_35_44",
+    "SAME_PROP_LN_45_59",
+    "SAME_PROP_LN_60_plus",
+    "RECENT_LOG_LN",
+    "RECENT_EDAD_PROM_LN",
+    "RECENT_PROP_LN_M",
+    "RECENT_PROP_U",
+    "RECENT_PROP_R",
+    "RECENT_PROP_LN_18_24",
+    "RECENT_PROP_LN_25_34",
+    "RECENT_PROP_LN_35_44",
+    "RECENT_PROP_LN_45_59",
+    "RECENT_PROP_LN_60_plus",
+    "SAME_PCT_ABST_H",
+    "SAME_PCT_ABST_M",
+    "SAME_PCT_ABST_18_24",
+    "SAME_PCT_ABST_25_34",
+    "SAME_PCT_ABST_35_44",
+    "SAME_PCT_ABST_45_59",
+    "SAME_PCT_ABST_60_plus",
+    "SAME_BRECHA_M_H",
+    "SAME_BRECHA_JOVEN_MAYOR",
+    "SAME_EDAD_VOTANTE_MENOS_LN",
+    "RECENT_PCT_ABST_H",
+    "RECENT_PCT_ABST_M",
+    "RECENT_PCT_ABST_18_24",
+    "RECENT_PCT_ABST_25_34",
+    "RECENT_PCT_ABST_35_44",
+    "RECENT_PCT_ABST_45_59",
+    "RECENT_PCT_ABST_60_plus",
+    "RECENT_BRECHA_M_H",
+    "RECENT_BRECHA_JOVEN_MAYOR",
+    "RECENT_EDAD_VOTANTE_MENOS_LN",
+    "SAME_TREND_FAMILY",
+    "SAME_PREV_FAMILY_ABST",
+    "SAME_GROWTH_LN_FAMILY",
+    "SAME_DELTA_AGE_FAMILY",
+    "RECENT_TREND_FAMILY",
+    "RECENT_PREV_FAMILY_ABST",
+    "RECENT_GROWTH_LN_FAMILY",
+    "RECENT_DELTA_AGE_FAMILY",
+    "DELTA_ABST",
+    "DELTA_LOG_LN",
+    "DELTA_AGE",
+    "DELTA_PROP_18_24",
+    "DELTA_PROP_25_34",
+    "DELTA_PROP_35_44",
+    "DELTA_PROP_45_59",
+    "DELTA_PROP_60_plus",
+    "DELTA_PROP_M",
+    "SAME_MUN_ABST",
+    "SAME_STATE_ABST",
+    "SAME_NATIONAL_ABST",
+    "SAME_GAP_MUN",
+    "SAME_GAP_STATE",
+    "SAME_WEIGHT_MUN",
+    "SAME_WEIGHT_STATE",
+    "SAME_WEIGHT_NATIONAL",
+    "SAME_QUALITY_NS",
+    "RECENT_MUN_ABST",
+    "RECENT_STATE_ABST",
+    "RECENT_NATIONAL_ABST",
+    "RECENT_GAP_MUN",
+    "RECENT_GAP_STATE",
+    "RECENT_WEIGHT_MUN",
+    "RECENT_WEIGHT_STATE",
+    "RECENT_WEIGHT_NATIONAL",
+    "RECENT_QUALITY_NS",
+    "SAME_X_LOG_D",
+    "SAME_X_LOG_SV",
+    "SAME_X_LOG_NV",
+    "SAME_X_LOG_NS",
+    "SAME_X_LOG_LN_H",
+    "SAME_X_LOG_D_H",
+    "SAME_X_LOG_LN_M",
+    "SAME_X_LOG_D_M",
+    "SAME_X_LOG_LN_18_24",
+    "SAME_X_LOG_D_18_24",
+    "SAME_X_LOG_LN_25_34",
+    "SAME_X_LOG_D_25_34",
+    "SAME_X_LOG_LN_35_44",
+    "SAME_X_LOG_D_35_44",
+    "SAME_X_LOG_LN_45_59",
+    "SAME_X_LOG_D_45_59",
+    "SAME_X_LOG_LN_60_plus",
+    "SAME_X_LOG_D_60_plus",
+    "RECENT_X_LOG_D",
+    "RECENT_X_LOG_SV",
+    "RECENT_X_LOG_NV",
+    "RECENT_X_LOG_NS",
+    "RECENT_X_LOG_LN_H",
+    "RECENT_X_LOG_D_H",
+    "RECENT_X_LOG_LN_M",
+    "RECENT_X_LOG_D_M",
+    "RECENT_X_LOG_LN_18_24",
+    "RECENT_X_LOG_D_18_24",
+    "RECENT_X_LOG_LN_25_34",
+    "RECENT_X_LOG_D_25_34",
+    "RECENT_X_LOG_LN_35_44",
+    "RECENT_X_LOG_D_35_44",
+    "RECENT_X_LOG_LN_45_59",
+    "RECENT_X_LOG_D_45_59",
+    "RECENT_X_LOG_LN_60_plus",
+    "RECENT_X_LOG_D_60_plus",
+    "SAME_X_HIST_ALL_N",
+    "SAME_X_HIST_ALL_MEAN",
+    "SAME_X_HIST_ALL_STD",
+    "SAME_X_HIST_ALL_MIN",
+    "SAME_X_HIST_ALL_MAX",
+    "SAME_X_HIST_ALL_LAST_CHANGE",
+    "SAME_X_HIST_FAMILY_N",
+    "SAME_X_HIST_FAMILY_MEAN",
+    "SAME_X_HIST_FAMILY_STD",
+    "SAME_X_HIST_FAMILY_MIN",
+    "SAME_X_HIST_FAMILY_MAX",
+    "SAME_X_HIST_FAMILY_LAST_CHANGE",
+    "SAME_X_HIST_LOG_LN_CHANGE",
+    "SAME_X_HIST_AGE_CHANGE",
+    "RECENT_X_HIST_ALL_N",
+    "RECENT_X_HIST_ALL_MEAN",
+    "RECENT_X_HIST_ALL_STD",
+    "RECENT_X_HIST_ALL_MIN",
+    "RECENT_X_HIST_ALL_MAX",
+    "RECENT_X_HIST_ALL_LAST_CHANGE",
+    "RECENT_X_HIST_FAMILY_N",
+    "RECENT_X_HIST_FAMILY_MEAN",
+    "RECENT_X_HIST_FAMILY_STD",
+    "RECENT_X_HIST_FAMILY_MIN",
+    "RECENT_X_HIST_FAMILY_MAX",
+    "RECENT_X_HIST_FAMILY_LAST_CHANGE",
+    "RECENT_X_HIST_LOG_LN_CHANGE",
+    "RECENT_X_HIST_AGE_CHANGE"
+  ],
+  "thresholds": {
+    "entidad": [
+      0.4597892093771642,
+      0.5154290960251291
+    ],
+    "municipio": [
+      0.4090581918148346,
+      0.5028819338406142
+    ],
+    "distrito_federal": [
+      0.46905200008238057,
+      0.5231986077303119
+    ],
+    "distrito_local": [
+      0.46952263198409333,
+      0.5351126197680292
+    ]
+  },
+  "geometry": "MGS DIC-2025 provisional; source-year section assignment; partial geometry",
+  "checks": "PASSED: unique joins, 143 source-only features, bounded rates/coverage, conserved assumed counts",
+  "train_rows": 201487,
+  "forecast_sections": 54681,
+  "parameters": {
+    "bootstrap": true,
+    "ccp_alpha": 0.0,
+    "criterion": "squared_error",
+    "max_depth": 12,
+    "max_features": "sqrt",
+    "max_leaf_nodes": null,
+    "max_samples": 0.8,
+    "min_impurity_decrease": 0.0,
+    "min_samples_leaf": 25,
+    "min_samples_split": 2,
+    "min_weight_fraction_leaf": 0.0,
+    "monotonic_cst": null,
+    "n_estimators": 64,
+    "n_jobs": 2,
+    "oob_score": false,
+    "random_state": 42,
+    "verbose": 0,
+    "warm_start": false
+  },
+  "geometry_checks": "All 12 exported layers: valid geometry, unique IDs, EPSG:4326, mapped territories present"
+}
+
+METRICAS FUERA DE MUESTRA
+year,level,n,mae_pp,rmse_pp,r2,bias_pp,wmae_pp,wrmse_pp,spearman,top10,top20
+2021,entidad,32,4.75340040204997,5.633548918583137,0.16533306470978348,-0.656995071668736,4.196102986244343,4.923582583656047,0.48680351906158353,0.25,0.5714285714285714
+2021,municipio,2339,7.729375357024877,9.809885180636453,0.5297117741454256,1.6648600472799726,5.018345672188608,6.56121943657827,0.7252038999255355,0.5299145299145299,0.5726495726495726
+2021,distrito_federal,300,4.726656655059814,5.785930915852538,0.5295412568855375,-0.7164856863188556,4.682369940477258,5.744917811278654,0.7168852987255413,0.4666666666666667,0.6
+2021,distrito_local,673,5.147066823093562,6.428337020543655,0.55686897614899,-0.47667963599366925,4.90456518463888,6.058423007131006,0.713940304496012,0.5882352941176471,0.6518518518518519
+2024,entidad,32,2.1853544702612577,2.762682471756898,0.7478941242653647,-0.6009821014543084,2.1840566076027037,2.7395237360840214,0.8665689149560116,0.75,0.7142857142857143
+2024,municipio,2343,4.468421746632713,6.138695082333742,0.7036767498229726,-2.267447299486589,2.9958561520214095,4.014984201670919,0.8472517260718524,0.6212765957446809,0.6993603411513859
+2024,distrito_federal,300,2.6872838082124586,3.3736524160851786,0.7446364178690091,-0.6132015485664611,2.6319114170122226,3.314337992651263,0.8688260980677562,0.6666666666666666,0.75
+2024,distrito_local,673,2.9054048455016,3.7294188673325097,0.7400993479261749,-0.7632867500361589,2.7577646121702086,3.5729422565468765,0.8597651213430024,0.6029411764705882,0.725925925925926
+
+COBERTURA
+year,level,territories,sections,ln_share_source,mapped_ln_share
+2021,entidad,32,48885,0.6482043663279599,0.8072403101344138
+2021,municipio,2339,48885,0.6482043663279599,0.8072403101344138
+2021,distrito_federal,300,48885,0.6482043663279599,0.8072403101344138
+2021,distrito_local,673,48885,0.6482043663279599,0.8072403101344138
+2024,entidad,32,47741,0.6102572791748478,0.9588823599851188
+2024,municipio,2343,47741,0.6102572791748478,0.9588823599851188
+2024,distrito_federal,300,47741,0.6102572791748478,0.9588823599851188
+2024,distrito_local,673,47741,0.6102572791748478,0.9588823599851188
+2027,entidad,32,54681,0.708973266320587,0.9687236726361007
+2027,municipio,2406,54681,0.708973266320587,0.9687236726361007
+2027,distrito_federal,300,54681,0.708973266320587,0.9687236726361007
+2027,distrito_local,679,54681,0.708973266320587,0.9687236726361007
+
+METODOLOGIA Y LIMITACIONES
+# Random Forest M17 en el tablero
+
+Se añade un selector de modelo a `dashboard/app.py`. La opción predeterminada conserva el tablero anterior. La nueva opción carga `dashboard/rf_dashboard.py` y utiliza archivos independientes en `data/processed/rf_dashboard`; no sustituye los pronósticos, escenarios ni umbrales del modelo lineal.
+
+El ganador municipal fue M17: regresión Random Forest de 64 árboles, profundidad máxima 12, hojas mínimas de 25 registros seccionales, `max_features=sqrt`, `max_samples=0.8`, semilla 42. Usa 143 variables históricas y demográficas, incluyendo logaritmos y resúmenes acumulados. Las tasas se agregan por lista nominal de la elección anterior. MAE municipal: 7.7294 pp en 2021 y 4.4684 pp en 2024; media 6.0989 pp. No se presenta como ganador demostrado estatal o distrital. `metricas_multinivel.csv` evalúa esos niveles reutilizando las predicciones fuera de muestra guardadas, sin repetir entrenamientos.
+
+La única refitación nueva es la del modelo final 2027, con objetivos 2015, 2018, 2021 y 2024. Sus predictores provienen de 2021 y 2024. La selección futura exige disponibilidad en ambos años, municipio y tipo de sección estables, estado de votación conocido suficiente (NS/LN ≤10%) y claves territoriales completas; no exige resultados futuros. El modelo se guarda en Joblib y se reutiliza por firma de datos, características y configuración. No se entrena al navegar.
+
+## Interpretación
+
+- Año: 2027 es pronóstico; 2021/2024 son pruebas históricas. Nivel: entidad, municipio, distrito federal o local.
+- Objetivo: NV/(SV+NV). La participación es su complemento entre personas con estado de votación conocido. NS permanece separado.
+- Lista nominal y denominador conocidos son históricos de las secciones modeladas: 2024 para el pronóstico 2027, 2018 para la prueba 2021 y 2021 para la prueba 2024. No se pronostica la lista nominal.
+- Los conteos hipotéticos son `PRED × D_BASE` y `(1-PRED) × D_BASE`; mantienen constante ese denominador histórico. No son conteos observados futuros. Las pruebas históricas muestran también resultados observados de su cohorte.
+- Estos conteos son orientativos al nivel seleccionado: las tasas se ponderan por LN, mientras que los conteos se obtienen aplicándolas a D_BASE. Si D/LN varía entre territorios, sumar conteos municipales no reproduce exactamente el conteo estatal. Se conserva SV+NV=D_BASE dentro de cada territorio y la masa LN entre niveles. No se evaluó un modelo de conteos.
+- No hay resultados por partido/candidatura en la base; no se inventan.
+- El semáforo usa percentiles 50 y 80 del pronóstico 2027 por nivel, congelados entre filtros, años y escenarios. Es relativo dentro de cada nivel; no comparar categorías como umbrales absolutos idénticos entre niveles.
+- Escenarios: base, reducción hipotética de 2 o 5 pp en territorios clasificados altos en la base. El filtro de riesgo se aplica después del escenario. No son estimaciones causales.
+- Polígonos reconstruidos a partir de la capa seccional disponible MGS DIC-2025 y asignación territorial del año fuente. Esa capa ya tiene cobertura parcial; no constituye cartografía completa ni límites históricos certificados. Las divisiones 2027 usan asignación 2024 y requieren validación con cartografía oficial 2026–2027.
+- La cobertura electoral divide LN modelada por toda la LN del territorio fuente; la cobertura cartográfica divide LN modelada con geometría por LN modelada. El mapa, aun con un polígono visible, no demuestra cobertura territorial completa.
+
+## Reproducir
+
+```text
+docker exec -w /app hackathon-ine-riesgo-abstencion-app-1 python src/19_publish_rf_dashboard.py
+docker exec -w /app hackathon-ine-riesgo-abstencion-app-1 python src/19_publish_rf_dashboard.py --verify-ui
+```
+
+Archivos: `model_m17_2027.joblib`, manifiesto de modelo, tasas seccionales 2027, `territories.parquet/.csv`, doce GeoJSON por año/nivel y metadatos. El tablero descarga la selección en CSV y el mapa en GeoJSON; ambos se vinculan mediante `ID`. Los informes registran métricas, cobertura y verificación. El bootstrap municipal de la selección previa incluye cero: la mejora sigue siendo exploratoria y necesita un nuevo ciclo electoral de evaluación.

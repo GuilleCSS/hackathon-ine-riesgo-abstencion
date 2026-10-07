@@ -466,6 +466,16 @@ def format_table(df):
     )
 
 
+selected_model = st.sidebar.selectbox(
+    "Modelo predictivo",
+    ["Modelo actual · dos historias lineales", "Random Forest M17 · multinivel"],
+    key="predictive_model",
+)
+if selected_model == "Random Forest M17 · multinivel":
+    from rf_dashboard import render
+    render(ROOT)
+    st.stop()
+
 st.title("Riesgo territorial de abstención electoral")
 st.caption(
     "Herramienta exploratoria de priorización territorial · "
