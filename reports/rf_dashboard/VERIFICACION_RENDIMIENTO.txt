@@ -1,0 +1,1 @@
+PASSED: all four national views below 8 MB and at least 85% smaller; detailed regional WKB unchanged (two states per level); scenario effect, immutable input, count conservation, detailed GeoJSON export and point/polygon selection extraction. Timings measure Python map construction and serialization, not browser/network rendering.

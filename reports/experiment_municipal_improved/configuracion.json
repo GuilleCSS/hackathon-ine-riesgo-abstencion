@@ -1,0 +1,45 @@
+{
+    "data_sha256":  "1e87ee02bfb673bd5c576af6f5fd0cfcc061168b940b27ef8e384026ccfdc5f4",
+    "feature_definition":  "ba32ce74b49c60470d475e45bdf90e2427642819fcd00f19335e87d6abc4abad",
+    "script_sha256":  "e5ed5ed32dca723992a585190ebff25c594eca63d33d47ff1df07b23f58b63da",
+    "fresh_fits":  55,
+    "reused_fits":  46,
+    "unique_fits":  98,
+    "elapsed_seconds":  1849.017929315567,
+    "metrics":  612,
+    "verification":  "PASSED",
+    "planned_unique_fits":  97,
+    "complete_planned_fits":  97,
+    "retained_pilot_fits":  1,
+    "pruned":  [
+                   {
+                       "year":  2024,
+                       "level":  "seccion",
+                       "variant":  "M13_gb_municipal_absolute",
+                       "ratio_2021":  1.2616002490073337,
+                       "reason":  "Redundant GB variant \u003e25% worse than RF R01 in 2021; representative loss/target/weight variants retained"
+                   },
+                   {
+                       "year":  2024,
+                       "level":  "seccion",
+                       "variant":  "M15_gb_change_long",
+                       "ratio_2021":  1.3182984356914096,
+                       "reason":  "Redundant GB variant \u003e25% worse than RF R01 in 2021; representative loss/target/weight variants retained"
+                   },
+                   {
+                       "year":  2024,
+                       "level":  "seccion",
+                       "variant":  "M16_gb_municipal_shallow",
+                       "ratio_2021":  1.2728193786236977,
+                       "reason":  "Redundant GB variant \u003e25% worse than RF R01 in 2021; representative loss/target/weight variants retained"
+                   }
+               ],
+    "completed_before_run":  43,
+    "command_flags":  {
+                          "extend":  true,
+                          "focus":  true
+                      },
+    "metrics_after_review":  624,
+    "review_verification":  "PASSED_native_signatures_truth_bounds_and_hybrids_zero_fits",
+    "review_script_sha256":  "e5ed5ed32dca723992a585190ebff25c594eca63d33d47ff1df07b23f58b63da"
+}

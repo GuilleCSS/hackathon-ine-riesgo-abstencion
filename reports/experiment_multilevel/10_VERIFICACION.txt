@@ -1,0 +1,6 @@
+VERIFICACIÓN COMPLETA: 544 filas únicas, 150 ajustes, dos años y cinco niveles.
+Pesos futuros excluidos del ranking; predicciones [0,1]; denominadores positivos.
+Métricas de TODOS los candidatos seleccionados recalculadas desde predicciones guardadas.
+Cohortes seccionales 48,885/47,741 y objetivos cotejados con el pipeline previo.
+La referencia lineal coincide con las métricas previas dentro de tolerancia 1e-9.
+Bootstrap seccional condicionado al candidato seleccionado: exploratorio, sin corrección por selección.

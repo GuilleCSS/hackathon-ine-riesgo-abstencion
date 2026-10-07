@@ -1,0 +1,4 @@
+year,level,variant,ratio_2021,reason
+2024,seccion,M13_gb_municipal_absolute,1.2616002490073337,Redundant GB variant >25% worse than RF R01 in 2021; representative loss/target/weight variants retained
+2024,seccion,M15_gb_change_long,1.3182984356914096,Redundant GB variant >25% worse than RF R01 in 2021; representative loss/target/weight variants retained
+2024,seccion,M16_gb_municipal_shallow,1.2728193786236977,Redundant GB variant >25% worse than RF R01 in 2021; representative loss/target/weight variants retained

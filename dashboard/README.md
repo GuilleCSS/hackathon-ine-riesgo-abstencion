@@ -1,5 +1,40 @@
 # Dashboard interactivo
 
+La navegación conserva las páginas existentes y añade
+**Random Forest M17**. Esta página permite elegir 2027
+(pronóstico), 2021/2024 (pruebas históricas), nivel estatal, municipal o
+distrital, entidad, territorio, semáforo y escenario. Haz clic en un polígono
+o selecciona un territorio para consultar sus tasas, conteos y cobertura.
+
+Los artefactos nuevos se generan con `python src/19_publish_rf_dashboard.py`.
+La metodología y reproducción están en
+`reports/rf_dashboard/IMPLEMENTACION.md`.
+
+### Exploración rápida del Random Forest
+
+- La vista nacional estatal usa polígonos simplificados; los niveles municipal
+  y distrital usan puntos. Selecciona una entidad o un territorio para cargar
+  sus polígonos detallados y consultar la ficha junto al mapa.
+- La entidad se conserva al cambiar año o nivel. El buscador permite escribir
+  el nombre del territorio. Las métricas y la cobertura permanecen visibles.
+- Los límites detallados se guardan por entidad en GeoParquet y se leen desde
+  caché. Las predicciones y geometrías regionales no se modifican.
+- El GeoJSON detallado se prepara al pulsar **Preparar mapa GeoJSON**; descargar
+  un archivo no vuelve a ejecutar la página. Los datos CSV también están disponibles.
+- Las vistas de modelos anteriores conservan su diseño y carga originales.
+
+Preparar y verificar sin reentrenar:
+
+```text
+python src/19_publish_rf_dashboard.py --optimize-dashboard
+python src/19_publish_rf_dashboard.py --verify-dashboard-performance
+python src/19_publish_rf_dashboard.py --verify-ui
+```
+
+Con Docker, anteponer `docker exec -w /app hackathon-ine-riesgo-abstencion-app-1`.
+Las mediciones están en `reports/rf_dashboard/RENDIMIENTO_MAPA.csv` y las
+verificaciones en `VERIFICACION_RENDIMIENTO.txt` y `VERIFICACION_UI.txt`.
+
 ## Qué muestra
 
 La aplicación tiene dos páginas (`app.py` es el punto de entrada y la

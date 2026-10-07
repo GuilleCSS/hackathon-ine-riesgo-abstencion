@@ -1,0 +1,54 @@
+OPTIMIZACION DE PRESENTACION Y MAPAS DEL TABLERO
+
+Se conserva el modelo M17 y sus predicciones. Las mejoras de presentacion y
+rendimiento se aplican exclusivamente a su vista. Las vistas anteriores
+conservan sin cambios su diseño, carga de datos, filtros, escenarios y resultados.
+
+MEDICIONES DE MAPAS NACIONALES 2027
+Nivel              Antes (s)  Despues (s)  Antes (bytes)  Despues (bytes)  Reduccion
+Estatal              19.066      1.380       55117599          2744676      95.020%
+Municipal            18.566      0.756       57404862          1021148      98.221%
+Distrito federal     19.564      0.635       57215672           130976      99.771%
+Distrito local       25.057      2.827       56924081           293397      99.485%
+
+Medicion local de construccion y serializacion Python. No incluye navegador,
+red ni tiempo de descarga. No es una garantia de latencia en otros equipos.
+Detalle completo de la medicion: RENDIMIENTO_MAPA.csv.
+
+CAMBIOS DE PRESENTACION
+- Mapa y ficha del territorio lado a lado, con ayuda cuando no hay seleccion.
+- Indicadores principales arriba y explicacion de cobertura visible.
+- Buscador territorial, entidad persistente entre años/niveles, semaforo con
+  etiquetas y umbrales fijos; escenarios separados de los filtros principales.
+- Lista ordenada por abstencion, metodologia y limites en apartados desplegables.
+- Exportacion CSV y GeoJSON detallado; este ultimo solo se genera por solicitud.
+- Mensajes de carga, filtros vacios y errores de mapa conservan acceso a cifras.
+
+OPTIMIZACION
+- Vista nacional estatal: geometria simplificada para representacion nacional.
+- Vista nacional municipal/distrital: un punto representativo por territorio.
+- Vista regional: geometria detallada original, particionada por entidad en
+  GeoParquet, con cache y comprobacion de la firma de la capa fuente.
+- Los datos y capas en cache se identifican por tamaño y fecha de modificacion.
+- Solo las propiedades de visualizacion se envian a PyDeck.
+
+VERIFICACION
+PASSED: cuatro vistas nacionales menores de 8 MB y reduccion superior a 85%.
+PASSED: geometria WKB regional identica en dos estados por nivel.
+PASSED: escenarios de 2/5 pp aplicados a riesgo alto, conteos coherentes,
+datos de entrada inmutables, seleccion de puntos/poligonos y exportacion GeoJSON.
+PASSED: vista anterior y regreso a ella; 12 combinaciones año/nivel;
+seleccion territorial, escenarios y filtros vacios sin excepciones.
+PASSED: navegador Edge real con perfil aislado, mapa nacional, filtro estatal,
+seleccion de poligono y ficha territorial; capturas de escritorio y movil.
+Sin excepciones de JavaScript. Ver VERIFICACION_NAVEGADOR.txt y VISTA_RF_*.png.
+La verificacion funcional adicional usa Streamlit AppTest.
+
+REPRODUCCION SIN ENTRENAR
+python src/19_publish_rf_dashboard.py --optimize-dashboard
+python src/19_publish_rf_dashboard.py --verify-dashboard-performance
+python src/19_publish_rf_dashboard.py --verify-ui
+
+Las geometrías completas disponibles permanecen sin cambios en los archivos
+boundaries_*.geojson. Los mapas nacionales simplificados son una representacion
+visual; la cartografia sigue siendo provisional y la cobertura predictiva parcial.
