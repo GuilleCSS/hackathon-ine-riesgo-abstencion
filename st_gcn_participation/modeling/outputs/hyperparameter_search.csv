@@ -1,0 +1,60 @@
+outer_target_year,model,params,selected,mean_inner_mae_pp,folds,note,fold_scores_pp,fold_years
+2015,ridge,"{""alpha"": 10.0}",True,,0,insufficient prior years; fixed conservative default,,
+2015,hist_gradient_boosting,"{""max_iter"": 120, ""max_leaf_nodes"": 15, ""learning_rate"": 0.08, ""l2_regularization"": 2.0, ""min_samples_leaf"": 50}",True,,0,insufficient prior years; fixed conservative default,,
+2018,ridge,"{""alpha"": 0.01}",True,19.79790962064368,1,,[19.79791],[2015]
+2018,ridge,"{""alpha"": 0.1}",False,19.802398344685127,1,,[19.8024],[2015]
+2018,ridge,"{""alpha"": 1.0}",False,19.846512305710664,1,,[19.84651],[2015]
+2018,ridge,"{""alpha"": 10.0}",False,20.221024151291246,1,,[20.22102],[2015]
+2018,ridge,"{""alpha"": 10000.0}",False,21.468036266177027,1,,[21.46804],[2015]
+2018,ridge,"{""alpha"": 100.0}",False,21.549560148568418,1,,[21.54956],[2015]
+2018,ridge,"{""alpha"": 1000.0}",False,22.020149333812316,1,,[22.02015],[2015]
+2018,hist_gradient_boosting,"{""l2_regularization"": 10.0, ""learning_rate"": 0.03, ""max_iter"": 60, ""max_leaf_nodes"": 15, ""min_samples_leaf"": 100}",True,21.2997382155556,1,,[21.29974],[2015]
+2018,hist_gradient_boosting,"{""l2_regularization"": 0.0, ""learning_rate"": 0.06, ""max_iter"": 60, ""max_leaf_nodes"": 15, ""min_samples_leaf"": 50}",False,22.42124613629709,1,,[22.42125],[2015]
+2018,hist_gradient_boosting,"{""l2_regularization"": 10.0, ""learning_rate"": 0.06, ""max_iter"": 100, ""max_leaf_nodes"": 7, ""min_samples_leaf"": 50}",False,22.64584047574184,1,,[22.64584],[2015]
+2018,hist_gradient_boosting,"{""l2_regularization"": 1.0, ""learning_rate"": 0.1, ""max_iter"": 100, ""max_leaf_nodes"": 7, ""min_samples_leaf"": 20}",False,23.04827007976774,1,,[23.04827],[2015]
+2018,hist_gradient_boosting,"{""l2_regularization"": 10.0, ""learning_rate"": 0.1, ""max_iter"": 100, ""max_leaf_nodes"": 7, ""min_samples_leaf"": 100}",False,23.1217715184258,1,,[23.12177],[2015]
+2018,hist_gradient_boosting,"{""l2_regularization"": 1.0, ""learning_rate"": 0.06, ""max_iter"": 240, ""max_leaf_nodes"": 63, ""min_samples_leaf"": 100}",False,23.2043823147025,1,,[23.20438],[2015]
+2018,hist_gradient_boosting,"{""l2_regularization"": 10.0, ""learning_rate"": 0.06, ""max_iter"": 240, ""max_leaf_nodes"": 63, ""min_samples_leaf"": 100}",False,23.22867430308822,1,,[23.22867],[2015]
+2018,hist_gradient_boosting,"{""l2_regularization"": 0.0, ""learning_rate"": 0.15, ""max_iter"": 60, ""max_leaf_nodes"": 15, ""min_samples_leaf"": 100}",False,23.27383590397774,1,,[23.27384],[2015]
+2018,hist_gradient_boosting,"{""l2_regularization"": 0.0, ""learning_rate"": 0.06, ""max_iter"": 240, ""max_leaf_nodes"": 31, ""min_samples_leaf"": 100}",False,23.329696268951615,1,,[23.3297],[2015]
+2018,hist_gradient_boosting,"{""l2_regularization"": 10.0, ""learning_rate"": 0.06, ""max_iter"": 240, ""max_leaf_nodes"": 15, ""min_samples_leaf"": 100}",False,23.419549343234593,1,,[23.41955],[2015]
+2018,hist_gradient_boosting,"{""l2_regularization"": 1.0, ""learning_rate"": 0.15, ""max_iter"": 100, ""max_leaf_nodes"": 15, ""min_samples_leaf"": 100}",False,23.42860934215488,1,,[23.42861],[2015]
+2018,hist_gradient_boosting,"{""l2_regularization"": 0.1, ""learning_rate"": 0.15, ""max_iter"": 160, ""max_leaf_nodes"": 15, ""min_samples_leaf"": 50}",False,23.540546943627234,1,,[23.54055],[2015]
+2021,ridge,"{""alpha"": 0.01}",True,14.486328354709398,2,,"[19.79791, 9.17475]","[2015, 2018]"
+2021,ridge,"{""alpha"": 0.1}",False,14.488552002422056,2,,"[19.8024, 9.17471]","[2015, 2018]"
+2021,ridge,"{""alpha"": 1.0}",False,14.510401468272876,2,,"[19.84651, 9.17429]","[2015, 2018]"
+2021,ridge,"{""alpha"": 10000.0}",False,14.657789267086633,2,,"[21.46804, 7.84754]","[2015, 2018]"
+2021,ridge,"{""alpha"": 10.0}",False,14.695557893760434,2,,"[20.22102, 9.17009]","[2015, 2018]"
+2021,ridge,"{""alpha"": 100.0}",False,15.338816475048596,2,,"[21.54956, 9.12807]","[2015, 2018]"
+2021,ridge,"{""alpha"": 1000.0}",False,15.429189887047704,2,,"[22.02015, 8.83823]","[2015, 2018]"
+2021,hist_gradient_boosting,"{""l2_regularization"": 10.0, ""learning_rate"": 0.03, ""max_iter"": 60, ""max_leaf_nodes"": 15, ""min_samples_leaf"": 100}",True,13.759990708690358,2,,"[21.29974, 6.22024]","[2015, 2018]"
+2021,hist_gradient_boosting,"{""l2_regularization"": 0.0, ""learning_rate"": 0.06, ""max_iter"": 60, ""max_leaf_nodes"": 15, ""min_samples_leaf"": 50}",False,14.107063768350473,2,,"[22.42125, 5.79288]","[2015, 2018]"
+2021,hist_gradient_boosting,"{""l2_regularization"": 10.0, ""learning_rate"": 0.06, ""max_iter"": 100, ""max_leaf_nodes"": 7, ""min_samples_leaf"": 50}",False,14.26193224527154,2,,"[22.64584, 5.87802]","[2015, 2018]"
+2021,hist_gradient_boosting,"{""l2_regularization"": 1.0, ""learning_rate"": 0.06, ""max_iter"": 240, ""max_leaf_nodes"": 63, ""min_samples_leaf"": 100}",False,14.412439577863157,2,,"[23.20438, 5.6205]","[2015, 2018]"
+2021,hist_gradient_boosting,"{""l2_regularization"": 10.0, ""learning_rate"": 0.06, ""max_iter"": 240, ""max_leaf_nodes"": 63, ""min_samples_leaf"": 100}",False,14.427454448209733,2,,"[23.22867, 5.62623]","[2015, 2018]"
+2021,hist_gradient_boosting,"{""l2_regularization"": 0.0, ""learning_rate"": 0.15, ""max_iter"": 60, ""max_leaf_nodes"": 15, ""min_samples_leaf"": 100}",False,14.484702509156593,2,,"[23.27384, 5.69557]","[2015, 2018]"
+2021,hist_gradient_boosting,"{""l2_regularization"": 1.0, ""learning_rate"": 0.1, ""max_iter"": 100, ""max_leaf_nodes"": 7, ""min_samples_leaf"": 20}",False,14.498658688878043,2,,"[23.04827, 5.94905]","[2015, 2018]"
+2021,hist_gradient_boosting,"{""l2_regularization"": 0.0, ""learning_rate"": 0.06, ""max_iter"": 240, ""max_leaf_nodes"": 31, ""min_samples_leaf"": 100}",False,14.506988928973168,2,,"[23.3297, 5.68428]","[2015, 2018]"
+2021,hist_gradient_boosting,"{""l2_regularization"": 10.0, ""learning_rate"": 0.1, ""max_iter"": 100, ""max_leaf_nodes"": 7, ""min_samples_leaf"": 100}",False,14.514987987281225,2,,"[23.12177, 5.9082]","[2015, 2018]"
+2021,hist_gradient_boosting,"{""l2_regularization"": 10.0, ""learning_rate"": 0.06, ""max_iter"": 240, ""max_leaf_nodes"": 15, ""min_samples_leaf"": 100}",False,14.538772976335837,2,,"[23.41955, 5.658]","[2015, 2018]"
+2021,hist_gradient_boosting,"{""l2_regularization"": 1.0, ""learning_rate"": 0.15, ""max_iter"": 100, ""max_leaf_nodes"": 15, ""min_samples_leaf"": 100}",False,14.571154602701274,2,,"[23.42861, 5.7137]","[2015, 2018]"
+2021,hist_gradient_boosting,"{""l2_regularization"": 0.1, ""learning_rate"": 0.15, ""max_iter"": 160, ""max_leaf_nodes"": 15, ""min_samples_leaf"": 50}",False,14.598282483682961,2,,"[23.54055, 5.65602]","[2015, 2018]"
+2024,ridge,"{""alpha"": 10000.0}",True,12.256855794846897,3,,"[21.46804, 7.84754, 7.45499]","[2015, 2018, 2021]"
+2024,ridge,"{""alpha"": 0.01}",False,12.294232455877284,3,,"[19.79791, 9.17475, 7.91004]","[2015, 2018, 2021]"
+2024,ridge,"{""alpha"": 0.1}",False,12.295708928572935,3,,"[19.8024, 9.17471, 7.91002]","[2015, 2018, 2021]"
+2024,ridge,"{""alpha"": 1.0}",False,12.31021564134499,3,,"[19.84651, 9.17429, 7.90984]","[2015, 2018, 2021]"
+2024,ridge,"{""alpha"": 10.0}",False,12.433057917652613,3,,"[20.22102, 9.17009, 7.90806]","[2015, 2018, 2021]"
+2024,ridge,"{""alpha"": 100.0}",False,12.856058764401254,3,,"[21.54956, 9.12807, 7.89054]","[2015, 2018, 2021]"
+2024,ridge,"{""alpha"": 1000.0}",False,12.8734973526168,3,,"[22.02015, 8.83823, 7.76211]","[2015, 2018, 2021]"
+2024,hist_gradient_boosting,"{""l2_regularization"": 10.0, ""learning_rate"": 0.03, ""max_iter"": 60, ""max_leaf_nodes"": 15, ""min_samples_leaf"": 100}",True,11.579626460068036,3,,"[21.29974, 6.22024, 7.2189]","[2015, 2018, 2021]"
+2024,hist_gradient_boosting,"{""l2_regularization"": 0.0, ""learning_rate"": 0.06, ""max_iter"": 60, ""max_leaf_nodes"": 15, ""min_samples_leaf"": 50}",False,12.076026094287288,3,,"[22.42125, 5.79288, 8.01395]","[2015, 2018, 2021]"
+2024,hist_gradient_boosting,"{""l2_regularization"": 10.0, ""learning_rate"": 0.06, ""max_iter"": 100, ""max_leaf_nodes"": 7, ""min_samples_leaf"": 50}",False,12.126266513434993,3,,"[22.64584, 5.87802, 7.85494]","[2015, 2018, 2021]"
+2024,hist_gradient_boosting,"{""l2_regularization"": 10.0, ""learning_rate"": 0.1, ""max_iter"": 100, ""max_leaf_nodes"": 7, ""min_samples_leaf"": 100}",False,12.345475197896695,3,,"[23.12177, 5.9082, 8.00645]","[2015, 2018, 2021]"
+2024,hist_gradient_boosting,"{""l2_regularization"": 1.0, ""learning_rate"": 0.1, ""max_iter"": 100, ""max_leaf_nodes"": 7, ""min_samples_leaf"": 20}",False,12.360704906168268,3,,"[23.04827, 5.94905, 8.0848]","[2015, 2018, 2021]"
+2024,hist_gradient_boosting,"{""l2_regularization"": 0.0, ""learning_rate"": 0.15, ""max_iter"": 60, ""max_leaf_nodes"": 15, ""min_samples_leaf"": 100}",False,12.46692963509662,3,,"[23.27384, 5.69557, 8.43138]","[2015, 2018, 2021]"
+2024,hist_gradient_boosting,"{""l2_regularization"": 1.0, ""learning_rate"": 0.06, ""max_iter"": 240, ""max_leaf_nodes"": 63, ""min_samples_leaf"": 100}",False,12.490262888718455,3,,"[23.20438, 5.6205, 8.64591]","[2015, 2018, 2021]"
+2024,hist_gradient_boosting,"{""l2_regularization"": 10.0, ""learning_rate"": 0.06, ""max_iter"": 240, ""max_leaf_nodes"": 63, ""min_samples_leaf"": 100}",False,12.493721737978973,3,,"[23.22867, 5.62623, 8.62626]","[2015, 2018, 2021]"
+2024,hist_gradient_boosting,"{""l2_regularization"": 0.0, ""learning_rate"": 0.06, ""max_iter"": 240, ""max_leaf_nodes"": 31, ""min_samples_leaf"": 100}",False,12.540128770375011,3,,"[23.3297, 5.68428, 8.60641]","[2015, 2018, 2021]"
+2024,hist_gradient_boosting,"{""l2_regularization"": 10.0, ""learning_rate"": 0.06, ""max_iter"": 240, ""max_leaf_nodes"": 15, ""min_samples_leaf"": 100}",False,12.554002170061066,3,,"[23.41955, 5.658, 8.58446]","[2015, 2018, 2021]"
+2024,hist_gradient_boosting,"{""l2_regularization"": 1.0, ""learning_rate"": 0.15, ""max_iter"": 100, ""max_leaf_nodes"": 15, ""min_samples_leaf"": 100}",False,12.562750012973233,3,,"[23.42861, 5.7137, 8.54594]","[2015, 2018, 2021]"
+2024,hist_gradient_boosting,"{""l2_regularization"": 0.1, ""learning_rate"": 0.15, ""max_iter"": 160, ""max_leaf_nodes"": 15, ""min_samples_leaf"": 50}",False,12.589580212760909,3,,"[23.54055, 5.65602, 8.57218]","[2015, 2018, 2021]"

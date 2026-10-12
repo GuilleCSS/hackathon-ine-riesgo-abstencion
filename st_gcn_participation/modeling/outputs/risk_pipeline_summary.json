@@ -1,0 +1,38 @@
+{
+  "target": "aggregate abstention rate by electoral section; hypothetical 2027 target family explicitly set to intermediate",
+  "selected_risk_score_model": "baseline_same_family",
+  "selection_rule": "select a tuned classic only if its mean temporal backtest MAE is below same-family persistence; otherwise retain baseline",
+  "final_hyperparameters": {
+    "ridge": {
+      "alpha": 10000.0
+    },
+    "hist_gradient_boosting": {
+      "l2_regularization": 10.0,
+      "learning_rate": 0.03,
+      "max_iter": 60,
+      "max_leaf_nodes": 15,
+      "min_samples_leaf": 100
+    }
+  },
+  "risk_thresholds": {
+    "q50": 0.4654983570646221,
+    "q80": 0.5709822539243034,
+    "q90": 0.6262626262626263
+  },
+  "scenario_effects_are_causal": false,
+  "intervention_assumption": "assumed reductions of 2 pp in high-risk sections and 5 pp in priority Top 10%; sensitivity only",
+  "sociodemographic_features": [
+    "aggregated sex-specific abstention",
+    "section type",
+    "share of vote counts from rows marked Mostrar in Población ind/afro (label proxy, not population prevalence)"
+  ],
+  "personal_data_used": false,
+  "spatial_graph_available": false,
+  "tuned_search_rows": 59,
+  "forecast_search_rows": 19,
+  "serialized_models": [
+    "modeling/models/ridge_2027.joblib",
+    "modeling/models/hist_gradient_boosting_2027.joblib",
+    "modeling/models/mlp_small_cpu_2027.joblib"
+  ]
+}
