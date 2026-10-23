@@ -7,4 +7,5 @@ st.navigation([
     st.Page("datos_anuales.py", title="Datos por año", icon="📊"),
     st.Page("clustering/grupos.py", title="Grupos de secciones", icon="🧩"),
     st.Page("random_forest.py", title="Random Forest M17", icon="🌳"),
+    st.Page("semaforo_oscar/comparacion.py", title="Semáforo alternativo (Oscar)", icon="🚦"),
 ]).run()

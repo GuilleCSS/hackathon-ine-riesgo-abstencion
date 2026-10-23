@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 import time
+import os
 from pathlib import Path
 
 import numpy as np
@@ -17,7 +18,9 @@ from sklearn.preprocessing import OneHotEncoder, StandardScaler
 
 
 ROOT = Path(__file__).resolve().parents[1]
-DATA = ROOT.parent / "Data"
+# OSCAR_DATA_DIR permite apuntar a los CSV regenerados desde los ZIP oficiales
+# (src/semaforo_oscar/01_generar_csv_oscar.py); sin ella se usa ../Data como antes.
+DATA = Path(os.environ.get("OSCAR_DATA_DIR", ROOT.parent / "Data"))
 OUT = ROOT / "outputs"
 MODEL_OUT = ROOT / "modeling" / "outputs"
 MODEL_OUT.mkdir(parents=True, exist_ok=True)

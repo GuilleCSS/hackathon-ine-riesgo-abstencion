@@ -437,6 +437,28 @@ estimación. No depende de los filtros de riesgo.
 Esta mejora es visual y de transparencia metodológica; no modifica el modelo,
 los umbrales del semáforo ni las predicciones.
 
+### Semáforo alternativo (Oscar)
+
+`st_gcn_participation/` (rama `Oscar`) propone otro semáforo 2027. Usa
+persistencia, es decir la abstención de 2021, sobre 72,599 secciones sin filtro
+de NS. La página **Semáforo alternativo (Oscar)** lo compara sección por sección
+con el oficial, que no cambia.
+
+- En las 54,772 secciones compartidas coinciden en nivel el 92.8%
+  (Spearman 0.991).
+- La diferencia real es de cobertura: Oscar suma 17,827 secciones que el filtro
+  de calidad oficial excluye, 9,199 de ellas por NS alto.
+
+- Oscar probó también 2015 y 2018. `src/semaforo_oscar/03_backtest_2018.py`
+  evalúa el modelo oficial en 2018: pierde contra la persistencia (11.35 vs.
+  4.77 pp de MAE; Spearman 0.71 vs. 0.78). Ahí sólo puede entrenarse con la
+  ventana de 2015, una intermedia. 2015 no se puede evaluar porque no hay
+  ventana anterior.
+
+Su trabajo se replica exacto desde los ZIP oficiales. Comandos y resultados en
+`reports/semaforo_oscar/REPLICA.md`; la comparación completa está en
+`reports/semaforo_oscar/COMPARACION.md`.
+
 ## Pipeline
 
 ```text
@@ -457,6 +479,7 @@ los umbrales del semáforo ni las predicciones.
 14_reconcile_cartography.py
 14b_audit_reconciliation.py
 15_build_spatial_layer.py
+21_export_web.py        # teselas PMTiles + tabla para el sitio web (ver reports/web_export/)
 dashboard/app.py
 ```
 
@@ -534,7 +557,9 @@ pip install -r requirements.txt
 
 Alternativa sin entorno local. El contenedor monta la carpeta del proyecto,
 así que `data/` y `reports/` se leen y escriben en el disco local y los cambios
-de código no requieren reconstruir la imagen (sólo cambios en `requirements.txt`).
+de código no requieren reconstruir la imagen (sólo cambios en `requirements.txt`
+o en el `Dockerfile`). La imagen base está fijada por digest e incluye
+`tippecanoe` para `src/21_export_web.py`.
 
 ```powershell
 docker compose build

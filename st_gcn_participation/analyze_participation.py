@@ -3,6 +3,7 @@ from __future__ import annotations
 import base64
 import html
 from io import BytesIO
+import os
 from pathlib import Path
 
 import matplotlib.pyplot as plt
@@ -11,7 +12,9 @@ import pandas as pd
 
 
 ROOT = Path(__file__).resolve().parent
-DATA = ROOT.parent / "Data"
+# OSCAR_DATA_DIR permite apuntar a los CSV regenerados desde los ZIP oficiales
+# (src/semaforo_oscar/01_generar_csv_oscar.py); sin ella se usa ../Data como antes.
+DATA = Path(os.environ.get("OSCAR_DATA_DIR", ROOT.parent / "Data"))
 OUT = ROOT / "outputs"
 OUT.mkdir(exist_ok=True)
 

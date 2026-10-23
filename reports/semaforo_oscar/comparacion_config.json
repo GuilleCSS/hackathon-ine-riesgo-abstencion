@@ -1,0 +1,31 @@
+{
+  "secciones_ambos": 54772,
+  "solo_oscar": 17827,
+  "solo_oficial": 0,
+  "coincidencia_nivel": 0.9277002848170598,
+  "coincidencia_esperada_al_azar": 0.3851753920245944,
+  "coincidencia_top10": 0.9798984882786825,
+  "spearman_estimaciones": 0.9914156422083155,
+  "dif_media_pp": 2.924325464429954,
+  "umbrales_oficial": {
+    "q50": 0.42817272182325317,
+    "q80": 0.5107279760442675,
+    "q90": 0.5543767375005205
+  },
+  "umbrales_oscar": {
+    "q50": 0.4654983570646221,
+    "q80": 0.5709822539243034,
+    "q90": 0.6262626262626263
+  },
+  "comparacion": {
+    "coincide": 50812,
+    "oscar_mas_bajo": 2953,
+    "oscar_mas_alto": 1007
+  },
+  "motivos_solo_oscar": {
+    "comparable_high_ns": 9199,
+    "sin_dato_comparable": 4625,
+    "insufficient_inputs": 3530,
+    "valid_inputs_low_comparability": 473
+  }
+}
