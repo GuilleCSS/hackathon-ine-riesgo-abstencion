@@ -7,6 +7,7 @@ import {
 import workerUrl from "maplibre-gl/dist/maplibre-gl-worker.mjs?url";
 import { Protocol } from "pmtiles";
 import "maplibre-gl/dist/maplibre-gl.css";
+import { get } from "../lib/api";
 import { rem, token } from "../lib/tokens";
 
 setWorkerUrl(workerUrl);
@@ -57,6 +58,8 @@ function contenidoTooltip(filas: [string, string][]) {
 }
 
 const NADA: FilterSpecification = ["==", ["get", "clave"], ""];
+// La versión va en la URL de las teselas: si la etapa 21 las regenera, el navegador no reusa las de su caché.
+const version = get<{ teselas: number }>("/api/salud").then((s) => s.teselas).catch(() => 0);
 
 export default function MapaSecciones({ datos, extra, contorno, tooltip, bbox, seleccion, onSelect }: Props) {
   const contenedor = useRef<HTMLDivElement>(null);
@@ -67,6 +70,17 @@ export default function MapaSecciones({ datos, extra, contorno, tooltip, bbox, s
   vigentes.current = { tooltip, onSelect };
 
   useEffect(() => {
+    let m: MapLibre | undefined;
+    let popup: Popup | undefined;
+    let cancelado = false;
+    version.then((v) => {
+      if (cancelado) return;
+      ({ m, popup } = crear(v));
+    });
+    return () => { cancelado = true; popup?.remove(); m?.remove(); };
+  }, []);
+
+  function crear(v: number) {
     const capa = (id: string, color: string) =>
       ({ id, type: "fill", source: "s", "source-layer": SL, filter: NADA, paint: { "fill-color": color } }) as const;
     const m = new MapLibre({
@@ -75,7 +89,7 @@ export default function MapaSecciones({ datos, extra, contorno, tooltip, bbox, s
       attributionControl: { compact: true },
       style: {
         version: 8,
-        sources: { s: { type: "vector", url: `pmtiles://${location.origin}/tiles/secciones.pmtiles` } },
+        sources: { s: { type: "vector", url: `pmtiles://${location.origin}/tiles/secciones.pmtiles?v=${v}` } },
         layers: [
           { id: "fondo", type: "background", paint: { "background-color": token("map-bg") } },
           { id: "base", type: "fill", source: "s", "source-layer": SL, paint: { "fill-color": token("sin-estimacion") } },
@@ -109,8 +123,8 @@ export default function MapaSecciones({ datos, extra, contorno, tooltip, bbox, s
     m.on("click", (e) => vigentes.current.onSelect(bajo(e.point)?.properties.clave ?? null));
     m.on("load", () => setListo(true));
     mapa.current = m;
-    return () => { popup.remove(); m.remove(); };
-  }, []);
+    return { m, popup };
+  }
 
   // Las expresiones son objetos nuevos en cada render: se comparan por contenido.
   const estilo = JSON.stringify([datos, extra, contorno]);

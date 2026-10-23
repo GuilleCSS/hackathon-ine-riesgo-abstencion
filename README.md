@@ -473,6 +473,28 @@ NS ≤ 10%. Reporte completo en `reports/auditoria_ns/AUDITORIA_NS.md`.
 - Subir el umbral a 25% recupera 1,683 secciones y mantiene en ALTO al 97.7% de
   las ALTO oficiales. Queda como propuesta; el universo del modelo no cambió.
 
+### Descomposición por edad y sexo
+
+`src/descomposicion_edad/01_descomponer_edad.py` (~20 s) arma la curva de
+participación por edad simple desde los ZIP originales y separa los cambios de
+abstención en composición (el electorado envejece) y comportamiento (cada grupo
+vota distinto, método de Kitagawa). Reporte en
+`reports/descomposicion_edad/DESCOMPOSICION_EDAD.md`.
+
+- Los de 18 años votan más que los de 19 a 30, por el primer voto. La abstención
+  es máxima cerca de los 25 y mínima entre los 61 y 69 años.
+- El envejecimiento baja la abstención alrededor de 1 pp en 12 años. En
+  presidenciales, de 2012 a 2024, el comportamiento empeoró +3.5 pp; el
+  envejecimiento lo disimula y el total sólo sube +2.4 pp.
+- Los hombres se abstienen 9.4 pp más que las mujeres (2024), hasta +14.1 pp a
+  los 29 años.
+- La edad explica poco las diferencias entre territorios (R² ≤ 0.14). De los
+  26.7 pp que separan las secciones ALTO de las BAJO, explica 1.3 pp.
+- La abstención cae de golpe a los 65 años: −2.5 pp en 2024 y −1.2 pp en 2021,
+  cuando antes los saltos eran de −0.9 pp como mucho. Coincide con la edad de la
+  pensión para adultos mayores; es una asociación por verificar, no un efecto
+  causal.
+
 ## Sitio web (Astro + FastAPI, en construcción)
 
 Migración del dashboard de Streamlit a un sitio con frontend estático y API de
@@ -487,7 +509,7 @@ FastAPI (api/main.py, puerto 8000)
 
 Cómo instalarlo y levantarlo: ver **Instalación → Sitio web**.
 
-Páginas (las cuatro primeras son las de Streamlit, con números idénticos; la auditoría es nueva):
+Páginas (las cuatro primeras son las de Streamlit, con números idénticos; auditoría y edad son nuevas):
 
 | Página | Ruta | Qué muestra |
 |---|---|---|
@@ -495,6 +517,7 @@ Páginas (las cuatro primeras son las de Streamlit, con números idénticos; la 
 | Datos por año | `/historico/` | Mapa por elección (abstención, NS o cambio), series 2009–2024, rangos de NS y cambios de secciones |
 | Grupos | `/grupos/` | Tipología del clustering: perfil, trayectorias, mapa por grupo y composición por entidad o municipio |
 | Semáforo alternativo | `/semaforo-alternativo/` | Oficial vs. Oscar: mapa de diferencias, matriz de niveles, motivos y coincidencia por entidad |
+| Edad y sexo | `/edad/` | Abstención no explicada por la edad en el mapa, curva por edad y sexo, salto a los 65, Kitagawa y entidades |
 | Auditoría NS | `/auditoria-ns/` | Qué secciones entrarían al semáforo con otro umbral de NS (y con qué nivel), NS por año en el mapa y las pruebas de la auditoría |
 
 Todas dibujan polígonos reales también a nivel nacional y abren una ficha por
@@ -679,6 +702,9 @@ docker compose up                                          # dashboard en http:/
   - **Grupos:** `src/clustering/01_build_section_clusters.py`.
   - **Semáforo alternativo:** la réplica de Oscar (comandos en
     `reports/semaforo_oscar/REPLICA.md`).
+  - **Edad y sexo:** `src/descomposicion_edad/01_descomponer_edad.py` (~20 s).
+    Las tablas están versionadas en `reports/descomposicion_edad/`, pero las capas
+    del mapa necesitan correrla antes de la etapa 21.
   - **Auditoría NS:** `src/auditoria_ns/01_auditar_ns.py` (segundos). Esta página
     lee `reports/auditoria_ns/`, que está versionado, así que funciona sin correrla.
 - Sin esos pasos, esas dos páginas muestran un aviso o salen vacías. Las otras

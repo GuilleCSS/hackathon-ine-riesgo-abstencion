@@ -30,6 +30,7 @@ CLUSTER_CONFIG = ROOT / "reports" / "clustering" / "clustering_config.json"
 K_SELECTION = ROOT / "reports" / "clustering" / "01_k_selection.csv"
 OSCAR_CONFIG = ROOT / "reports" / "semaforo_oscar" / "comparacion_config.json"
 AUDIT_NS = ROOT / "reports" / "auditoria_ns"  # opcional: src/auditoria_ns/01_auditar_ns.py
+AGE = ROOT / "reports" / "descomposicion_edad"  # opcional: src/descomposicion_edad/01_descomponer_edad.py
 DIST = ROOT / "web" / "dist"
 
 for path in (TABLE_PATH, HISTORY_PATH, TILES_PATH, SCENARIO_CONFIG):
@@ -95,6 +96,10 @@ app = FastAPI(title="Riesgo territorial de abstención 2027", version="0.1.0",
 async def security_headers(request, call_next):
     response = await call_next(request)
     response.headers.update(SECURITY_HEADERS)
+    # Los archivos de /_astro/ llevan hash en el nombre: caché larga. Lo demás (HTML, API,
+    # teselas) se revalida con ETag; si no, el navegador reusa teselas o HTML viejos tras un build.
+    response.headers["Cache-Control"] = ("public, max-age=31536000, immutable"
+                                         if request.url.path.startswith("/_astro/") else "no-cache")
     return response
 
 
@@ -119,8 +124,9 @@ Edo = Annotated[int | None, Query(ge=1, le=32)]
 
 @app.get("/api/salud")
 def salud():
+    # "teselas" versiona la URL del PMTiles en el frontend: cambia cada vez que corre la etapa 21.
     return {"ok": True, "secciones": rows("SELECT count(*) AS n FROM s")[0]["n"],
-            "datos": TABLE_PATH.stat().st_mtime}
+            "datos": TABLE_PATH.stat().st_mtime, "teselas": int(TILES_PATH.stat().st_mtime)}
 
 
 @app.get("/api/config")
@@ -378,6 +384,30 @@ def auditoria_ns(edo: Edo = None, umbral: Annotated[float, Query(ge=0.05, le=1)]
         "niveles": tabla("07_nivel_indicativo_excluidas.csv"),
         "por_entidad": tabla("08_excluidas_por_entidad.csv"),
         "sensibilidad": tabla("10_sensibilidad_umbral.csv"),
+        "bbox": bbox(edo),
+    }
+
+
+@app.get("/api/edad")
+def edad(edo: Edo = None):
+    """Curva por edad y sexo, descomposición de Kitagawa y abstención no explicada por la edad."""
+    if not (AGE / "descomposicion_config.json").exists():
+        raise HTTPException(404, "No hay descomposición: corre src/descomposicion_edad/01_descomponer_edad.py")
+    tabla = lambda name, sql="SELECT * FROM t": rows(sql.replace("FROM t", "FROM read_csv_auto(?)"), [str(AGE / name)])
+    entidad = None
+    if edo is not None:
+        nombre = rows("SELECT mode(EDONOM) AS n FROM s WHERE EDOCVE = ?", [edo])[0]["n"]
+        entidad = rows("SELECT * FROM read_csv_auto(?) WHERE entidad = ? ORDER BY anio", [str(AGE / "06_por_entidad.csv"), nombre])
+    return {
+        "resumen": json.loads((AGE / "descomposicion_config.json").read_text()),
+        "curva": tabla("01_curva_por_edad.csv", "SELECT AELEC AS anio, SEXO AS sexo, EDAD AS edad, abstencion FROM t"),
+        "tasas": tabla("03_tasas_y_pesos_por_grupo.csv"),
+        "kitagawa": tabla("04_descomposicion_kitagawa.csv"),
+        "estandarizacion": tabla("05_estandarizacion_secciones.csv"),
+        "entidades": tabla("06_por_entidad.csv", "SELECT * FROM t WHERE anio = 2024 ORDER BY diferencia_no_explicada_pp DESC"),
+        "niveles": tabla("07_por_nivel_riesgo.csv"),
+        "salto_65": tabla("08_salto_65.csv"),
+        "entidad": entidad,
         "bbox": bbox(edo),
     }
 

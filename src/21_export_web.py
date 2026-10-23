@@ -29,6 +29,7 @@ SCENARIOS_PATH = ROOT / "data" / "processed" / "scenarios_2027" / "section_scena
 FORECAST_ALL_PATH = ROOT / "data" / "processed" / "forecast_2027" / "forecast_2027_all_comparable.parquet"
 CLUSTERS_PATH = ROOT / "data" / "processed" / "clustering" / "section_clusters.parquet"
 OSCAR_PATH = ROOT / "data" / "processed" / "semaforo_oscar" / "comparacion_secciones.parquet"
+EDAD_PATH = ROOT / "data" / "processed" / "descomposicion_edad" / "secciones_edad.parquet"
 
 OUT_DATA = ROOT / "data" / "processed" / "web"
 OUT_REPORT = ROOT / "reports" / "web_export"
@@ -114,6 +115,13 @@ def load_attributes():
         oscar["MOTIVO_SOLO_OSCAR"] = oscar["QUALITY_FLAG"].where(oscar["COMPARACION"].eq("solo_oscar"))
         table = table.join(oscar.drop(columns="QUALITY_FLAG").set_index("SECTION_KEY")
                            .rename(columns={"COMPARACION": "COMPARACION_OSCAR"}), how="outer")
+    if EDAD_PATH.exists():
+        # Abstención no explicada por la estructura de edad (observada − esperada, pp) y jóvenes 18–24.
+        e = pd.read_parquet(EDAD_PATH)
+        e["RES"] = (e["PCT_ABSTENCION"] - e["ESPERADA"]) * 100
+        wide = e.pivot(index="SECTION_KEY", columns="AELEC", values=["RES", "JOVENES"])
+        wide.columns = [f"{'NO_EXPLICADA_EDAD_PP' if v == 'RES' else 'JOVENES_18_24'}_{y}" for v, y in wide.columns]
+        table = table.join(wide, how="outer")
     return table
 
 
@@ -161,6 +169,10 @@ def tile_properties(table):
     for s in SCENARIOS.values():
         props[f"nivel_{s.lower()}"] = t[f"RISK_LEVEL_{s}"]
         props[f"top10_{s.lower()}"] = t[f"PRIORITY_TOP10_{s}"].astype("boolean")
+    for y in (2021, 2024):
+        if f"NO_EXPLICADA_EDAD_PP_{y}" in t:
+            props[f"edad_res_{y}"] = t[f"NO_EXPLICADA_EDAD_PP_{y}"].round(1)
+            props[f"jovenes_{y}"] = pct(t[f"JOVENES_18_24_{y}"])
     for y in YEARS:
         props[f"abst_{y}"] = pct(t[f"ABST_{y}"])
         props[f"ns_{y}"] = pct(t[f"NS_{y}"])

@@ -137,6 +137,26 @@ export interface AuditoriaNS {
   bbox: [number, number, number, number];
 }
 
+export interface Edad {
+  resumen: { brecha_18_24_menos_60_pp: Record<string, number>; edad_con_menos_abstencion: Record<string, number>;
+    largo_plazo: Record<string, { cambio_pp: number; composicion_pp: number; comportamiento_pp: number }>;
+    r2_edad_secciones: Record<string, number>; brecha_hombres_menos_mujeres_pp: Record<string, number>;
+    brecha_sexo_max_2024: { edad: number; pp: number };
+    brecha_alto_bajo_pp: number; brecha_explicada_por_edad_pp: number; parte_explicada_por_edad: number };
+  curva: { anio: number; sexo: string; edad: number; abstencion: number }[];
+  tasas: { anio: number; tipo: string; grupo: string; peso: number; abstencion: number }[];
+  kitagawa: { de: number; a: number; tipo: string; grupo: string; composicion_pp: number; comportamiento_pp: number;
+    abstencion_de: number | null; abstencion_a: number | null; cambio_pp: number | null }[];
+  estandarizacion: { anio: number; tipo: string; secciones: number; de_observada_pp: number; de_esperada_por_edad_pp: number; r2: number }[];
+  entidades: EdadEntidad[];
+  niveles: { nivel: Nivel; secciones: number; jovenes_18_24: number; mayores_60: number; observada_2021: number; esperada_por_edad_2021: number }[];
+  entidad: EdadEntidad[] | null;
+  salto_65: { anio: number; grupo: string; salto_65_pp: number; pendiente_normal_pp: number }[];
+  bbox: [number, number, number, number];
+}
+export interface EdadEntidad { entidad: string; anio: number; observada: number; esperada_por_edad: number;
+  brecha_jovenes_mayores_pp: number; diferencia_no_explicada_pp: number }
+
 export const fmt = {
   n: (v: number) => v.toLocaleString("es-MX"),
   pct: (v: number | null | undefined, d = 1) => (v === null || v === undefined ? "—" : `${v.toFixed(d)}%`),

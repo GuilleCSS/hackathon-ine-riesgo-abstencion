@@ -47,6 +47,8 @@ export function Lineas({ series, formato, formatoValor = formato, titulo }: {
   const w = Math.max(ancho - m.left - m.right, 0);
   const h = alto - m.top - m.bottom;
   const tramos = Math.max(xs.length - 1, 1);
+  // Con muchos puntos (p. ej. edades 18–90): etiquetas cada 10 y sin marcadores.
+  const denso = xs.length > 12;
   const x = (v: number) => m.left + (xs.length < 2 ? w / 2 : (xs.indexOf(v) / tramos) * w);
   const y = (v: number) => m.top + h - (v / tope) * h;
   const enHover = hover === null ? [] : series
@@ -75,7 +77,9 @@ export function Lineas({ series, formato, formatoValor = formato, titulo }: {
               <text className="eje" x={m.left - rem(0.5)} y={y(t)} textAnchor="end" dominantBaseline="middle">{formato(t)}</text>
             </g>
           ))}
-          {xs.map((v) => <text key={v} className="eje" x={x(v)} y={alto - rem(0.35)} textAnchor="middle">{v}</text>)}
+          {xs.filter((v) => !denso || v % 10 === 0).map((v) => (
+            <text key={v} className="eje" x={x(v)} y={alto - rem(0.35)} textAnchor="middle">{v}</text>
+          ))}
           {hover !== null && <line className="guia" x1={x(hover)} x2={x(hover)} y1={m.top} y2={m.top + h} />}
           {series.map((s) => {
             const pts = s.puntos.filter((p) => p.y !== null);
@@ -83,7 +87,7 @@ export function Lineas({ series, formato, formatoValor = formato, titulo }: {
               <g key={s.nombre}>
                 <path className={`linea${s.punteada ? " punteada" : ""}`} stroke={s.punteada ? "var(--ink-2)" : s.color}
                   d={pts.map((p, i) => `${i ? "L" : "M"}${x(p.x)},${y(p.y!)}`).join("")} />
-                {!s.punteada && pts.map((p) => <circle key={p.x} className="marca" cx={x(p.x)} cy={y(p.y!)} r={rem(0.3)} fill={s.color} />)}
+                {!s.punteada && !denso && pts.map((p) => <circle key={p.x} className="marca" cx={x(p.x)} cy={y(p.y!)} r={rem(0.3)} fill={s.color} />)}
               </g>
             );
           })}

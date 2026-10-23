@@ -251,6 +251,39 @@ Queda como propuesta para el equipo: incluir las secciones con NS parcial marcad
 como estimación con menos registros, o subir el umbral a 25%. No se tocó el
 universo `primary_clean10`.
 
+### 7.5 Descomposición por edad y sexo
+
+`src/descomposicion_edad/01_descomponer_edad.py`; reporte en
+`reports/descomposicion_edad/DESCOMPOSICION_EDAD.md`. Usa los ZIP originales (edad
+simple × sexo) y la base maestra (grupos de edad por sección).
+
+- **Curva por edad estable en las seis elecciones.** El primer voto (18 años)
+  participa más que los de 19 a 30. La abstención es máxima cerca de los 25 y
+  mínima entre los 61 y 69, y sube de nuevo en edades avanzadas.
+- **Kitagawa.** El envejecimiento explica −0.86 pp de los −7.78 pp de 2009 a 2021
+  (intermedias) y −1.07 pp de los +2.41 pp de 2012 a 2024 (presidenciales). En
+  presidenciales, el comportamiento empeoró +3.48 pp. De 2018 a 2024 subió la
+  abstención en todos los grupos salvo 60+, y la brecha entre 18–24 y 60+ llegó a
+  21 pp.
+- **Sexo.** Los hombres se abstienen 7–9 pp más que las mujeres en todas las
+  elecciones, hasta 14 pp entre los 25 y los 40 años. La brecha se invierte después
+  de los 70.
+- **Territorio.** La estructura de edad casi no explica las diferencias entre
+  secciones (R² 0.04–0.14). Entre ALTO y BAJO 2027 explica 1.3 de 26.7 pp. Las
+  entidades con más abstención de la esperada por su edad son Baja California
+  (+12.5 pp), Sonora y Chihuahua; las de menos, Yucatán (−11.8 pp), Tlaxcala y
+  Ciudad de México.
+
+- **Salto a los 65 años.** La abstención cae −2.5 pp justo a los 65 en 2024 y
+  −1.2 pp en 2021; antes, el salto era de −0.9 pp como mucho. Aparece en hombres,
+  mujeres y en todo tipo de sección. Coincide con la edad de acceso a la pensión
+  universal para adultos mayores, que según la prensa se paga desde los 65 años a
+  partir de julio de 2021. Es una asociación por verificar con fuentes oficiales.
+
+**Implicación:** la edad no aporta al modelo territorial, pero sí sirve para
+explicar los cambios nacionales y para focalizar mensajes en hombres de 19 a 34
+años.
+
 ## 8. Lo que no funcionó o costó trabajo
 
 **Del modelado**

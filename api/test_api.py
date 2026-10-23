@@ -69,6 +69,11 @@ def main():
     assert data("/api/auditoria-ns?umbral=0.25")["kpis"]["entrarian"] == 56455 - 54772
     assert data("/api/auditoria-ns?umbral=1")["kpis"]["entrarian"] == 9199
 
+    # Edad y sexo: mismos números que reports/descomposicion_edad/DESCOMPOSICION_EDAD.md.
+    e = data("/api/edad")
+    assert e["resumen"]["brecha_18_24_menos_60_pp"]["2024"] == 21.0 and e["resumen"]["salto_65_pp"]["2024"] == -2.5
+    assert len(e["curva"]) == 6 * 3 * 73 and data("/api/edad?edo=2")["entidad"][-1]["entidad"] == "BAJA CALIFORNIA"
+
     # Validación de entradas: nada llega a SQL sin pasar por los tipos.
     for bad in ["/api/resumen?escenario=S9", "/api/resumen?edo=40", "/api/resumen?nivel=X",
                 "/api/secciones/09-4882'--", "/api/entidades/0/municipios",

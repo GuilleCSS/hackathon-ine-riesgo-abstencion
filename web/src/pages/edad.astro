@@ -1,0 +1,11 @@
+---
+import Base from "../layouts/Base.astro";
+import Edad from "../components/Edad.tsx";
+---
+<Base title="Edad y sexo · Riesgo de abstención 2027" description="Curva de abstención por edad y sexo, descomposición del cambio y abstención no explicada por la edad.">
+  <main>
+    <Edad client:only="react">
+      <p slot="fallback" class="note">Cargando…</p>
+    </Edad>
+  </main>
+</Base>
