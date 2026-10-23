@@ -22,15 +22,21 @@ from fastapi.staticfiles import StaticFiles
 ROOT = Path(__file__).resolve().parents[1]
 WEB_DATA = ROOT / "data" / "processed" / "web"
 TABLE_PATH = WEB_DATA / "secciones.parquet"
+HISTORY_PATH = WEB_DATA / "historico.parquet"
+GROUPS_PATH = WEB_DATA / "grupos.parquet"  # opcional: sólo si se corrió el clustering
 TILES_PATH = WEB_DATA / "secciones.pmtiles"
 SCENARIO_CONFIG = ROOT / "reports" / "scenarios_2027" / "scenario_config.json"
+CLUSTER_CONFIG = ROOT / "reports" / "clustering" / "clustering_config.json"
+K_SELECTION = ROOT / "reports" / "clustering" / "01_k_selection.csv"
+OSCAR_CONFIG = ROOT / "reports" / "semaforo_oscar" / "comparacion_config.json"
 DIST = ROOT / "web" / "dist"
 
-for path in (TABLE_PATH, TILES_PATH, SCENARIO_CONFIG):
+for path in (TABLE_PATH, HISTORY_PATH, TILES_PATH, SCENARIO_CONFIG):
     if not path.exists():
         raise FileNotFoundError(f"No existe {path.relative_to(ROOT)}. Ejecuta primero src/21_export_web.py")
 
 Escenario = Literal["S0", "S1", "S2", "S3"]
+TipoEleccion = Literal["intermedia", "presidencial"]
 Nivel = Literal["BAJO", "MEDIO", "ALTO"]
 Sensibilidad = Literal["NO_ALTO", "ALTO_SENSIBLE_2PP", "ALTO_SENSIBLE_5PP", "ALTO_PERSISTENTE_MAS_5PP"]
 SCENARIO_IDS = {"S0": "S0_BASELINE", "S1": "S1_TOP10_MINUS2", "S2": "S2_HIGH_MINUS2", "S3": "S3_HIGH_MINUS5"}
@@ -44,6 +50,10 @@ scenario_cfg = json.loads(SCENARIO_CONFIG.read_text())
 THRESHOLDS = scenario_cfg["classification_thresholds_frozen_from_baseline"]
 con = duckdb.connect()
 con.execute("CREATE TABLE s AS SELECT * FROM read_parquet(?)", [str(TABLE_PATH)])
+con.execute("CREATE TABLE h AS SELECT * FROM read_parquet(?)", [str(HISTORY_PATH)])
+HAS_GROUPS = GROUPS_PATH.exists() and CLUSTER_CONFIG.exists()
+if HAS_GROUPS:
+    con.execute("CREATE TABLE g AS SELECT * FROM read_parquet(?)", [str(GROUPS_PATH)])
 # ponytail: la tabla se carga al arrancar; reiniciar la API después de correr src/21.
 
 
@@ -87,13 +97,23 @@ async def security_headers(request, call_next):
     return response
 
 
-def scope_filter(edo, mun):
-    cond, params = ["EN_CARTOGRAFIA"], []
+def scope_filter(edo, mun, alias=""):
+    cond, params = [f"{alias}EN_CARTOGRAFIA"], []
     if edo is not None:
-        cond.append("EDOCVE = ?"); params.append(edo)
+        cond.append(f"{alias}EDOCVE = ?"); params.append(edo)
     if mun is not None:
-        cond.append("MPIOCVE = ?"); params.append(mun)
+        cond.append(f"{alias}MPIOCVE = ?"); params.append(mun)
     return cond, params
+
+
+def bbox(edo, mun=None):
+    cond, params = scope_filter(edo, mun)
+    r = rows(f"""SELECT min(BBOX_MINX) AS a, min(BBOX_MINY) AS b, max(BBOX_MAXX) AS c, max(BBOX_MAXY) AS d
+                 FROM s WHERE {' AND '.join(cond)}""", params)[0]
+    return [r["a"], r["b"], r["c"], r["d"]]
+
+
+Edo = Annotated[int | None, Query(ge=1, le=32)]
 
 
 @app.get("/api/salud")
@@ -204,6 +224,129 @@ def seccion(clave: Annotated[str, PathParam(pattern=r"^\d{2}-\d{4}$")]):
         "grupo": {"id": r["GRUPO"], "nombre": r["GRUPO_NOMBRE"]},
         "oscar": {"nivel": r["NIVEL_OSCAR"], "pred": pct(r["PRED_OSCAR"]), "comparacion": r["COMPARACION_OSCAR"]},
     }
+
+
+@app.get("/api/historico")
+def historico(edo: Edo = None, tipo: TipoEleccion | None = None):
+    """Series 2009–2024, secciones por rango de NS y cambios de secciones entre elecciones."""
+    cond, params = ["TRUE"], []
+    if edo is not None:
+        cond.append("EDOCVE = ?"); params.append(edo)
+    if tipo:
+        cond.append("TIPO_ELECCION = ?"); params.append(tipo)
+    where = " AND ".join(cond)
+    anios = rows(f"""
+        SELECT AELEC AS anio, any_value(TIPO_ELECCION) AS tipo, count(*) AS secciones,
+               sum(LN) AS ln, sum(SV) AS sv, sum(NV) AS nv, sum(NS) AS ns,
+               sum(NV) / (sum(SV) + sum(NV)) AS abstencion, sum(NS) / sum(LN) AS pct_ns,
+               count(*) FILTER (SECTION_KEY IN (SELECT SECTION_KEY FROM s WHERE EN_CARTOGRAFIA)) AS en_cartografia
+        FROM h WHERE {where} GROUP BY AELEC ORDER BY AELEC""", params)
+    # Mismos cortes que dashboard/datos_anuales.py; las secciones sin lista nominal cuentan como ≤5%.
+    rangos = rows(f"""
+        SELECT AELEC AS anio, CASE
+            WHEN NS / nullif(LN, 0) >= 1 THEN '100%' WHEN NS / nullif(LN, 0) > 0.5 THEN '50–99%'
+            WHEN NS / nullif(LN, 0) > 0.25 THEN '25–50%' WHEN NS / nullif(LN, 0) > 0.10 THEN '10–25%'
+            WHEN NS / nullif(LN, 0) > 0.05 THEN '5–10%' ELSE '≤5%' END AS rango,
+          count(*) AS secciones
+        FROM h WHERE {where} GROUP BY ALL ORDER BY 1""", params)
+    cambios = rows(f"""
+        WITH f AS (SELECT SECTION_KEY, AELEC, MPIOCVE, TIPOSEC FROM h WHERE {where}),
+        y AS (SELECT AELEC AS actual, lag(AELEC) OVER (ORDER BY AELEC) AS previa FROM (SELECT DISTINCT AELEC FROM f)),
+        a AS (SELECT y.actual, y.previa, f.* FROM y JOIN f ON f.AELEC = y.actual WHERE y.previa IS NOT NULL),
+        b AS (SELECT y.actual, y.previa, f.* FROM y JOIN f ON f.AELEC = y.previa WHERE y.previa IS NOT NULL)
+        SELECT coalesce(a.actual, b.actual) AS anio, coalesce(a.previa, b.previa) AS comparada_con,
+               count(a.SECTION_KEY) AS secciones, count(*) FILTER (b.SECTION_KEY IS NULL) AS nuevas,
+               count(*) FILTER (a.SECTION_KEY IS NULL) AS desaparecidas,
+               count(*) FILTER (a.MPIOCVE <> b.MPIOCVE) AS cambio_municipio,
+               count(*) FILTER (a.TIPOSEC <> b.TIPOSEC) AS cambio_tipo
+        FROM a FULL JOIN b ON a.actual = b.actual AND a.SECTION_KEY = b.SECTION_KEY
+        GROUP BY 1, 2 ORDER BY 1""", params)
+    return {"anios": anios, "ns_rangos": rangos, "cambios": cambios, "bbox": bbox(edo)}
+
+
+@app.get("/api/grupos")
+def grupos(edo: Edo = None, tipo: TipoEleccion | None = None):
+    """Perfil, trayectorias y composición de los grupos del clustering (fase 1, descriptivo)."""
+    if not HAS_GROUPS:
+        raise HTTPException(404, "No hay grupos: corre src/clustering/01_build_section_clusters.py y src/21_export_web.py")
+    cfg = json.loads(CLUSTER_CONFIG.read_text())
+    where, params = ("s.EDOCVE = ?", [edo]) if edo is not None else ("TRUE", [])
+    scope = f"g JOIN s USING (SECTION_KEY) WHERE {where}"
+    carto_cond, carto_params = scope_filter(edo, None)
+    agrupadas = rows(f"SELECT count(*) AS n, count(*) FILTER (s.EN_CARTOGRAFIA) AS en_carto FROM {scope}", params)[0]
+    cartografia = rows(f"SELECT count(*) AS n FROM s WHERE {' AND '.join(carto_cond)}", carto_params)[0]["n"]
+    perfil = rows(f"""
+        SELECT g.GRUPO AS grupo, any_value(g.GRUPO_NOMBRE) AS nombre, count(*) AS secciones,
+               avg(nivel_intermedia) AS intermedias, avg(nivel_presidencial) AS presidenciales,
+               avg(tendencia) AS tendencia, avg(volatilidad) AS volatilidad,
+               avg((g.TIPOSEC = 'U')::INT) AS urbana, avg((g.TIPOSEC = 'R')::INT) AS rural,
+               median(g.LN) AS ln_mediana, avg(PROP_LN_18_24) AS jovenes
+        FROM {scope} GROUP BY 1 ORDER BY 1""", params)
+    total = sum(p["secciones"] for p in perfil) or 1
+    for p in perfil:
+        p["pct"] = p["secciones"] / total
+    years_cond = "" if tipo is None else "AND h.TIPO_ELECCION = ?"
+    trayectorias = rows(f"""
+        WITH x AS (SELECT g.GRUPO, h.AELEC, h.TIPO_ELECCION, h.SV, h.NV
+                   FROM g JOIN s USING (SECTION_KEY) JOIN h USING (SECTION_KEY) WHERE {where} {years_cond})
+        SELECT GRUPO AS grupo, AELEC AS anio, any_value(TIPO_ELECCION) AS tipo, sum(NV) / (sum(SV) + sum(NV)) AS abstencion
+        FROM x GROUP BY 1, 2
+        UNION ALL
+        SELECT NULL, AELEC, any_value(TIPO_ELECCION), sum(NV) / (sum(SV) + sum(NV)) FROM x GROUP BY AELEC
+        ORDER BY 1 NULLS LAST, 2""", params + ([tipo] if tipo else []))
+    # Por entidad a nivel nacional; por municipio (los 30 con más secciones) dentro de una entidad.
+    clave, nombre = ("s.EDOCVE", "s.EDONOM") if edo is None else ("s.MPIOCVE", "s.MPIONOM")
+    composicion = rows(f"""
+        WITH c AS (SELECT {clave} AS clave, any_value({nombre}) AS nombre, g.GRUPO AS grupo, count(*) AS secciones
+                   FROM {scope} GROUP BY {clave}, g.GRUPO),
+             t AS (SELECT clave, sum(secciones) AS total FROM c GROUP BY 1 ORDER BY 2 DESC {'' if edo is None else 'LIMIT 30'})
+        SELECT c.clave::INT AS clave, c.nombre, c.grupo, c.secciones, c.secciones / t.total AS pct, t.total
+        FROM c JOIN t USING (clave) ORDER BY t.total DESC, c.grupo""", params)
+    k_sel = [dict(zip(["k", "silhouette", "tamanos"], line.split(",")))
+             for line in K_SELECTION.read_text().splitlines()[1:]] if K_SELECTION.exists() else []
+    return {
+        "config": {k: cfg[k] for k in ("k", "silhouette_k", "sections_clustered", "max_ns", "naming_rules_pp", "groups")},
+        "k_seleccion": k_sel,
+        "kpis": {"agrupadas": agrupadas["n"], "agrupadas_en_cartografia": agrupadas["en_carto"], "cartografia": cartografia},
+        "perfil": perfil, "trayectorias": trayectorias, "composicion": composicion, "bbox": bbox(edo),
+    }
+
+
+@app.get("/api/oscar")
+def oscar(edo: Edo = None):
+    """Semáforo oficial frente al alternativo de Oscar (st_gcn_participation), sección por sección."""
+    cond, params = ["COMPARACION_OSCAR IS NOT NULL"], []
+    if edo is not None:
+        cond.append("EDOCVE = ?"); params.append(edo)
+    where = " AND ".join(cond)
+    ambos = "COMPARACION_OSCAR IN ('coincide', 'oscar_mas_alto', 'oscar_mas_bajo')"
+    kpis = rows(f"""
+        SELECT count(*) FILTER ({ambos}) AS ambos,
+               count(*) FILTER (COMPARACION_OSCAR = 'coincide') / nullif(count(*) FILTER ({ambos}), 0) AS mismo_nivel,
+               avg((PRED_OSCAR - PRED_ABSTENCION_2027) * 100) FILTER ({ambos}) AS dif_media_pp,
+               count(*) FILTER (COMPARACION_OSCAR = 'solo_oscar') AS solo_oscar,
+               count(*) FILTER (COMPARACION_OSCAR = 'solo_oficial') AS solo_oficial
+        FROM s WHERE {where}""", params)[0]
+    matriz = rows(f"""
+        SELECT RISK_LEVEL AS oficial, NIVEL_OSCAR AS oscar, count(*) AS secciones
+        FROM s WHERE {where} AND {ambos} GROUP BY ALL""", params)
+    motivos = rows(f"""
+        SELECT MOTIVO_SOLO_OSCAR AS motivo, count(*) AS secciones
+        FROM s WHERE {where} AND COMPARACION_OSCAR = 'solo_oscar' GROUP BY 1 ORDER BY 2 DESC""", params)
+    unidad = ("EDOCVE", "EDONOM") if edo is None else ("MPIOCVE", "MPIONOM")
+    por_unidad = rows(f"""
+        SELECT {unidad[0]}::INT AS clave, mode({unidad[1]}) AS nombre, count(*) FILTER ({ambos}) AS ambos,
+               count(*) FILTER (COMPARACION_OSCAR = 'coincide') / nullif(count(*) FILTER ({ambos}), 0) AS mismo_nivel,
+               avg((PRED_OSCAR - PRED_ABSTENCION_2027) * 100) FILTER ({ambos}) AS dif_media_pp,
+               count(*) FILTER (RISK_LEVEL = 'ALTO') AS alto_oficial, count(*) FILTER (NIVEL_OSCAR = 'ALTO') AS alto_oscar,
+               count(*) FILTER (COMPARACION_OSCAR = 'solo_oscar') AS solo_oscar
+        FROM s WHERE {where} AND {unidad[0]} IS NOT NULL GROUP BY 1 HAVING ambos > 0
+        ORDER BY mismo_nivel, ambos DESC""", params)
+    cfg = json.loads(OSCAR_CONFIG.read_text()) if OSCAR_CONFIG.exists() else {}
+    umbrales = {k: {q: round(v * 100, 2) for q, v in cfg.get(f"umbrales_{k}", {}).items()} for k in ("oficial", "oscar")}
+    return {"kpis": kpis, "matriz": matriz, "motivos": motivos, "por_unidad": por_unidad, "umbrales": umbrales,
+            "nacional": {k: cfg.get(k) for k in ("coincidencia_esperada_al_azar", "coincidencia_top10", "spearman_estimaciones")},
+            "bbox": bbox(edo)}
 
 
 @app.get("/tiles/secciones.pmtiles")

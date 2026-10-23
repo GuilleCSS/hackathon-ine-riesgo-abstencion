@@ -466,28 +466,30 @@ sólo lectura. Streamlit sigue disponible para exploración interna.
 
 ```text
 FastAPI (api/main.py, puerto 8000)
- ├─ /api/...       KPIs, tablas, catálogos y ficha por sección (DuckDB sobre data/processed/web/secciones.parquet)
+ ├─ /api/...       resumen y ficha por sección, histórico, grupos y semáforo alternativo (DuckDB sobre data/processed/web/*.parquet)
  ├─ /tiles/...     secciones.pmtiles con HTTP Range (MapLibre lo lee sin servidor de teselas)
  └─ /              build estático de Astro + React (web/dist)
 ```
 
-```bash
-docker compose run --rm app python src/21_export_web.py   # teselas + tabla (después del pipeline)
-docker compose run --rm web pnpm install                  # una vez
-docker compose run --rm web pnpm build                    # genera web/dist
-docker compose up -d api                                  # sitio en http://localhost:8000
-python api/test_api.py                                    # prueba de humo contra la API
-docker compose --profile web up web                       # desarrollo con recarga en http://localhost:4321
-```
+Cómo instalarlo y levantarlo: ver **Instalación → Sitio web**.
 
-Reinicia la API después de correr la etapa 21 o un `pnpm build`: carga la tabla
-y calcula los hashes de la CSP al arrancar.
+Páginas (las mismas de Streamlit, con números idénticos):
 
-Primera página: el mapa de riesgo 2027, con los mismos filtros, KPIs, tablas y
-escenarios que la página de Streamlit. Sus números coinciden con Streamlit, por
-ejemplo 54,448 secciones, 10,771 en ALTO y 74.3% de cobertura nacional. Dibuja
-polígonos reales también a nivel nacional, tiene ficha por sección con historia
-2009–2024 y guarda los filtros en la URL para compartir una vista.
+| Página | Ruta | Qué muestra |
+|---|---|---|
+| Mapa de riesgo | `/` | Semáforo 2027, escenarios, filtros, KPIs y tablas; 54,448 secciones y 74.3% de cobertura nacional |
+| Datos por año | `/historico/` | Mapa por elección (abstención, NS o cambio), series 2009–2024, rangos de NS y cambios de secciones |
+| Grupos | `/grupos/` | Tipología del clustering: perfil, trayectorias, mapa por grupo y composición por entidad o municipio |
+| Semáforo alternativo | `/semaforo-alternativo/` | Oficial vs. Oscar: mapa de diferencias, matriz de niveles, motivos y coincidencia por entidad |
+
+Todas dibujan polígonos reales también a nivel nacional y abren una ficha por
+sección al hacer clic. El mapa de riesgo guarda sus filtros en la URL para
+compartir una vista. Las gráficas son SVG propias (sin librería): Plot o Vega
+insertan estilos en línea que la CSP bloquearía.
+
+La página de Random Forest M17 todavía no se migra: depende de
+`data/processed/rf_dashboard/`, que generan `src/16`–`20`, y esa cadena no corre
+en una copia limpia del repo (ver "Limitaciones actuales").
 
 Seguridad:
 
@@ -501,6 +503,30 @@ Seguridad:
   dependencias.
 - `pip-audit` y `pnpm audit` sin vulnerabilidades conocidas (oct-2026).
 - Antes de publicar falta poner HTTPS con un proxy (Caddy o el del hosting).
+
+### Pendientes del sitio
+
+1. **Página Random Forest M17.** Está bloqueada porque `src/16`–`20` no corren en
+   una copia limpia (ver "Limitaciones actuales", punto 7). Hay dos formas de
+   destrabarla:
+   - que se comparta `data/processed/rf_dashboard/` de la corrida original;
+   - corregir las etapas 18 y 19 para que elijan del registro la predicción que
+     sí existe, y correr la cadena (unos 90 minutos de cómputo).
+2. **Nombres de entidad.** Salen en mayúsculas y sin acentos ("CIUDAD DE
+   MEXICO"), como vienen en los CCPC. Falta un catálogo con los nombres oficiales.
+3. **Modo oscuro.** Los colores ya son variables CSS
+   (`web/src/styles/global.css`); falta definir la paleta oscura y validarla.
+4. **Mapa base con nombres de lugares.** Hoy sólo hay contornos de entidades y
+   municipios. Para no depender de terceros, la opción es un mapa base de
+   Protomaps autoalojado.
+5. **Publicación.** Falta HTTPS con un proxy (Caddy o el del hosting) y acceso
+   restringido mientras se revisan los términos del concurso.
+6. **CI.** Falta correr `pip-audit`, `pnpm audit` y OSV-Scanner en cada PR, y
+   automatizar el build y el despliegue.
+7. **Pruebas del frontend.** Hoy sólo existe la prueba de humo de la API
+   (`api/test_api.py`).
+8. **Carga de datos (más adelante).** Requiere autenticación, escritura,
+   PostgreSQL y una cola para correr el pipeline.
 
 ## Pipeline
 
@@ -537,7 +563,9 @@ hackathon_ine/
 ├── docs/
 ├── reports/
 ├── src/
-├── dashboard/
+├── dashboard/        # Streamlit (exploración interna)
+├── api/              # API FastAPI + DuckDB del sitio web
+├── web/              # frontend Astro + React del sitio web
 ├── models/
 ├── notebooks/
 ├── requirements.txt
@@ -575,7 +603,22 @@ Pipeline reproducible.
 
 ### `dashboard/`
 
-Aplicación interactiva.
+Dashboard exploratorio en Streamlit.
+
+### `api/`
+
+API de sólo lectura del sitio (`main.py`), su imagen de Docker y su prueba de
+humo (`test_api.py`).
+
+### `web/`
+
+Frontend Astro + React:
+
+- `src/pages/`: una página por ruta.
+- `src/components/`: mapa, ficha, gráficas y controles.
+- `src/styles/global.css`: tokens de diseño.
+
+`node_modules/` y `dist/` no se versionan.
 
 ## Instalación
 
@@ -609,6 +652,69 @@ docker compose build
 docker compose run --rm app python src/00_check_setup.py   # cualquier etapa del pipeline
 docker compose up                                          # dashboard en http://localhost:8501
 ```
+
+### Sitio web (API FastAPI + frontend Astro)
+
+**Requisitos de datos:**
+
+- Haber corrido el pipeline (etapas 00–15) y después `src/21_export_web.py`,
+  que genera `data/processed/web/`.
+- Dos páginas necesitan pasos opcionales, que hay que correr antes de la
+  etapa 21:
+  - **Grupos:** `src/clustering/01_build_section_clusters.py`.
+  - **Semáforo alternativo:** la réplica de Oscar (comandos en
+    `reports/semaforo_oscar/REPLICA.md`).
+- Sin esos pasos, esas dos páginas muestran un aviso o salen vacías. Las otras
+  dos funcionan igual.
+
+**Con Docker (recomendado).** No hace falta instalar Node ni Python en la máquina:
+
+```bash
+docker compose build app api                             # imágenes del pipeline y de la API
+docker compose --profile web build web                   # imagen de Node, sólo para construir el frontend
+docker compose run --rm app python src/21_export_web.py  # teselas y tablas del sitio (~2 min)
+docker compose run --rm web pnpm install                 # una vez, o cuando cambie web/package.json
+docker compose run --rm web pnpm build                   # genera web/dist
+docker compose up -d api                                 # sitio en http://localhost:8000
+python api/test_api.py                                   # prueba de humo (sólo biblioteca estándar)
+docker compose --profile web up web                      # desarrollo con recarga en http://localhost:4321
+```
+
+**Sin Docker: API.** Necesita Python 3.12 y pip 26.2 o posterior, que es el que
+admite `--uploaded-prior-to`:
+
+```bash
+python -m venv .venv-api
+source .venv-api/bin/activate                  # Windows: .\.venv-api\Scripts\Activate.ps1
+pip install "pip>=26.2"
+pip install --uploaded-prior-to P7D -r api/requirements.txt
+uvicorn api.main:app --port 8000               # desde la raíz del repo
+```
+
+**Sin Docker: frontend.** Necesita Node 24.22.1 o posterior (LTS con los
+parches de seguridad del 21-oct-2026) y pnpm 12.13:
+
+```bash
+npm install --global --ignore-scripts pnpm@12.13.0
+cd web
+pnpm install     # aplica pnpm-workspace.yaml: 7 días mínimos de publicación y sin scripts de instalación
+pnpm build       # genera web/dist, que sirve la API
+pnpm dev         # desarrollo en http://localhost:4321; manda /api a localhost:8000 (se cambia con API_URL)
+```
+
+**Cuándo reiniciar la API** (`docker compose restart api`):
+
+- después de correr la etapa 21;
+- después de cada `pnpm build`.
+
+La API carga las tablas y calcula los hashes de la CSP al arrancar.
+
+**Seguridad de las dependencias:**
+
+- Antes de agregar o actualizar una dependencia, revisa que tenga al menos 7
+  días publicada. pnpm y pip lo exigen; si una versión es más nueva, la
+  instalación falla a propósito.
+- Después de cualquier cambio, corre `pip-audit` y `pnpm audit`.
 
 ## Obtención de datos
 
@@ -699,6 +805,9 @@ data/interim/*
 data/processed/*
 reports/*/predictions/
 models/*
+web/node_modules/
+web/dist/
+web/.astro/
 ```
 
 La cartografía y los CCPC originales se descargan desde sus fuentes oficiales
@@ -715,6 +824,14 @@ reconstruyen con el pipeline.
 5. Las secciones sin correspondencia cartográfica no reciben interpolación
    automática.
 6. El semáforo representa prioridad relativa territorial.
+7. Los experimentos de Random Forest (`src/16`–`20`) no se reproducen en una
+   copia limpia. Las etapas 16 y 17 corren (la 16 reproduce sus resultados al
+   decimal), pero la 18 toma del registro versionado
+   (`reports/experiment_rf_improved/registro_pruebas.json`) la primera
+   predicción que coincide. Esa es la de la corrida original, cuyo archivo sólo
+   existe en la máquina donde se generó, y la etapa falla con
+   `FileNotFoundError`. La 19 tiene el mismo problema: exige una sola
+   coincidencia en el registro.
 
 ## Próximas etapas
 

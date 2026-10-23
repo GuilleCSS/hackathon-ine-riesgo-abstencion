@@ -1,0 +1,11 @@
+---
+import Base from "../layouts/Base.astro";
+import SemaforoOscar from "../components/SemaforoOscar.tsx";
+---
+<Base title="Semáforo alternativo (Oscar) · Riesgo de abstención 2027" description="Comparación del semáforo 2027 oficial con el alternativo de Oscar, sección por sección.">
+  <main>
+    <SemaforoOscar client:only="react">
+      <p slot="fallback" class="note">Cargando…</p>
+    </SemaforoOscar>
+  </main>
+</Base>

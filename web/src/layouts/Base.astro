@@ -6,6 +6,13 @@ interface Props {
   description: string;
 }
 const { title, description } = Astro.props;
+const paginas = [
+  ["/", "Mapa de riesgo"],
+  ["/historico/", "Datos por año"],
+  ["/grupos/", "Grupos"],
+  ["/semaforo-alternativo/", "Semáforo alternativo"],
+];
+const actual = Astro.url.pathname.replace(/\/?$/, "/");
 ---
 <!doctype html>
 <html lang="es">
@@ -24,7 +31,7 @@ const { title, description } = Astro.props;
         <small>Hackathon INE 2026 · Reto 2</small>
       </a>
       <nav aria-label="Secciones del sitio">
-        <a href="/" aria-current="page">Mapa de riesgo</a>
+        {paginas.map(([href, texto]) => <a href={href} aria-current={actual === href ? "page" : undefined}>{texto}</a>)}
         <a href="/#metodologia">Metodología</a>
       </nav>
     </header>

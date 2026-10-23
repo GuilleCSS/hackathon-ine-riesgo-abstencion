@@ -1,0 +1,11 @@
+---
+import Base from "../layouts/Base.astro";
+import Grupos from "../components/Grupos.tsx";
+---
+<Base title="Grupos de secciones · Riesgo de abstención 2027" description="Tipología de secciones según su comportamiento de abstención 2009–2024.">
+  <main>
+    <Grupos client:only="react">
+      <p slot="fallback" class="note">Cargando…</p>
+    </Grupos>
+  </main>
+</Base>

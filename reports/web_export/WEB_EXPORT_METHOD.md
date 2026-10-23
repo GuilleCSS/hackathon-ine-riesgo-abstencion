@@ -13,6 +13,8 @@ python src/21_export_web.py      # ~110 s; requiere tippecanoe (incluido en la i
 |---|---|---|
 | `secciones.pmtiles` | 73,268 secciones de la cartografía, geometría completa, zoom 3–12 | Mapa (MapLibre), servido como archivo estático con HTTP Range |
 | `secciones.parquet` | 75,636 filas (cartografía ∪ semáforo ∪ NS alto), sin geometría; incluye la caja `BBOX_*` de cada sección | Tabla que lee la API (`api/main.py`) |
+| `historico.parquet` | Sección × elección 2009–2024 (LN, SV, NV, NS, tipo, municipio) | Series y tablas de "Datos por año" |
+| `grupos.parquet` | Grupo y variables del clustering por sección (si se corrió `src/clustering/01`) | Página "Grupos" |
 
 `export_summary.json` (versionado) guarda los conteos de cada corrida.
 

@@ -48,9 +48,25 @@ def main():
     assert [h["abstencion"] for h in s["historia"]] == [67.8, 39.4, 66.4, 40.2, 52.1, 37.0]
     assert len(s["escenarios"]) == 4
 
+    # Datos por año: mismos números que dashboard/datos_anuales.py.
+    h = data("/api/historico")
+    assert [a["secciones"] for a in h["anios"]] == [64934, 65599, 68362, 68408, 68812, 70751]
+    assert h["cambios"][-1] == {"anio": 2024, "comparada_con": 2021, "secciones": 70751, "nuevas": 2775,
+                                "desaparecidas": 836, "cambio_municipio": 190, "cambio_tipo": 324}, h["cambios"][-1]
+    assert [a["anio"] for a in data("/api/historico?tipo=intermedia")["anios"]] == [2009, 2015, 2021]
+
+    # Grupos y semáforo alternativo: mismos números que sus páginas de Streamlit y reports/.
+    g = data("/api/grupos")
+    assert g["kpis"] == {"agrupadas": 41136, "agrupadas_en_cartografia": 40778, "cartografia": 73268}, g["kpis"]
+    assert len(g["perfil"]) == 5 and sum(p["secciones"] for p in g["perfil"]) == 41136
+    o = data("/api/oscar")
+    assert (o["kpis"]["ambos"], o["kpis"]["solo_oscar"]) == (54772, 17827), o["kpis"]
+    assert sum(m["secciones"] for m in o["matriz"]) == 54772 and round(o["kpis"]["mismo_nivel"], 3) == 0.928
+
     # Validación de entradas: nada llega a SQL sin pasar por los tipos.
     for bad in ["/api/resumen?escenario=S9", "/api/resumen?edo=40", "/api/resumen?nivel=X",
-                "/api/secciones/09-4882'--", "/api/entidades/0/municipios"]:
+                "/api/secciones/09-4882'--", "/api/entidades/0/municipios",
+                "/api/historico?tipo=x", "/api/grupos?edo=33", "/api/oscar?edo=0"]:
         assert get(bad)[0] in (404, 422), bad
     assert get("/api/secciones/99-9999")[0] == 404
 

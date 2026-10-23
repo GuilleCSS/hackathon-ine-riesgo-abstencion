@@ -1,14 +1,54 @@
 import { useEffect, useState } from "react";
 import Ficha from "./Ficha";
-import Mapa from "./Mapa";
+import MapaSecciones, { ambito, type Propiedades } from "./MapaSecciones";
 import Tablas from "./Tablas";
+import type { ExpressionSpecification, FilterSpecification } from "maplibre-gl";
 import {
   CORTO, NIVELES, SENSIBILIDADES, fmt, get,
   type Config, type Entidad, type Escenario, type Filtros, type Municipio, type Nivel, type Resumen,
 } from "../lib/api";
-import { nivelColor } from "../lib/tokens";
+import { nivelColor, token } from "../lib/tokens";
 
 const ESCENARIOS: Escenario[] = ["S0", "S1", "S2", "S3"];
+const sufijo = (e: Escenario) => (e === "S0" ? "" : `_${e.toLowerCase()}`);
+
+/** Los mismos filtros que /api/resumen, como expresiones de MapLibre sobre los atributos de la tesela. */
+function capas(f: Filtros) {
+  const nivel = `nivel${sufijo(f.escenario)}`;
+  const top = `top10${sufijo(f.escenario)}`;
+  const riesgo: ExpressionSpecification = [
+    "all", ["==", ["get", "capa"], "semaforo"], ...ambito(f.edo, f.mun),
+    ["in", ["get", nivel], ["literal", f.niveles]],
+    ...(f.top10 ? [["==", ["get", top], true] as ExpressionSpecification] : []),
+    ...(f.sensibilidad ? [["==", ["get", "sensibilidad"], f.sensibilidad] as ExpressionSpecification] : []),
+  ];
+  return {
+    datos: {
+      filtro: riesgo as FilterSpecification,
+      color: ["match", ["get", nivel], "BAJO", token("riesgo-bajo"), "MEDIO", token("riesgo-medio"),
+        "ALTO", token("riesgo-alto"), token("sin-estimacion")] as ExpressionSpecification,
+    },
+    extra: {
+      filtro: ["all", ["==", ["get", "capa"], "ns_alto"], ...ambito(f.edo, f.mun)] as FilterSpecification,
+      color: token("ns-alto"),
+      visible: f.verNs,
+    },
+    contorno: ["all", riesgo, ["==", ["get", top], true]] as FilterSpecification,
+  };
+}
+
+function tooltipRiesgo(p: Propiedades, f: Filtros): [string, string][] {
+  const filas: [string, string][] = [["Sección", p.clave]];
+  if (p.capa === "semaforo") {
+    filas.push(["Riesgo", `${p[`nivel${sufijo(f.escenario)}`]}${p[`top10${sufijo(f.escenario)}`] ? " · Top10" : ""}`],
+      ["Abstención estimada (base)", fmt.pct(p.pred)]);
+  } else if (p.capa === "ns_alto") {
+    filas.push(["NS alto", "fuera del semáforo"], ["Abstención indicativa", fmt.pct(p.pred)]);
+  } else {
+    filas.push(["Sin estimación", "fuera del universo comparable"]);
+  }
+  return filas;
+}
 
 // Los filtros viven en la URL para poder compartir una vista: ?escenario=S1&edo=25&nivel=ALTO
 function leerUrl(): Filtros {
@@ -169,7 +209,8 @@ export default function MapaRiesgo() {
         </aside>
 
         <div className="map-wrap">
-          <Mapa filtros={filtros} bbox={resumen?.bbox ?? null} seleccion={seleccion} onSelect={setSeleccion} />
+          <MapaSecciones {...capas(filtros)} tooltip={(p) => tooltipRiesgo(p, filtros)}
+            bbox={resumen?.bbox ?? null} seleccion={seleccion} onSelect={setSeleccion} />
           {/* Cerrada al inicio en pantallas angostas, donde taparía medio mapa. */}
           <details className="legend" open={!matchMedia("(max-width: 60em)").matches}>
             <summary>Leyenda</summary>

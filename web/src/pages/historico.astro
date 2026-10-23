@@ -1,0 +1,11 @@
+---
+import Base from "../layouts/Base.astro";
+import Historico from "../components/Historico.tsx";
+---
+<Base title="Datos por año · Riesgo de abstención 2027" description="Abstención y registros sin información por sección y elección, 2009–2024.">
+  <main>
+    <Historico client:only="react">
+      <p slot="fallback" class="note">Cargando…</p>
+    </Historico>
+  </main>
+</Base>

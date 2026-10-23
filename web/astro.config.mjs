@@ -8,8 +8,11 @@ export default defineConfig({
   devToolbar: { enabled: false },
   vite: {
     server: {
-      // En desarrollo (pnpm dev dentro de compose) la API es el servicio "api".
-      proxy: { "/api": "http://api:8000", "/tiles": "http://api:8000" },
+      // En desarrollo (pnpm dev) /api y /tiles van a la API. compose define API_URL=http://api:8000.
+      proxy: {
+        "/api": process.env.API_URL ?? "http://localhost:8000",
+        "/tiles": process.env.API_URL ?? "http://localhost:8000",
+      },
     },
   },
 });

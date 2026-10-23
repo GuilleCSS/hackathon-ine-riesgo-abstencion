@@ -27,6 +27,8 @@ services:
       - web_node_modules:/web/node_modules
     ports:
       - "4321:4321"
+    environment:
+      API_URL: http://api:8000
     command: ["pnpm", "dev", "--host", "0.0.0.0"]
 
 volumes:

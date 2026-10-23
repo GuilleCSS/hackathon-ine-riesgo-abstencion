@@ -55,10 +55,18 @@ def load_geometry():
     ]
 
 
-def load_history():
-    cols = ["AELEC", "SECTION_KEY", "EDOCVE", "EDONOM", "MPIOCVE", "MPIONOM",
-            "SECCION", "TIPOSEC", "PCT_ABSTENCION", "PCT_NS_LN"]
-    master = pd.read_csv(MASTER_PATH, usecols=cols, dtype={"SECTION_KEY": str}, low_memory=False)
+HISTORY_COLS = ["SECTION_KEY", "AELEC", "TIPO_ELECCION", "EDOCVE", "MPIOCVE", "TIPOSEC", "LN", "SV", "NV", "NS"]
+CLUSTER_COLS = ["SECTION_KEY", "GRUPO", "GRUPO_NOMBRE", "nivel_intermedia", "nivel_presidencial",
+                "tendencia", "volatilidad", "TIPOSEC", "LN", "PROP_LN_18_24"]
+
+
+def load_master():
+    cols = ["AELEC", "TIPO_ELECCION", "SECTION_KEY", "EDOCVE", "EDONOM", "MPIOCVE", "MPIONOM",
+            "SECCION", "TIPOSEC", "LN", "SV", "NV", "NS", "PCT_ABSTENCION", "PCT_NS_LN"]
+    return pd.read_csv(MASTER_PATH, usecols=cols, dtype={"SECTION_KEY": str}, low_memory=False)
+
+
+def load_history(master):
     names = (master.sort_values("AELEC").drop_duplicates("SECTION_KEY", keep="last")
              .set_index("SECTION_KEY")[["EDOCVE", "EDONOM", "MPIOCVE", "MPIONOM", "SECCION", "TIPOSEC"]])
     wide = master.pivot_table(index="SECTION_KEY", columns="AELEC",
@@ -101,9 +109,11 @@ def load_attributes():
         table = table.join(pd.read_parquet(CLUSTERS_PATH, columns=["SECTION_KEY", "GRUPO", "GRUPO_NOMBRE"])
                            .set_index("SECTION_KEY"), how="outer")
     if OSCAR_PATH.exists():
-        oscar = pd.read_parquet(OSCAR_PATH, columns=["SECTION_KEY", "NIVEL_OSCAR", "PRED_OSCAR", "COMPARACION"])
-        table = table.join(oscar.set_index("SECTION_KEY").rename(columns={"COMPARACION": "COMPARACION_OSCAR"}),
-                           how="outer")
+        oscar = pd.read_parquet(OSCAR_PATH, columns=["SECTION_KEY", "NIVEL_OSCAR", "PRED_OSCAR", "COMPARACION", "QUALITY_FLAG"])
+        # El motivo sólo importa para las secciones que el filtro oficial excluye.
+        oscar["MOTIVO_SOLO_OSCAR"] = oscar["QUALITY_FLAG"].where(oscar["COMPARACION"].eq("solo_oscar"))
+        table = table.join(oscar.drop(columns="QUALITY_FLAG").set_index("SECTION_KEY")
+                           .rename(columns={"COMPARACION": "COMPARACION_OSCAR"}), how="outer")
     return table
 
 
@@ -196,8 +206,16 @@ def main():
 
     carto = load_geometry()
     print(f"Cartografía: {len(carto):,} secciones · {time.time() - t0:.0f} s")
-    table = build_table(carto, load_history(), load_attributes())
+    master = load_master()
+    table = build_table(carto, load_history(master), load_attributes())
     table.to_parquet(OUT_DATA / "secciones.parquet", index=False)
+    # Sección × elección para las series y tablas de "Datos por año".
+    master[HISTORY_COLS].to_parquet(OUT_DATA / "historico.parquet", index=False)
+    grupos_path = OUT_DATA / "grupos.parquet"
+    if CLUSTERS_PATH.exists():
+        pd.read_parquet(CLUSTERS_PATH, columns=CLUSTER_COLS).to_parquet(grupos_path, index=False)
+    else:
+        grupos_path.unlink(missing_ok=True)
 
     geo = carto[["SECTION_KEY", "geometry"]].merge(
         tile_properties(table), left_on="SECTION_KEY", right_on="clave").drop(columns="SECTION_KEY")
