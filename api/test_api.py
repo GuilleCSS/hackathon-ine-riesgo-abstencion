@@ -63,10 +63,17 @@ def main():
     assert (o["kpis"]["ambos"], o["kpis"]["solo_oscar"]) == (54772, 17827), o["kpis"]
     assert sum(m["secciones"] for m in o["matriz"]) == 54772 and round(o["kpis"]["mismo_nivel"], 3) == 0.928
 
+    # Auditoría del NS: mismos números que reports/auditoria_ns/AUDITORIA_NS.md.
+    a = data("/api/auditoria-ns")
+    assert (a["kpis"]["excluidas"], a["kpis"]["excluidas_alto"], a["kpis"]["entrarian"]) == (9199, 2520, 0), a["kpis"]
+    assert data("/api/auditoria-ns?umbral=0.25")["kpis"]["entrarian"] == 56455 - 54772
+    assert data("/api/auditoria-ns?umbral=1")["kpis"]["entrarian"] == 9199
+
     # Validación de entradas: nada llega a SQL sin pasar por los tipos.
     for bad in ["/api/resumen?escenario=S9", "/api/resumen?edo=40", "/api/resumen?nivel=X",
                 "/api/secciones/09-4882'--", "/api/entidades/0/municipios",
-                "/api/historico?tipo=x", "/api/grupos?edo=33", "/api/oscar?edo=0"]:
+                "/api/historico?tipo=x", "/api/grupos?edo=33", "/api/oscar?edo=0",
+                "/api/auditoria-ns?umbral=2", "/api/auditoria-ns?umbral=x"]:
         assert get(bad)[0] in (404, 422), bad
     assert get("/api/secciones/99-9999")[0] == 404
 

@@ -223,6 +223,34 @@ de las elecciones federales:
   vecinos". Cambiar la regla después de ver los resultados no sería válido; es una
   decisión para el equipo con esta evidencia.
 
+### 7.4 Auditoría del NS (registros sin información)
+
+`src/auditoria_ns/01_auditar_ns.py`; reporte en `reports/auditoria_ns/AUDITORIA_NS.md`.
+Se hizo porque el filtro NS ≤ 10% deja fuera una de cada siete secciones comparables
+(9,199) y hacía falta saber si el NS distorsiona la abstención.
+
+**Hallazgos:**
+
+- **El NS viene de casillas completas, no de personas.** En las secciones con NS
+  parcial, la proporción se amontona en 1/2 (41.9% de las secciones), 1/3 (22.2%) y
+  1/4 (9.4%); si fuera uniforme, cada fracción tendría 4.2%. Dentro de cada sección,
+  todas las edades y ambos sexos pierden la misma proporción (razón de 0.98 a 1.01).
+- **No es aleatorio entre secciones.** Las secciones grandes tienen NS > 10% en
+  17.2% de los casos, contra 7.5% de las chicas, y las de más abstención previa en
+  13.4%, contra 9.2%. Pesan Chiapas, Sonora, Campeche y Tabasco. La repetición en la
+  misma sección es moderada (1.4–1.5 veces más probable).
+- **No esconde abstención.** Con NS entre 10% y 99.9%, la abstención medida queda
+  +0.44 pp sobre la esperada en promedio: décimas de punto y en dirección contraria
+  a la temida. La excepción es 2015, con hasta +3 pp.
+- **El filtro sí sesga el semáforo.** De las secciones excluidas, 27.4% serían ALTO
+  (contra 20%) y 15.6% Top10 (contra 10%).
+- **Subir el umbral a 25% cambia poco el ranking.** Entran 1,683 secciones más y
+  97.7% de las ALTO oficiales siguen en ALTO.
+
+Queda como propuesta para el equipo: incluir las secciones con NS parcial marcadas
+como estimación con menos registros, o subir el umbral a 25%. No se tocó el
+universo `primary_clean10`.
+
 ## 8. Lo que no funcionó o costó trabajo
 
 **Del modelado**

@@ -29,6 +29,7 @@ SCENARIO_CONFIG = ROOT / "reports" / "scenarios_2027" / "scenario_config.json"
 CLUSTER_CONFIG = ROOT / "reports" / "clustering" / "clustering_config.json"
 K_SELECTION = ROOT / "reports" / "clustering" / "01_k_selection.csv"
 OSCAR_CONFIG = ROOT / "reports" / "semaforo_oscar" / "comparacion_config.json"
+AUDIT_NS = ROOT / "reports" / "auditoria_ns"  # opcional: src/auditoria_ns/01_auditar_ns.py
 DIST = ROOT / "web" / "dist"
 
 for path in (TABLE_PATH, HISTORY_PATH, TILES_PATH, SCENARIO_CONFIG):
@@ -347,6 +348,38 @@ def oscar(edo: Edo = None):
     return {"kpis": kpis, "matriz": matriz, "motivos": motivos, "por_unidad": por_unidad, "umbrales": umbrales,
             "nacional": {k: cfg.get(k) for k in ("coincidencia_esperada_al_azar", "coincidencia_top10", "spearman_estimaciones")},
             "bbox": bbox(edo)}
+
+
+@app.get("/api/auditoria-ns")
+def auditoria_ns(edo: Edo = None, umbral: Annotated[float, Query(ge=0.05, le=1)] = 0.10):
+    """Tablas de la auditoría del NS y, por ámbito, qué secciones excluidas entrarían con otro umbral."""
+    if not (AUDIT_NS / "auditoria_config.json").exists():
+        raise HTTPException(404, "No hay auditoría: corre src/auditoria_ns/01_auditar_ns.py")
+    where, params = ("EDOCVE = ?", [edo]) if edo is not None else ("TRUE", [])
+    entra = "CAPA = 'ns_alto' AND SAME_PCT_NS_LN <= ? AND RECENT_PCT_NS_LN <= ?"
+    alto = f"PRED_ABSTENCION_2027 > {THRESHOLDS['q80']}"  # constante del pipeline, no del usuario
+    kpis = rows(f"""
+        SELECT count(*) FILTER (CAPA = 'semaforo') AS en_semaforo,
+               count(*) FILTER (CAPA = 'ns_alto') AS excluidas,
+               count(*) FILTER (CAPA = 'ns_alto' AND {alto}) AS excluidas_alto,
+               count(*) FILTER ({entra}) AS entrarian,
+               count(*) FILTER ({entra} AND {alto}) AS entrarian_alto
+        FROM s WHERE {where}""", [umbral] * 4 + params)[0]
+    tabla = lambda name: rows("SELECT * FROM read_csv_auto(?)", [str(AUDIT_NS / name)])
+    return {
+        "kpis": kpis,
+        "umbrales": {k: round(v * 100, 2) for k, v in THRESHOLDS.items()},
+        "resumen": json.loads((AUDIT_NS / "auditoria_config.json").read_text()),
+        "magnitud": tabla("01_magnitud.csv"),
+        "edad_sexo": tabla("03_ns_por_edad_y_sexo.csv"),
+        "seleccion": tabla("04_seleccion.csv"),
+        "persistencia": tabla("05_persistencia.csv"),
+        "sesgo": tabla("06_sesgo_abstencion.csv"),
+        "niveles": tabla("07_nivel_indicativo_excluidas.csv"),
+        "por_entidad": tabla("08_excluidas_por_entidad.csv"),
+        "sensibilidad": tabla("10_sensibilidad_umbral.csv"),
+        "bbox": bbox(edo),
+    }
 
 
 @app.get("/tiles/secciones.pmtiles")

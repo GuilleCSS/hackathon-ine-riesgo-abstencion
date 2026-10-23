@@ -1,0 +1,31 @@
+{
+  "ns_2024_pct_lista": 0.06433063778031173,
+  "secciones_ns_alto_2024": 8541,
+  "concentracion_fracciones": {
+    "1/4": 0.0939,
+    "1/3": 0.2221,
+    "1/2": 0.4189,
+    "2/3": 0.0349,
+    "3/4": 0.0072
+  },
+  "uniformidad_razon_min_max": [
+    0.977,
+    1.011
+  ],
+  "persistencia_veces_mas_probable": {
+    "2012": 1.43,
+    "2015": 1.52,
+    "2018": 1.39,
+    "2021": 1.47,
+    "2024": 1.5
+  },
+  "sesgo_residuo_ns_alto_pp": 0.43849163667401425,
+  "sesgo_residuo_ns_bajo_pp": -1.6566991543825425e-17,
+  "excluidas_alto_indicativo": 0.2739428198717252,
+  "excluidas_pct_por_tipo": {
+    "M": 0.1987,
+    "R": 0.1117,
+    "U": 0.1491
+  },
+  "umbral_10_secciones": 54772
+}

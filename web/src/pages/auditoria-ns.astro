@@ -1,0 +1,11 @@
+---
+import Base from "../layouts/Base.astro";
+import AuditoriaNS from "../components/AuditoriaNS.tsx";
+---
+<Base title="Auditoría del NS · Riesgo de abstención 2027" description="De dónde vienen los registros sin información (NS), si sesgan la abstención y qué le hacen al semáforo 2027.">
+  <main>
+    <AuditoriaNS client:only="react">
+      <p slot="fallback" class="note">Cargando…</p>
+    </AuditoriaNS>
+  </main>
+</Base>

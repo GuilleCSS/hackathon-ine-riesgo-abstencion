@@ -120,6 +120,23 @@ export interface Oscar {
   bbox: [number, number, number, number];
 }
 
+export interface AuditoriaNS {
+  kpis: { en_semaforo: number; excluidas: number; excluidas_alto: number; entrarian: number; entrarian_alto: number };
+  umbrales: { q50: number; q80: number; q90: number };
+  resumen: { concentracion_fracciones: Record<string, number>; sesgo_residuo_ns_alto_pp: number; sesgo_residuo_ns_bajo_pp: number;
+    uniformidad_razon_min_max: [number, number]; excluidas_alto_indicativo: number };
+  magnitud: { anio: number; tipo: string; secciones: number; con_ns: number; ns_mayor_10: number; ns_100: number;
+    pct_lista_nominal_ns: number; ns_en_secciones_ns_alto: number }[];
+  edad_sexo: Record<string, number>[];
+  seleccion: { variable: string; categoria: string; secciones: number; tasa_ns_alto: number }[];
+  persistencia: { anio: number; vs: number; tasa_base: number; tasa_si_antes_ns_alto: number; veces_mas_probable: number }[];
+  sesgo: { anio: number; vs: number; NS_BUCKET: string; secciones: number; residuo_medio_pp: number; error_estandar_pp: number }[];
+  niveles: { nivel: Nivel; semaforo_oficial: number; excluidas_por_ns: number; top10_excluidas: number | null }[];
+  por_entidad: { entidad: string; comparables: number; excluidas_por_ns: number; pct_excluidas: number }[];
+  sensibilidad: { umbral_ns: number; secciones: number; q80: number; alto: number; alto_oficial_que_sigue_alto: number; alto_nuevas: number }[];
+  bbox: [number, number, number, number];
+}
+
 export const fmt = {
   n: (v: number) => v.toLocaleString("es-MX"),
   pct: (v: number | null | undefined, d = 1) => (v === null || v === undefined ? "—" : `${v.toFixed(d)}%`),

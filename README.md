@@ -459,6 +459,20 @@ Su trabajo se replica exacto desde los ZIP oficiales. Comandos y resultados en
 `reports/semaforo_oscar/REPLICA.md`; la comparación completa está en
 `reports/semaforo_oscar/COMPARACION.md`.
 
+### Auditoría del NS
+
+`src/auditoria_ns/01_auditar_ns.py` revisa los registros sin información (NS): de
+dónde vienen, si sesgan la abstención y qué le hace al semáforo el filtro
+NS ≤ 10%. Reporte completo en `reports/auditoria_ns/AUDITORIA_NS.md`.
+
+- El NS viene de casillas completas: dentro de cada sección afecta igual a todas
+  las edades y ambos sexos.
+- No sesga de forma relevante la abstención medida (+0.44 pp en promedio).
+- El filtro sí deja fuera más secciones de riesgo: 27.4% de las excluidas serían
+  ALTO, contra 20% en el semáforo.
+- Subir el umbral a 25% recupera 1,683 secciones y mantiene en ALTO al 97.7% de
+  las ALTO oficiales. Queda como propuesta; el universo del modelo no cambió.
+
 ## Sitio web (Astro + FastAPI, en construcción)
 
 Migración del dashboard de Streamlit a un sitio con frontend estático y API de
@@ -473,7 +487,7 @@ FastAPI (api/main.py, puerto 8000)
 
 Cómo instalarlo y levantarlo: ver **Instalación → Sitio web**.
 
-Páginas (las mismas de Streamlit, con números idénticos):
+Páginas (las cuatro primeras son las de Streamlit, con números idénticos; la auditoría es nueva):
 
 | Página | Ruta | Qué muestra |
 |---|---|---|
@@ -481,6 +495,7 @@ Páginas (las mismas de Streamlit, con números idénticos):
 | Datos por año | `/historico/` | Mapa por elección (abstención, NS o cambio), series 2009–2024, rangos de NS y cambios de secciones |
 | Grupos | `/grupos/` | Tipología del clustering: perfil, trayectorias, mapa por grupo y composición por entidad o municipio |
 | Semáforo alternativo | `/semaforo-alternativo/` | Oficial vs. Oscar: mapa de diferencias, matriz de niveles, motivos y coincidencia por entidad |
+| Auditoría NS | `/auditoria-ns/` | Qué secciones entrarían al semáforo con otro umbral de NS (y con qué nivel), NS por año en el mapa y las pruebas de la auditoría |
 
 Todas dibujan polígonos reales también a nivel nacional y abren una ficha por
 sección al hacer clic. El mapa de riesgo guarda sus filtros en la URL para
@@ -664,6 +679,8 @@ docker compose up                                          # dashboard en http:/
   - **Grupos:** `src/clustering/01_build_section_clusters.py`.
   - **Semáforo alternativo:** la réplica de Oscar (comandos en
     `reports/semaforo_oscar/REPLICA.md`).
+  - **Auditoría NS:** `src/auditoria_ns/01_auditar_ns.py` (segundos). Esta página
+    lee `reports/auditoria_ns/`, que está versionado, así que funciona sin correrla.
 - Sin esos pasos, esas dos páginas muestran un aviso o salen vacías. Las otras
   dos funcionan igual.
 

@@ -215,3 +215,5 @@ details.tabla-oculta summary { cursor: pointer; color: var(--accent); margin-top
   .brand span { display: none; }
 }
 .card h3 { font-size: var(--text-md); margin: 0.75rem 0 0.25rem; }
+.tabla tbody tr.activa { background: var(--accent-soft); font-weight: 600; }
+.prose ol { padding-left: 1.25rem; }
