@@ -1,0 +1,11 @@
+---
+import Base from "../layouts/Base.astro";
+import BrechaTipo from "../components/BrechaTipo.tsx";
+---
+<Base title="Intermedia vs. presidencial · Riesgo de abstención 2027" description="Brecha de abstención entre elecciones intermedias y presidenciales por sección, y su relación con las elecciones locales concurrentes.">
+  <main>
+    <BrechaTipo client:only="react">
+      <p slot="fallback" class="note">Cargando…</p>
+    </BrechaTipo>
+  </main>
+</Base>

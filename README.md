@@ -495,6 +495,25 @@ vota distinto, método de Kitagawa). Reporte en
   pensión para adultos mayores; es una asociación por verificar, no un efecto
   causal.
 
+### Brecha intermedia vs. presidencial
+
+`src/brecha_tipo/01_brecha_intermedia_presidencial.py` (~5 s) mide, por sección,
+la abstención de la intermedia menos la de la presidencial contigua: cuánta gente
+sólo vota cuando hay elección presidencial. 2027 es intermedia. Reporte en
+`reports/brecha_tipo/BRECHA_TIPO.md`.
+
+- La brecha nacional se cerró de +18.0 pp (2009–2012) a +7.8 pp (2021–2024). En
+  2021–2024, 20% de las secciones se abstuvieron más en la presidencial. Es
+  grande en secciones urbanas y casi nula en las rurales.
+- Elecciones locales el mismo día que la intermedia reducen la brecha 10.4 pp, y
+  una gubernatura 5.5 pp más. Que más entidades empataran sus elecciones locales
+  con las federales explicaría cerca de 64% del cierre. El calendario está
+  pendiente de validar.
+- Las secciones ALTO del semáforo 2027 tienen la brecha más grande (+10.9 pp,
+  contra +3.6 pp en BAJO).
+- Aguascalientes y Quintana Roo tendrán gubernatura concurrente en 2027 y en 2021
+  no; el modelo no usa concurrencia.
+
 ## Sitio web (Astro + FastAPI, en construcción)
 
 Migración del dashboard de Streamlit a un sitio con frontend estático y API de
@@ -509,7 +528,7 @@ FastAPI (api/main.py, puerto 8000)
 
 Cómo instalarlo y levantarlo: ver **Instalación → Sitio web**.
 
-Páginas (las cuatro primeras son las de Streamlit, con números idénticos; auditoría y edad son nuevas):
+Páginas (las cuatro primeras son las de Streamlit, con números idénticos; las de análisis son nuevas y están en el menú "Análisis"):
 
 | Página | Ruta | Qué muestra |
 |---|---|---|
@@ -518,6 +537,7 @@ Páginas (las cuatro primeras son las de Streamlit, con números idénticos; aud
 | Grupos | `/grupos/` | Tipología del clustering: perfil, trayectorias, mapa por grupo y composición por entidad o municipio |
 | Semáforo alternativo | `/semaforo-alternativo/` | Oficial vs. Oscar: mapa de diferencias, matriz de niveles, motivos y coincidencia por entidad |
 | Edad y sexo | `/edad/` | Abstención no explicada por la edad en el mapa, curva por edad y sexo, salto a los 65, Kitagawa y entidades |
+| Intermedia vs. presidencial | `/brecha/` | Brecha por sección en el mapa, evolución, efecto de la concurrencia local e implicaciones para 2027 |
 | Auditoría NS | `/auditoria-ns/` | Qué secciones entrarían al semáforo con otro umbral de NS (y con qué nivel), NS por año en el mapa y las pruebas de la auditoría |
 
 Todas dibujan polígonos reales también a nivel nacional y abren una ficha por
@@ -693,34 +713,73 @@ docker compose up                                          # dashboard en http:/
 
 ### Sitio web (API FastAPI + frontend Astro)
 
-**Requisitos de datos:**
+**Qué alimenta cada página.** Cada análisis es un script que escribe sus CSV y su
+reporte en `reports/<análisis>/`. Esos archivos se versionan y el script los
+reescribe completos cada vez que corre. Los datos pesados por sección quedan en
+`data/processed/<análisis>/`, que no se versiona.
 
-- Haber corrido el pipeline (etapas 00–15) y después `src/21_export_web.py`,
-  que genera `data/processed/web/`.
-- Dos páginas necesitan pasos opcionales, que hay que correr antes de la
-  etapa 21:
-  - **Grupos:** `src/clustering/01_build_section_clusters.py`.
-  - **Semáforo alternativo:** la réplica de Oscar (comandos en
-    `reports/semaforo_oscar/REPLICA.md`).
-  - **Edad y sexo:** `src/descomposicion_edad/01_descomponer_edad.py` (~20 s).
-    Las tablas están versionadas en `reports/descomposicion_edad/`, pero las capas
-    del mapa necesitan correrla antes de la etapa 21.
-  - **Auditoría NS:** `src/auditoria_ns/01_auditar_ns.py` (segundos). Esta página
-    lee `reports/auditoria_ns/`, que está versionado, así que funciona sin correrla.
-- Sin esos pasos, esas dos páginas muestran un aviso o salen vacías. Las otras
-  dos funcionan igual.
+| Página | Ruta | Script que genera sus datos | Qué escribe | ¿Hay que correrlo? |
+|---|---|---|---|---|
+| Mapa de riesgo | `/` | Pipeline 00–15 y `src/21_export_web.py` | `data/processed/web/` | Sí |
+| Datos por año | `/historico/` | `src/21_export_web.py` | `data/processed/web/historico.parquet` | Sí |
+| Grupos | `/grupos/` | `src/clustering/01_build_section_clusters.py` | `data/processed/clustering/`, `reports/clustering/` | Sí, para esa página |
+| Semáforo alternativo | `/semaforo-alternativo/` | Réplica de Oscar (cuatro pasos, abajo) | `data/processed/semaforo_oscar/`, `reports/semaforo_oscar/` | Sí, para esa página |
+| Auditoría del NS | `/auditoria-ns/` | `src/auditoria_ns/01_auditar_ns.py` (segundos) | `reports/auditoria_ns/` | No: sus CSV ya están en el repo |
+| Edad y sexo | `/edad/` | `src/descomposicion_edad/01_descomponer_edad.py` (~20 s) | `reports/descomposicion_edad/`, `data/processed/descomposicion_edad/` | Las tablas ya están en el repo; la capa del mapa sí lo necesita |
+| Intermedia vs. presidencial | `/brecha/` | `src/brecha_tipo/01_brecha_intermedia_presidencial.py` (~5 s) | `reports/brecha_tipo/`, `data/processed/brecha_tipo/` | Las tablas ya están en el repo; la capa del mapa sí lo necesita |
 
-**Con Docker (recomendado).** No hace falta instalar Node ni Python en la máquina:
+Si falta lo de una página, esa página muestra un aviso o su mapa sale vacío; las
+demás funcionan igual.
+
+**Orden completo desde cero, con Docker (recomendado).** No hace falta instalar
+Node ni Python en la máquina. Los análisis van **antes** de la etapa 21, porque
+ésta une sus resultados por sección a las teselas del mapa.
 
 ```bash
-docker compose build app api                             # imágenes del pipeline y de la API
-docker compose --profile web build web                   # imagen de Node, sólo para construir el frontend
-docker compose run --rm app python src/21_export_web.py  # teselas y tablas del sitio (~2 min)
-docker compose run --rm web pnpm install                 # una vez, o cuando cambie web/package.json
-docker compose run --rm web pnpm build                   # genera web/dist
-docker compose up -d api                                 # sitio en http://localhost:8000
-python api/test_api.py                                   # prueba de humo (sólo biblioteca estándar)
-docker compose --profile web up web                      # desarrollo con recarga en http://localhost:4321
+# 0. Imágenes: una vez, o cuando cambie requirements.txt, un Dockerfile o api/requirements.txt
+docker compose build app api
+docker compose --profile web build web
+
+# 1. Pipeline base, etapas 00–15 (~10 min). Necesita los datos de "Obtención de datos".
+docker compose run --rm app sh -c 'for s in src/0*.py src/1[0-5]*.py; do python "$s" || exit 1; done'
+
+# 2. Análisis que alimentan páginas
+docker compose run --rm app python src/clustering/01_build_section_clusters.py           # Grupos
+docker compose run --rm app python src/semaforo_oscar/01_generar_csv_oscar.py            # Oscar 1/4: CSV desde los ZIP (~4 GB)
+docker compose run --rm -e OSCAR_DATA_DIR=data/interim/oscar_tableau app sh -c \
+  'python st_gcn_participation/analyze_participation.py && python st_gcn_participation/modeling/run_models.py && python st_gcn_participation/modeling/risk_scenarios.py'  # Oscar 2/4 (~11 min)
+git checkout -- st_gcn_participation/outputs st_gcn_participation/modeling                 # deja como estaban los archivos versionados de Oscar
+docker compose run --rm app python src/semaforo_oscar/02_comparar_semaforos.py           # Oscar 3/4: cruce con el oficial
+docker compose run --rm app python src/semaforo_oscar/03_backtest_2018.py                # Oscar 4/4 (opcional): backtest 2018
+docker compose run --rm app python src/auditoria_ns/01_auditar_ns.py                     # Auditoría del NS
+docker compose run --rm app python src/descomposicion_edad/01_descomponer_edad.py        # Edad y sexo
+docker compose run --rm app python src/brecha_tipo/01_brecha_intermedia_presidencial.py  # Intermedia vs. presidencial
+
+# 3. Exportación para el sitio (~2 min): teselas PMTiles y tablas de la API
+docker compose run --rm app python src/21_export_web.py
+
+# 4. Frontend y API
+docker compose run --rm web pnpm install    # una vez, o cuando cambie web/package.json
+docker compose run --rm web pnpm build      # genera web/dist
+docker compose up -d api                    # sitio en http://localhost:8000
+python api/test_api.py                      # prueba de humo: debe imprimir "API OK"
+```
+
+**Qué volver a correr según lo que cambió:**
+
+| Cambió… | Corre… |
+|---|---|
+| Los datos del INE o el pipeline | Pasos 1, 2 y 3, y luego `docker compose restart api` |
+| Un análisis (por ejemplo, la edad) | Ese script; si cambia su capa del mapa, también el paso 3; luego `docker compose restart api` |
+| El código del frontend (`web/`) | `docker compose run --rm web pnpm build` y `docker compose restart api` |
+| El código de la API (`api/main.py`) | `docker compose restart api` |
+| `web/package.json` | `docker compose run --rm web pnpm install` y el build |
+| Un `requirements.txt` o un `Dockerfile` | El paso 0 |
+
+**Modo desarrollo del frontend** (recarga al guardar, con la API corriendo):
+
+```bash
+docker compose --profile web up web         # http://localhost:4321
 ```
 
 **Sin Docker: API.** Necesita Python 3.12 y pip 26.2 o posterior, que es el que
@@ -823,12 +882,15 @@ cartografía suma 73,268 secciones.
 ### 5. Correr el pipeline completo y levantar el dashboard
 
 ```bash
-docker compose run --rm app sh -c 'for s in src/[01]*.py; do python "$s" || exit 1; done'
+docker compose run --rm app sh -c 'for s in src/0*.py src/1[0-5]*.py; do python "$s" || exit 1; done'
 docker compose up -d     # http://localhost:8501
 ```
 
 Tarda ~10 minutos (Docker con 8 GB de RAM) y se detiene en el primer paso que
-falle.
+falle. Corre las etapas 00–15 del modelo oficial; los experimentos de Random Forest
+(`src/16`–`20`) quedan fuera porque no corren en una copia limpia (ver
+"Limitaciones actuales"). Para el sitio web y los análisis, ver **Instalación →
+Sitio web**.
 
 El pipeline reescribe las tablas versionadas de `reports/`. Aunque los resultados
 coinciden, `git status` las marcará como modificadas por rutas locales, tiempos

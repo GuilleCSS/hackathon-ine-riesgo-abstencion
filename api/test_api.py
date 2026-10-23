@@ -74,11 +74,16 @@ def main():
     assert e["resumen"]["brecha_18_24_menos_60_pp"]["2024"] == 21.0 and e["resumen"]["salto_65_pp"]["2024"] == -2.5
     assert len(e["curva"]) == 6 * 3 * 73 and data("/api/edad?edo=2")["entidad"][-1]["entidad"] == "BAJA CALIFORNIA"
 
+    # Brecha intermedia vs. presidencial: mismos números que reports/brecha_tipo/BRECHA_TIPO.md.
+    b = data("/api/brecha")
+    assert b["resumen"]["brecha_nacional_pp"]["2009–2012"] == 18.0 and b["resumen"]["brecha_nacional_pp"]["2021–2024"] == 7.8
+    assert len(b["entidades"]) == 32 and data("/api/brecha?edo=9")["entidad"][0]["EDOCVE"] == 9
+
     # Validación de entradas: nada llega a SQL sin pasar por los tipos.
     for bad in ["/api/resumen?escenario=S9", "/api/resumen?edo=40", "/api/resumen?nivel=X",
                 "/api/secciones/09-4882'--", "/api/entidades/0/municipios",
                 "/api/historico?tipo=x", "/api/grupos?edo=33", "/api/oscar?edo=0",
-                "/api/auditoria-ns?umbral=2", "/api/auditoria-ns?umbral=x"]:
+                "/api/auditoria-ns?umbral=2", "/api/auditoria-ns?umbral=x", "/api/brecha?edo=99"]:
         assert get(bad)[0] in (404, 422), bad
     assert get("/api/secciones/99-9999")[0] == 404
 

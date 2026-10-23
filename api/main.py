@@ -31,6 +31,7 @@ K_SELECTION = ROOT / "reports" / "clustering" / "01_k_selection.csv"
 OSCAR_CONFIG = ROOT / "reports" / "semaforo_oscar" / "comparacion_config.json"
 AUDIT_NS = ROOT / "reports" / "auditoria_ns"  # opcional: src/auditoria_ns/01_auditar_ns.py
 AGE = ROOT / "reports" / "descomposicion_edad"  # opcional: src/descomposicion_edad/01_descomponer_edad.py
+GAP = ROOT / "reports" / "brecha_tipo"  # opcional: src/brecha_tipo/01_brecha_intermedia_presidencial.py
 DIST = ROOT / "web" / "dist"
 
 for path in (TABLE_PATH, HISTORY_PATH, TILES_PATH, SCENARIO_CONFIG):
@@ -407,6 +408,31 @@ def edad(edo: Edo = None):
         "entidades": tabla("06_por_entidad.csv", "SELECT * FROM t WHERE anio = 2024 ORDER BY diferencia_no_explicada_pp DESC"),
         "niveles": tabla("07_por_nivel_riesgo.csv"),
         "salto_65": tabla("08_salto_65.csv"),
+        "entidad": entidad,
+        "bbox": bbox(edo),
+    }
+
+
+@app.get("/api/brecha")
+def brecha(edo: Edo = None):
+    """Brecha intermedia − presidencial: evolución, secciones, concurrencia local e implicaciones 2027."""
+    if not (GAP / "brecha_config.json").exists():
+        raise HTTPException(404, "No hay análisis de brecha: corre src/brecha_tipo/01_brecha_intermedia_presidencial.py")
+    tabla = lambda name: rows("SELECT * FROM read_csv_auto(?)", [str(GAP / name)])
+    entidad = None
+    if edo is not None:
+        entidad = rows("SELECT * FROM read_csv_auto(?) WHERE EDOCVE = ?", [str(GAP / "05_brecha_por_entidad_y_concurrencia.csv"), edo])
+    return {
+        "resumen": json.loads((GAP / "brecha_config.json").read_text()),
+        "nacional": tabla("01_brecha_nacional.csv"),
+        "distribucion": tabla("02_distribucion_secciones.csv"),
+        "por_grupo": tabla("04_por_grupo_2021_2024.csv"),
+        "efecto": tabla("06_efecto_concurrencia.csv"),
+        "niveles": tabla("07_por_nivel_riesgo.csv"),
+        "gubernaturas": tabla("08_gubernaturas_2021_2024_2027.csv"),
+        "calendario": tabla("09_calendario_por_anio.csv"),
+        "entidades": rows("SELECT * FROM read_csv_auto(?) WHERE par = '2021–2024' ORDER BY brecha_pp DESC",
+                          [str(GAP / "05_brecha_por_entidad_y_concurrencia.csv")]),
         "entidad": entidad,
         "bbox": bbox(edo),
     }

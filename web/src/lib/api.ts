@@ -154,6 +154,23 @@ export interface Edad {
   salto_65: { anio: number; grupo: string; salto_65_pp: number; pendiente_normal_pp: number }[];
   bbox: [number, number, number, number];
 }
+export interface BrechaEntidad { par: string; EDOCVE: number; entidad: string; brecha_pp: number;
+  gob_intermedia: number; gob_presidencial: number; local_intermedia: number; local_presidencial: number }
+export interface Brecha {
+  resumen: { brecha_nacional_pp: Record<string, number>; mediana_secciones_pp: Record<string, number>; pct_negativa: Record<string, number>;
+    persistencia_15_18_vs_21_24: number; efecto_gob_intermedia_pp: number; efecto_local_intermedia_pp: number;
+    efecto_local_presidencial_pp: number; cierre_por_calendario: { cambio_observado_pp: number; cambio_por_calendario_pp: number; parte_por_calendario: number } };
+  nacional: { par: string; variable: string; categoria: string; abst_intermedia: number; abst_presidencial: number; brecha_pp: number }[];
+  distribucion: { par: string; secciones: number; mediana: number; p10: number; p90: number; pct_negativa: number }[];
+  por_grupo: { variable: string; categoria: string; secciones: number; mediana_pp: number }[];
+  efecto: { variable: string; coef_pp: number; error_estandar_pp: number; ic90_bajo: number; ic90_alto: number }[];
+  niveles: { nivel: Nivel; secciones: number; mediana_pp: number; media_pp: number }[];
+  gubernaturas: { EDOCVE: number; entidad: string; gob_2021: number; gob_2024: number; gob_2027: number; cambia_vs_2021: boolean }[];
+  calendario: { ANIO: number; locales: number; gubernaturas: number }[];
+  entidades: BrechaEntidad[];
+  entidad: BrechaEntidad[] | null;
+  bbox: [number, number, number, number];
+}
 export interface EdadEntidad { entidad: string; anio: number; observada: number; esperada_por_edad: number;
   brecha_jovenes_mayores_pp: number; diferencia_no_explicada_pp: number }
 

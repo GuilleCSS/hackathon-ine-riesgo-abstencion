@@ -35,6 +35,8 @@
   --grupo-1: #2a78d6; --grupo-2: #eb6834; --grupo-3: #1baf7a; --grupo-4: #eda100; --grupo-5: #e87ba4;
   /* Oficial vs. Oscar: gris neutro = mismo nivel. */
   --dif-coincide: #9ca3af; --dif-alto: #d4122e; --dif-bajo: #1d4ed8; --dif-solo: #f29b00;
+  /* Brecha intermedia − presidencial: azul = negativa; rojos ordinales (validados) = positiva. */
+  --brecha-neg: #3987e5; --brecha-1: #f09595; --brecha-2: #e45f5f; --brecha-3: #c62828; --brecha-4: #861414;
 
   --radius: 0.75rem;
   --radius-sm: 0.5rem;
@@ -76,6 +78,14 @@ input[type="checkbox"] { accent-color: var(--accent); width: 1.125em; height: 1.
 .site-header nav a { padding: 0.4em 0.9em; border-radius: var(--pill); color: var(--ink-2); text-decoration: none; white-space: nowrap; }
 .site-header nav a:hover { background: var(--surface-2); }
 .site-header nav a[aria-current="page"] { background: var(--accent-soft); color: var(--accent); font-weight: 600; }
+.menu { position: relative; }
+.menu summary { list-style: none; padding: 0.4em 0.9em; border-radius: var(--pill); color: var(--ink-2); cursor: pointer; white-space: nowrap; }
+.menu summary::-webkit-details-marker { display: none; }
+.menu summary::after { content: " ▾"; font-size: 0.8em; }
+.menu summary:hover { background: var(--surface-2); }
+.menu summary[aria-current="page"] { background: var(--accent-soft); color: var(--accent); font-weight: 600; }
+.menu > div { position: absolute; right: 0; top: calc(100% + 0.4rem); min-width: 16rem; background: var(--surface); border: var(--hairline) solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); padding: 0.4rem; display: grid; gap: 0.15rem; z-index: 20; }
+.menu > div a { border-radius: var(--radius-sm); }
 
 /* Mapa + panel */
 .app { display: grid; grid-template-columns: 26rem 1fr; height: calc(100vh - var(--header-h)); }

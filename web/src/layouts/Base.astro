@@ -11,8 +11,12 @@ const paginas = [
   ["/historico/", "Datos por año"],
   ["/grupos/", "Grupos"],
   ["/semaforo-alternativo/", "Semáforo alternativo"],
-  ["/auditoria-ns/", "Auditoría NS"],
+];
+// Análisis explicativos: en un menú para que el encabezado quepa.
+const analisis = [
+  ["/auditoria-ns/", "Auditoría del NS"],
   ["/edad/", "Edad y sexo"],
+  ["/brecha/", "Intermedia vs. presidencial"],
 ];
 const actual = Astro.url.pathname.replace(/\/?$/, "/");
 ---
@@ -34,6 +38,12 @@ const actual = Astro.url.pathname.replace(/\/?$/, "/");
       </a>
       <nav aria-label="Secciones del sitio">
         {paginas.map(([href, texto]) => <a href={href} aria-current={actual === href ? "page" : undefined}>{texto}</a>)}
+        <details class="menu">
+          <summary aria-current={analisis.some(([href]) => href === actual) ? "page" : undefined}>Análisis</summary>
+          <div>
+            {analisis.map(([href, texto]) => <a href={href} aria-current={actual === href ? "page" : undefined}>{texto}</a>)}
+          </div>
+        </details>
         <a href="/#metodologia">Metodología</a>
       </nav>
     </header>

@@ -1,0 +1,34 @@
+{
+  "brecha_nacional_pp": {
+    "2009–2012": 18.0,
+    "2015–2012": 15.0,
+    "2015–2018": 15.3,
+    "2021–2018": 10.5,
+    "2021–2024": 7.8
+  },
+  "mediana_secciones_pp": {
+    "2009–2012": 18.1,
+    "2015–2012": 15.2,
+    "2015–2018": 15.8,
+    "2021–2018": 9.0,
+    "2021–2024": 7.2
+  },
+  "pct_negativa": {
+    "2009–2012": 0.015,
+    "2015–2012": 0.099,
+    "2015–2018": 0.121,
+    "2021–2018": 0.106,
+    "2021–2024": 0.202
+  },
+  "persistencia_15_18_vs_21_24": 0.33,
+  "efecto_gob_intermedia_pp": -5.49,
+  "efecto_gob_presidencial_pp": 0.44,
+  "efecto_local_intermedia_pp": -10.41,
+  "efecto_local_presidencial_pp": 2.98,
+  "cierre_por_calendario": {
+    "cambio_observado_pp": -10.63,
+    "cambio_por_calendario_pp": -6.76,
+    "parte_por_calendario": 0.636
+  },
+  "entidades_cambian_gubernatura_2027_vs_2021": 2
+}

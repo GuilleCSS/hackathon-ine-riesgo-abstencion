@@ -30,6 +30,7 @@ FORECAST_ALL_PATH = ROOT / "data" / "processed" / "forecast_2027" / "forecast_20
 CLUSTERS_PATH = ROOT / "data" / "processed" / "clustering" / "section_clusters.parquet"
 OSCAR_PATH = ROOT / "data" / "processed" / "semaforo_oscar" / "comparacion_secciones.parquet"
 EDAD_PATH = ROOT / "data" / "processed" / "descomposicion_edad" / "secciones_edad.parquet"
+BRECHA_PATH = ROOT / "data" / "processed" / "brecha_tipo" / "secciones_brecha.parquet"
 
 OUT_DATA = ROOT / "data" / "processed" / "web"
 OUT_REPORT = ROOT / "reports" / "web_export"
@@ -122,6 +123,10 @@ def load_attributes():
         wide = e.pivot(index="SECTION_KEY", columns="AELEC", values=["RES", "JOVENES"])
         wide.columns = [f"{'NO_EXPLICADA_EDAD_PP' if v == 'RES' else 'JOVENES_18_24'}_{y}" for v, y in wide.columns]
         table = table.join(wide, how="outer")
+    if BRECHA_PATH.exists():
+        # Brecha intermedia − presidencial por sección (pp; sólo pares con NS ≤ 10%).
+        brecha = pd.read_parquet(BRECHA_PATH).set_index("SECTION_KEY")[["BRECHA_2015_2018", "BRECHA_2021_2024"]]
+        table = table.join(brecha, how="outer")
     return table
 
 
@@ -169,6 +174,9 @@ def tile_properties(table):
     for s in SCENARIOS.values():
         props[f"nivel_{s.lower()}"] = t[f"RISK_LEVEL_{s}"]
         props[f"top10_{s.lower()}"] = t[f"PRIORITY_TOP10_{s}"].astype("boolean")
+    for a, b in [(2015, 2018), (2021, 2024)]:
+        if f"BRECHA_{a}_{b}" in t:
+            props[f"brecha_{a % 100}_{b % 100}"] = t[f"BRECHA_{a}_{b}"].round(1)
     for y in (2021, 2024):
         if f"NO_EXPLICADA_EDAD_PP_{y}" in t:
             props[f"edad_res_{y}"] = t[f"NO_EXPLICADA_EDAD_PP_{y}"].round(1)

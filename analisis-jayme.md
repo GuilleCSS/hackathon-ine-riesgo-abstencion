@@ -284,6 +284,32 @@ simple × sexo) y la base maestra (grupos de edad por sección).
 explicar los cambios nacionales y para focalizar mensajes en hombres de 19 a 34
 años.
 
+### 7.6 Brecha intermedia vs. presidencial
+
+`src/brecha_tipo/01_brecha_intermedia_presidencial.py`; reporte en
+`reports/brecha_tipo/BRECHA_TIPO.md`. Brecha = abstención en la intermedia menos la
+de la presidencial contigua, por sección. Sólo se usan pares con NS ≤ 10%.
+
+- **Se cerró a menos de la mitad.** Pasó de +18.0 pp (2009–2012) a +7.8 pp
+  (2021–2024). La mediana por sección bajó de 18.1 a 7.2 pp, y las secciones con
+  brecha negativa subieron de 1.5% a 20.2%.
+- **Por tipo de sección (2021–2024):** urbanas +9.8 pp, mixtas +5.7 pp, rurales
+  +1.7 pp.
+- **Por abstención previa:** es mayor donde ya se abstienen más (mediana +11.9 pp
+  en el quintil de más abstención 2021, contra −0.7 pp en el de menos).
+- **Poco persistente.** La correlación de Spearman entre la brecha 2015–2018 y la
+  2021–2024 de la misma sección es 0.33.
+- **Calendario local.** En el MCO por entidad y par con efectos fijos de par,
+  elecciones locales el mismo día que la intermedia restan −10.4 pp
+  (IC 90% −13.7 a −7.5) y una gubernatura −5.5 pp más. Entre 2009 y 2021 las
+  locales concurrentes pasaron de 11 a 32 entidades; eso explicaría ~64% del
+  cierre. El calendario está pendiente de validar.
+- **2027.** Las secciones ALTO tienen la mayor brecha. Habrá 17 gubernaturas
+  concurrentes; Aguascalientes y Quintana Roo no la tuvieron en 2021.
+
+**Siguiente paso posible:** probar la concurrencia de 2027 como ajuste del modelo
+(la fase 3 ya mostró ganancia en 2021).
+
 ## 8. Lo que no funcionó o costó trabajo
 
 **Del modelado**
