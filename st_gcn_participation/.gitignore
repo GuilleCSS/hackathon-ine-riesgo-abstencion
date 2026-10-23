@@ -1,0 +1,9 @@
+# Large, reproducible section-level derived tables stay local; no row-level data is needed to review the method.
+outputs/section_year_panel.csv
+modeling/outputs/temporal_examples.csv
+modeling/outputs/predictions.csv
+modeling/outputs/forecast_2027.csv
+modeling/outputs/candidate_predictions_2027.csv
+modeling/outputs/risk_2027_sections.csv
+modeling/outputs/scenario_2027_sections.csv
+modeling/outputs/candidate_predictions_2027.csv

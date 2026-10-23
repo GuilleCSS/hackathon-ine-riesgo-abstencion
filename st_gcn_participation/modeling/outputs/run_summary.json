@@ -1,0 +1,17 @@
+{
+  "panel_rows": 406866,
+  "nodes": 72681,
+  "examples": 324829,
+  "years": [
+    2009,
+    2012,
+    2015,
+    2018,
+    2021,
+    2024
+  ],
+  "cuda_torch_available": false,
+  "neural_model": "sklearn MLPRegressor (CPU); PyTorch unavailable in current environment",
+  "target": "section abstention = No votaron / (Sí votaron + No votaron)",
+  "identity_note": "Node identifier is normalized entity name + section number; no official section crosswalk was present."
+}
