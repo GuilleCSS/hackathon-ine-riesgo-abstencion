@@ -1,0 +1,37 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description: string;
+}
+const { title, description } = Astro.props;
+---
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/">
+        <img src="/favicon.svg" alt="" />
+        <span>Riesgo de abstención 2027</span>
+        <small>Hackathon INE 2026 · Reto 2</small>
+      </a>
+      <nav aria-label="Secciones del sitio">
+        <a href="/" aria-current="page">Mapa de riesgo</a>
+        <a href="/#metodologia">Metodología</a>
+      </nav>
+    </header>
+    <slot />
+    <footer class="site-footer">
+      Datos: Conteos Censales de Participación Ciudadana 2009–2024 (INE) · cartografía MGS DIC-2025, provisional.
+      Herramienta exploratoria: no es un pronóstico oficial.
+    </footer>
+  </body>
+</html>

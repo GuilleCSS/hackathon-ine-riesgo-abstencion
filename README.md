@@ -459,6 +459,49 @@ Su trabajo se replica exacto desde los ZIP oficiales. Comandos y resultados en
 `reports/semaforo_oscar/REPLICA.md`; la comparación completa está en
 `reports/semaforo_oscar/COMPARACION.md`.
 
+## Sitio web (Astro + FastAPI, en construcción)
+
+Migración del dashboard de Streamlit a un sitio con frontend estático y API de
+sólo lectura. Streamlit sigue disponible para exploración interna.
+
+```text
+FastAPI (api/main.py, puerto 8000)
+ ├─ /api/...       KPIs, tablas, catálogos y ficha por sección (DuckDB sobre data/processed/web/secciones.parquet)
+ ├─ /tiles/...     secciones.pmtiles con HTTP Range (MapLibre lo lee sin servidor de teselas)
+ └─ /              build estático de Astro + React (web/dist)
+```
+
+```bash
+docker compose run --rm app python src/21_export_web.py   # teselas + tabla (después del pipeline)
+docker compose run --rm web pnpm install                  # una vez
+docker compose run --rm web pnpm build                    # genera web/dist
+docker compose up -d api                                  # sitio en http://localhost:8000
+python api/test_api.py                                    # prueba de humo contra la API
+docker compose --profile web up web                       # desarrollo con recarga en http://localhost:4321
+```
+
+Reinicia la API después de correr la etapa 21 o un `pnpm build`: carga la tabla
+y calcula los hashes de la CSP al arrancar.
+
+Primera página: el mapa de riesgo 2027, con los mismos filtros, KPIs, tablas y
+escenarios que la página de Streamlit. Sus números coinciden con Streamlit, por
+ejemplo 54,448 secciones, 10,771 en ALTO y 74.3% de cobertura nacional. Dibuja
+polígonos reales también a nivel nacional, tiene ficha por sección con historia
+2009–2024 y guarda los filtros en la URL para compartir una vista.
+
+Seguridad:
+
+- En producción no corre Node: sólo Python, sin escritura ni sesiones, con
+  entradas validadas y consultas parametrizadas.
+- CSP estricta sin `'unsafe-inline'`: los scripts y estilos en línea de Astro
+  van con hash.
+- Imágenes base fijadas por digest; la API corre con un usuario sin privilegios.
+- Las dependencias deben tener al menos 7 días publicadas: `--uploaded-prior-to P7D`
+  en pip y `minimumReleaseAge` en pnpm. pnpm no ejecuta scripts de instalación de
+  dependencias.
+- `pip-audit` y `pnpm audit` sin vulnerabilidades conocidas (oct-2026).
+- Antes de publicar falta poner HTTPS con un proxy (Caddy o el del hosting).
+
 ## Pipeline
 
 ```text

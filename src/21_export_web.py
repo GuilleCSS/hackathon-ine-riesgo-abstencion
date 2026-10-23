@@ -110,6 +110,8 @@ def load_attributes():
 def build_table(carto, history, attrs):
     keys = pd.Index(carto["SECTION_KEY"]).union(attrs.index)
     carto_idx = carto.drop(columns="geometry").set_index("SECTION_KEY")
+    # Caja de cada sección: la API la agrega para hacer zoom a una entidad o municipio.
+    carto_idx[["BBOX_MINX", "BBOX_MINY", "BBOX_MAXX", "BBOX_MAXY"]] = carto.geometry.bounds.round(5).to_numpy()
     table = pd.DataFrame(index=keys).join(history).join(attrs).join(carto_idx)
     table.index.name = "SECTION_KEY"
     table["EN_CARTOGRAFIA"] = table.index.isin(carto["SECTION_KEY"])
@@ -118,6 +120,11 @@ def build_table(carto, history, attrs):
     table["EDOCVE"] = table["EDOCVE"].fillna(table["CARTO_EDOCVE"])
     table["SECCION"] = table["SECCION"].fillna(table["CARTO_SECCION"])
     table["MPIOCVE"] = table["MPIOCVE"].fillna(table["CARTO_MPIOCVE"])
+    # Tipos limpios para la API: los joins externos dejan claves como float y banderas como object.
+    for col in ["EDOCVE", "MPIOCVE", "SECCION", "GRUPO"]:
+        table[col] = table[col].astype("Int64")
+    for col in [c for c in table if c.startswith("PRIORITY_TOP10")]:
+        table[col] = table[col].astype("boolean")
     return table.reset_index()
 
 
@@ -136,6 +143,7 @@ def tile_properties(table):
         "nivel": t["RISK_LEVEL"],
         "top10": t["PRIORITY_TOP10"].astype("boolean"),
         "pred": pct(t["PRED_ABSTENCION_2027"]),
+        "sensibilidad": t["HIGH_SENSITIVITY_CLASS"],
         "grupo": t["GRUPO"].astype("Int64"),
         "nivel_oscar": t["NIVEL_OSCAR"],
         "comp_oscar": t["COMPARACION_OSCAR"],
@@ -149,18 +157,33 @@ def tile_properties(table):
     return props
 
 
-def run_tippecanoe(seq_path, out_path):
+def write_outlines(carto, out_dir):
+    """Contornos de entidades y municipios (no hay mapa base de terceros)."""
+    paths = {}
+    g = carto[["CARTO_EDOCVE", "CARTO_MPIOCVE", "geometry"]].rename(
+        columns={"CARTO_EDOCVE": "edo", "CARTO_MPIOCVE": "mun"})
+    for name, by in [("estados", ["edo"]), ("municipios", ["edo", "mun"])]:
+        # method="coverage" sería más rápido, pero falla con las geometrías inválidas del MGS.
+        outline = g.dissolve(by=by).reset_index()[by + ["geometry"]]
+        paths[name] = out_dir / f"{name}.geojsonl"
+        outline.to_file(paths[name], driver="GeoJSONSeq", engine="pyogrio")
+    return paths
+
+
+def run_tippecanoe(seq_path, out_path, outlines):
     # Sin límite de tamaño: con el de 500 KB, a zoom 5 sólo quedaba el 16% de las
     # secciones (huecos en las ciudades). Así queda el 76%; el resto mide menos de
     # un píxel y tippecanoe lo dibuja como "polvo". La vista nacional pesa ~3 MB.
     # ponytail: atributos dentro de la tesela; si crecen mucho, dejar sólo geometría
     # + clave y unir los datos de la API con feature-state (probado: ~1.7 MB a z5).
     cmd = [
-        "tippecanoe", "-o", str(out_path), "--force", "-l", "secciones",
+        "tippecanoe", "-o", str(out_path), "--force",
         "-n", "Secciones electorales 2027",
         "-A", "INE: Conteos Censales 2009–2024 · MGS DIC-2025 (provisional)",
         "-Z3", "-z12", "--read-parallel", "--detect-shared-borders",
-        "--no-tile-size-limit", "--quiet", str(seq_path),
+        "--no-tile-size-limit", "--quiet",
+        "-L", f"secciones:{seq_path}",
+        *[arg for name, path in outlines.items() for arg in ("-L", f"{name}:{path}")],
     ]
     subprocess.run(cmd, check=True)
 
@@ -181,9 +204,11 @@ def main():
     seq_path = OUT_DATA / "secciones.geojsonl"
     gpd.GeoDataFrame(geo, geometry="geometry", crs="EPSG:4326").to_file(
         seq_path, driver="GeoJSONSeq", engine="pyogrio")
+    outlines = write_outlines(carto, OUT_DATA)
     pmtiles_path = OUT_DATA / "secciones.pmtiles"
-    run_tippecanoe(seq_path, pmtiles_path)
-    seq_path.unlink()
+    run_tippecanoe(seq_path, pmtiles_path, outlines)
+    for path in [seq_path, *outlines.values()]:
+        path.unlink()
 
     # El municipio sale de la historia (CCPC) y, si no hay, de la cartografía.
     both = table.dropna(subset=["CARTO_MPIOCVE"]).loc[lambda d: d["CAPA"].ne("sin_estimacion")]

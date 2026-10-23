@@ -1,0 +1,8 @@
+# Defensas contra paquetes comprometidos (ChainDrop / Shai-Hulud, 2026):
+# - una versión debe tener 7 días publicada antes de instalarse (también las indirectas);
+# - falla si una versión pierde la firma de procedencia que tenían las anteriores;
+# - los scripts de instalación de dependencias no corren salvo que se listen en allowBuilds.
+minimumReleaseAge: 10080
+minimumReleaseAgeStrict: true
+trustPolicy: no-downgrade
+storeDir: node_modules/.pnpm-store

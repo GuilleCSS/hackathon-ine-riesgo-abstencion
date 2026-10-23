@@ -4,7 +4,7 @@ Prepara los datos del sitio web (Astro + React en el frontend, API en Python).
 El dashboard de Streamlit no se toca.
 
 ```bash
-python src/21_export_web.py      # ~70 s; requiere tippecanoe (incluido en la imagen Docker)
+python src/21_export_web.py      # ~110 s; requiere tippecanoe (incluido en la imagen Docker)
 ```
 
 ## Salidas (`data/processed/web/`, no versionadas)
@@ -12,7 +12,7 @@ python src/21_export_web.py      # ~70 s; requiere tippecanoe (incluido en la im
 | Archivo | Contenido | Uso |
 |---|---|---|
 | `secciones.pmtiles` | 73,268 secciones de la cartografía, geometría completa, zoom 3–12 | Mapa (MapLibre), servido como archivo estático con HTTP Range |
-| `secciones.parquet` | 75,636 filas (cartografía ∪ semáforo ∪ NS alto), sin geometría | Tabla que leerá la API |
+| `secciones.parquet` | 75,636 filas (cartografía ∪ semáforo ∪ NS alto), sin geometría; incluye la caja `BBOX_*` de cada sección | Tabla que lee la API (`api/main.py`) |
 
 `export_summary.json` (versionado) guarda los conteos de cada corrida.
 
@@ -21,7 +21,8 @@ al Marco Geográfico Electoral oficial basta con cambiar la ruta de entrada.
 
 ## Contrato de atributos de las teselas
 
-La capa se llama `secciones`. Los porcentajes van en puntos (0–100) con un decimal.
+La capa de datos se llama `secciones`. El mismo archivo trae dos capas sólo de contorno, `estados` (`edo`)
+y `municipios` (`edo`, `mun`), porque el sitio no usa mapa base de terceros. Los porcentajes van en puntos (0–100) con un decimal.
 Si un atributo no aplica a una sección, no viene en la tesela: en MapLibre usar
 `["coalesce", ["get", "x"], …]`.
 
@@ -31,6 +32,7 @@ Si un atributo no aplica a una sección, no viene en la tesela: en MapLibre usar
 | `edo`, `mun` | entero | Entidad y municipio (CCPC; coincide 100% con el MGS) |
 | `capa` | texto | `semaforo` (primary_clean10), `ns_alto` (comparable, NS > 10%), `sin_estimacion` |
 | `nivel`, `top10`, `pred` | texto, bool, número | Semáforo oficial 2027: BAJO/MEDIO/ALTO, Top10, abstención estimada |
+| `sensibilidad` | texto | Clase de persistencia: `NO_ALTO`, `ALTO_SENSIBLE_2PP`, `ALTO_SENSIBLE_5PP`, `ALTO_PERSISTENTE_MAS_5PP` |
 | `nivel_s1..s3`, `top10_s1..s3` | texto, bool | Escenarios S1 (Top10 −2 pp), S2 (ALTO −2 pp), S3 (ALTO −5 pp); umbrales congelados |
 | `abst_2009..2024`, `ns_2009..2024` | número | Abstención y NS observados por elección |
 | `grupo` | entero | Grupo de clustering 1–5 (fase 1, descriptivo) |

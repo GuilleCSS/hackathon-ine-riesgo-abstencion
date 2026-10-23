@@ -1,7 +1,33 @@
 services:
+  # Dashboard exploratorio (Streamlit) y pipeline: docker compose run --rm app python src/<etapa>.py
   app:
     build: .
     volumes:
       - .:/app
     ports:
       - "8501:8501"
+
+  # Sitio web: API de sólo lectura + teselas + build de Astro en http://localhost:8000
+  api:
+    build: ./api
+    volumes:
+      - .:/app:ro
+    ports:
+      - "8000:8000"
+
+  # Node sólo para construir el frontend (no corre en producción):
+  #   docker compose run --rm web pnpm install
+  #   docker compose run --rm web pnpm build           → web/dist (lo sirve la API)
+  #   docker compose --profile web up web              → desarrollo en http://localhost:4321
+  web:
+    build: ./web
+    profiles: ["web"]
+    volumes:
+      - ./web:/web
+      - web_node_modules:/web/node_modules
+    ports:
+      - "4321:4321"
+    command: ["pnpm", "dev", "--host", "0.0.0.0"]
+
+volumes:
+  web_node_modules:

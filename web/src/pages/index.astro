@@ -1,0 +1,72 @@
+---
+import Base from "../layouts/Base.astro";
+import MapaRiesgo from "../components/MapaRiesgo.tsx";
+---
+<Base
+  title="Mapa de riesgo de abstención 2027"
+  description="Riesgo territorial de abstención electoral 2027 por sección, a partir de los Conteos Censales del INE 2009–2024."
+>
+  <main>
+    <MapaRiesgo client:only="react">
+      <p slot="fallback" class="note">Cargando el mapa…</p>
+    </MapaRiesgo>
+
+    <div class="debajo">
+      <section id="metodologia" class="card prose">
+        <h2>Metodología y limitaciones</h2>
+
+        <h3>Estimación</h3>
+        <p>
+          El modelo <code>two_history_linear</code> combina dos memorias electorales: la abstención en la última
+          elección del mismo tipo (intermedia 2021) y la de la elección federal más reciente (2024). Se eligió con
+          backtesting temporal y pruebas de robustez por municipio. Abstención = no votaron / (sí votaron + no votaron);
+          los registros sin información (NS) quedan fuera del denominador.
+        </p>
+
+        <h3>Semáforo</h3>
+        <p>Es una priorización relativa entre secciones, no una probabilidad individual de abstención.</p>
+        <ul>
+          <li>BAJO: hasta el percentil 50.</li>
+          <li>MEDIO: entre los percentiles 50 y 80.</li>
+          <li>ALTO: arriba del percentil 80.</li>
+          <li>Top10 prioritario: desde el percentil 90.</li>
+        </ul>
+
+        <h3>Escenarios</h3>
+        <p>
+          Las reducciones de 2 o 5 puntos porcentuales son supuestos de sensibilidad, no efectos causales estimados de
+          una intervención. Los umbrales se mantienen congelados para que las secciones puedan cambiar de nivel.
+        </p>
+
+        <h3>Incertidumbre</h3>
+        <p>
+          Los intervalos son empíricos, a partir de errores fuera de muestra de 2021. No garantizan cobertura ante
+          cambios estructurales.
+        </p>
+
+        <h3>Capas del mapa</h3>
+        <ul>
+          <li>
+            <strong>Gris:</strong> secciones de la cartografía sin estimación (fuera del universo
+            comparable <code>primary_clean10</code>) o fuera de los filtros activos.
+          </li>
+          <li>
+            <strong>Violeta:</strong> secciones con estimación pero con más de 10% de registros sin información (NS) en
+            2021 o 2024. No entran al semáforo ni a los escenarios; la ficha muestra su nivel indicativo.
+          </li>
+          <li>
+            <strong>Cobertura predictiva:</strong> secciones con estimación entre todas las de la cartografía. No
+            depende de los filtros de riesgo. Hay 324 secciones del semáforo sin geometría en la cartografía
+            provisional; no aparecen en el mapa ni en los indicadores.
+          </li>
+        </ul>
+
+        <h3>Cartografía</h3>
+        <p>
+          Se usa el MGS por entidad con corte DIC-2025, que es provisional. Debe sustituirse por el Marco Geográfico
+          Electoral oficial 2026–2027 antes de la entrega final.
+        </p>
+      </section>
+    </div>
+  </main>
+</Base>

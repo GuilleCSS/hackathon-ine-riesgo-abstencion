@@ -93,3 +93,8 @@ graphify-out/
 .codex/
 .agents/
 AGENTS.md
+
+# Sitio web (Astro): dependencias y build se generan con pnpm
+web/node_modules/
+web/dist/
+web/.astro/

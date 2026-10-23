@@ -1,0 +1,18 @@
+{
+  "name": "riesgo-abstencion-web",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@12.13.0",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build"
+  },
+  "dependencies": {
+    "@astrojs/react": "7.0.1",
+    "astro": "7.3.8",
+    "maplibre-gl": "6.14.0",
+    "pmtiles": "4.5.0",
+    "react": "19.3.1",
+    "react-dom": "19.3.1"
+  }
+}
