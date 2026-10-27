@@ -1,0 +1,18 @@
+{
+  "nacional": {
+    "secciones": 70991,
+    "lista_nominal": 99094375,
+    "abstencion": 0.8699504090538411,
+    "pct_ns": 0.012955114758027386
+  },
+  "spearman_con": {
+    "abst_2021": 0.375,
+    "abst_2024": 0.373
+  },
+  "secciones_comparadas": 62919,
+  "abstencion_por_nivel_2027": {
+    "BAJO": 0.8397,
+    "MEDIO": 0.8718,
+    "ALTO": 0.9064
+  }
+}

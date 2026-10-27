@@ -754,9 +754,14 @@ docker compose run --rm app python src/semaforo_oscar/03_backtest_2018.py       
 docker compose run --rm app python src/auditoria_ns/01_auditar_ns.py                     # Auditoría del NS
 docker compose run --rm app python src/descomposicion_edad/01_descomponer_edad.py        # Edad y sexo
 docker compose run --rm app python src/brecha_tipo/01_brecha_intermedia_presidencial.py  # Intermedia vs. presidencial
+# Elección judicial 2025: necesita data/raw/pj2025/DatosAbiertos_DECEyEC_ConteosCensalesPJ2025.zip
+docker compose run --rm app python src/eleccion_judicial/01_participacion_judicial_2025.py
 
 # 3. Exportación para el sitio (~2 min): teselas PMTiles y tablas de la API
 docker compose run --rm app python src/21_export_web.py
+
+# 3b. Entregable "Mapa de escenarios" del concurso (~40 s): GPKG, base CSV, resúmenes y mapa PNG
+docker compose run --rm app python src/entregables/01_exportar_mapa_escenarios.py
 
 # 4. Frontend y API
 docker compose run --rm web pnpm install    # una vez, o cuando cambie web/package.json
@@ -900,6 +905,27 @@ metodología, descartarlas antes de hacer commit:
 ```bash
 git checkout -- reports/
 ```
+
+## Entregables del concurso (Reto 2)
+
+La convocatoria pide entregar a más tardar a las 23:59 del 31 de octubre de 2026, en un zip con el
+nombre del equipo y el eje, enviado a los correos que indica. Si falta cualquier entregable obligatorio,
+el equipo queda descalificado.
+
+| Entregable | Dónde está | Estado |
+|---|---|---|
+| Mapa de escenarios con y sin intervención (SHP/GeoJSON/GPKG) + base de datos (.CSV/.XLSX) | `data/processed/entregables/mapa_escenarios/` (lo genera `src/entregables/01_exportar_mapa_escenarios.py`) | Listo |
+| Reporte metodológico y preventivo (PDF, 10–15 cuartillas): variables, semáforo, recomendaciones y priorización de recursos | Documento en Claude Docs, se exporta a PDF (15 páginas carta) | Borrador listo, falta revisión del equipo |
+| Presentación ejecutiva (máximo 10 diapositivas) | Presentación en Claude (10 diapositivas), se exporta a PDF o PowerPoint | Borrador listo, falta nombre del equipo y revisión |
+| Código o enlace al repositorio | Este repo (privado): dar acceso al jurado o incluir el código en el zip, sin `data/` | Decidir |
+| Carta de cesión de derechos y carta declaratoria, firmadas por todo el equipo | Formatos en https://ine.mx/hackathon-2026/ | Pendiente (equipo) |
+
+Sobre el mapa de escenarios:
+
+- `mapa_escenarios_2027.gpkg` (~70 MB) es la versión completa: se sube a Drive y se manda el enlace.
+- `mapa_escenarios_2027_ligero.gpkg` (~35 MB; el zip con la base y los resúmenes pesa ~20 MB) es para el
+  correo.
+- Antes de enviar, confirmen el límite de adjuntos. Si no cabe, manden sólo enlaces.
 
 ## Archivos que no deben subirse
 
