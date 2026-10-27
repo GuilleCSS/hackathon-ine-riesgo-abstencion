@@ -1,4 +1,4 @@
-"""Fase 2 · ¿Mejoran los grupos y las variables territoriales al modelo 2027?
+"""Fase 2: ¿mejoran los grupos y las variables territoriales al modelo 2027?
 
 Experimento aparte del pipeline: reutiliza las ventanas clean10 de la etapa 07,
 sus métricas, el bootstrap por municipio de la etapa 08 y la misma regla de
@@ -87,7 +87,7 @@ def family(year):
     return "intermedia" if year in INTERMEDIAS else "presidencial"
 
 
-# ---------------------------------------------------------------- variables
+# Variables
 
 def relative_abstention(master):
     totals = master.groupby("AELEC")[["SV", "NV"]].sum()
@@ -190,7 +190,7 @@ def enrich(window, hist, nb, mun, area):
     return w
 
 
-# ---------------------------------------------------------------- modelos
+# Modelos
 
 def preprocessor(num, cats, scale):
     steps = [("imputer", SimpleImputer(strategy="median"))] + ([("scale", StandardScaler())] if scale else [])

@@ -204,8 +204,8 @@ def run_tippecanoe(seq_path, out_path, outlines):
     # Sin límite de tamaño: con el de 500 KB, a zoom 5 sólo quedaba el 16% de las
     # secciones (huecos en las ciudades). Así queda el 76%; el resto mide menos de
     # un píxel y tippecanoe lo dibuja como "polvo". La vista nacional pesa ~3 MB.
-    # ponytail: atributos dentro de la tesela; si crecen mucho, dejar sólo geometría
-    # + clave y unir los datos de la API con feature-state (probado: ~1.7 MB a z5).
+    # Los atributos van dentro de la tesela. Si crecen mucho, se puede dejar sólo la
+    # geometría y la clave, y unir los datos de la API con feature-state (~1.7 MB a z5).
     cmd = [
         "tippecanoe", "-o", str(out_path), "--force",
         "-n", "Secciones electorales 2027",

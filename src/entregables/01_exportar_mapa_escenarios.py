@@ -12,7 +12,7 @@ Salida en data/processed/entregables/mapa_escenarios/ (no versionada; se reconst
 - mapa_sin_vs_con_intervencion.png
 - LEEME.md                    Qué es cada archivo, columnas, escenarios y cómo abrirlo.
 
-Lee salidas existentes (etapas 10, 12, 13, 15 y 21); no modifica el pipeline.
+Necesita las salidas de las etapas 10, 12, 13, 15 y 21.
 
 Uso:
     python src/entregables/01_exportar_mapa_escenarios.py

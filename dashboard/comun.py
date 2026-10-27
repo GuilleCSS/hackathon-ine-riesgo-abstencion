@@ -86,7 +86,7 @@ def load_large_shapes():
         preserve_topology=True,
     )
     large = large.to_crs(epsg=4326)
-    # ponytail: 4 decimales (~11 m) bastan a escala nacional y reducen el JSON.
+    # Con 4 decimales (~11 m) alcanza a escala nacional y el JSON pesa menos.
     large["geometry"] = large.geometry.set_precision(1e-4)
     return large
 

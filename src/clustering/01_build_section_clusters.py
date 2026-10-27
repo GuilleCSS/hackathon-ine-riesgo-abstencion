@@ -1,4 +1,4 @@
-"""Fase 1 · Grupos de secciones por trayectoria de abstención (descriptivo).
+"""Fase 1: grupos de secciones por trayectoria de abstención (descriptivo).
 
 Agrupa las secciones por su comportamiento 2009–2024 frente al promedio
 nacional de cada elección y describe cada grupo por su contexto. No forma

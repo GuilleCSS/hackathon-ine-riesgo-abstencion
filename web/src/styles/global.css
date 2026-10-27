@@ -2,7 +2,7 @@
    cambiar un color o agregar modo oscuro es redefinir estas variables.
    Todas las medidas en rem/em: 1rem = tamaño de letra del navegador (16 px por defecto). */
 :root {
-  /* Base blanca y neutros fríos (sin tonos cafés). */
+  /* Fondo blanco y grises fríos. */
   --bg: #ffffff;
   --surface: #ffffff;
   --surface-2: #f3f5f8;
@@ -17,7 +17,7 @@
   --error-soft: #fde8ea;
   --error-ink: #9f1239;
 
-  /* Semáforo vivo, validado para daltonismo sobre blanco (ΔE ≥ 8.5 en todas las parejas). */
+  /* Semáforo: colores fuertes que también se distinguen con daltonismo. */
   --riesgo-bajo: #34c27a;
   --riesgo-medio: #f29b00;
   --riesgo-alto: #d4122e;
@@ -28,14 +28,14 @@
   --map-bg: #eef4f9;
   --map-borde: #ffffff;
 
-  /* Datos por año: rampa ordinal de un solo tono y divergente para el cambio (validadas). */
+  /* Datos por año: un solo tono para los niveles y azul/rojo para el cambio. */
   --rampa-1: #6da7ec; --rampa-2: #3987e5; --rampa-3: #256abf; --rampa-4: #184f95; --rampa-5: #0d366b;
   --cambio-1: #1d4ed8; --cambio-2: #60a5fa; --cambio-3: #f87171; --cambio-4: #d4122e;
-  /* Grupos: categórica en orden fijo (pasa en parejas adyacentes; en el mapa va un grupo a la vez). */
+  /* Grupos: colores en orden fijo; en el mapa se ve un grupo a la vez. */
   --grupo-1: #2a78d6; --grupo-2: #eb6834; --grupo-3: #1baf7a; --grupo-4: #eda100; --grupo-5: #e87ba4;
   /* Oficial vs. Oscar: gris neutro = mismo nivel. */
   --dif-coincide: #9ca3af; --dif-alto: #d4122e; --dif-bajo: #1d4ed8; --dif-solo: #f29b00;
-  /* Brecha intermedia − presidencial: azul = negativa; rojos ordinales (validados) = positiva. */
+  /* Brecha intermedia − presidencial: azul = negativa, rojos de menor a mayor = positiva. */
   --brecha-neg: #3987e5; --brecha-1: #f09595; --brecha-2: #e45f5f; --brecha-3: #c62828; --brecha-4: #861414;
 
   --radius: 0.75rem;
@@ -46,7 +46,7 @@
   --font: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --header-h: 4rem;
 
-  /* Escala tipográfica (cada tamaño 3 pt arriba del diseño anterior). */
+  /* Tamaños de letra. */
   --text-xs: 1rem;
   --text-sm: 1.0625rem;
   --text-md: 1.125rem;

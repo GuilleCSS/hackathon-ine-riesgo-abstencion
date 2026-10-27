@@ -3,16 +3,9 @@
 NS = personas de la lista nominal de las que no se sabe si votaron: cuadernillo sin
 marcas, no disponible para captura, solicitado por autoridad o página faltante.
 La abstención se calcula sin ellas (NV / (SV + NV)) y el semáforo 2027 excluye las
-secciones con NS > 10% en 2021 o 2024. Esta auditoría responde:
-
-1. Cuánto NS hay.
-2. De dónde viene: casillas o páginas completas vs. personas sueltas, y si afecta
-   igual a todas las edades y sexos.
-3. Si es aleatorio entre secciones o se concentra y persiste en ciertos lugares.
-4. Si sesga la abstención medida.
-5. Qué le hace al semáforo 2027 y qué pasa si se mueve el umbral del 10%.
-
-Sólo lee salidas del pipeline; no modifica ninguna etapa.
+secciones con NS > 10% en 2021 o 2024. Aquí se revisa cuánto NS hay, si viene de
+casillas completas o de personas sueltas, si se concentra en ciertos lugares, si
+sesga la abstención medida y qué pasa con el semáforo si se mueve el umbral.
 
 Uso:
     python src/auditoria_ns/01_auditar_ns.py
@@ -210,7 +203,7 @@ def main():
     for name, df in outputs.items():
         df.to_csv(OUT / name, index=False)
 
-    # ---------------------------------------------------------------- Lectura automática
+    # Lectura automática
     y24 = mag.set_index("anio").loc[2024]
     ratios = unif.drop(columns="anio")
     ratio_range = (float(ratios.min().min()), float(ratios.max().max()))

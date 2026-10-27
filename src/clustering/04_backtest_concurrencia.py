@@ -1,4 +1,4 @@
-"""Fase 3 · ¿Mejora el modelo con el calendario de elecciones locales concurrentes?
+"""Fase 3: ¿mejora el modelo con el calendario de elecciones locales concurrentes?
 
 Mismo protocolo que la fase 2 (ventanas clean10 de la etapa 07, métricas,
 bootstrap por municipio de la etapa 08 y regla de selección de la etapa 09) y

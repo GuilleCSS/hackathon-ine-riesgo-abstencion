@@ -25,7 +25,7 @@ REPORT = ROOT / "reports" / "semaforo_oscar"
 LEVELS = ["BAJO", "MEDIO", "ALTO"]
 # Mismos colores que el semáforo del mapa de riesgo.
 RISK_COLORS = {"BAJO": [46, 125, 50, 175], "MEDIO": [251, 192, 45, 190], "ALTO": [198, 40, 40, 200]}
-# Validados en mapa (todos los pares) con dataviz validate_palette.js.
+# Se distinguen entre sí en el mapa, también con daltonismo.
 DIFF_COLORS = {
     "coincide": ("#8f8f8c", "Mismo nivel"),
     "oscar_mas_alto": ("#a82a29", "Oscar más alto"),

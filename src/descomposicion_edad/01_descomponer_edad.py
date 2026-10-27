@@ -1,18 +1,12 @@
 """Descomposición de la abstención por edad (y sexo).
 
-Preguntas:
-1. ¿Cómo cambia la participación con la edad? Curva por edad simple (18 a 90+), por
-   sexo y por tipo de sección, desde los ZIP originales (sección × sexo × edad).
-2. ¿Por qué cambió la abstención entre elecciones del mismo tipo? Descomposición de
-   Kitagawa: parte por composición (el electorado envejece) y parte por comportamiento
-   (cada grupo de edad vota distinto).
-3. ¿Qué tanto explica la estructura de edad las diferencias entre secciones y entidades?
-   Abstención esperada si cada grupo votara como el promedio nacional de ese año.
-4. ¿Las secciones ALTO del semáforo 2027 son más jóvenes? ¿Qué parte de su brecha con
-   las BAJO explica la edad?
+- Curva por edad simple (18 a 90+), por sexo y tipo de sección, desde los ZIP originales.
+- Kitagawa: cuánto del cambio entre elecciones del mismo tipo es composición (el
+  electorado envejece) y cuánto comportamiento.
+- Abstención esperada si cada grupo de edad votara como el promedio nacional, para ver
+  cuánto explica la edad las diferencias entre secciones, entidades y niveles del semáforo.
 
-Abstención = NV / (SV + NV), como en todo el pipeline: los pesos de cada grupo son su
-parte de SV + NV (personas con participación conocida). Sólo lee salidas existentes.
+Los pesos de cada grupo son su parte de SV + NV, igual que en la abstención del pipeline.
 
 Uso:
     python src/descomposicion_edad/01_descomponer_edad.py
@@ -209,7 +203,7 @@ def main():
     s.loc[s["AELEC"].isin([2021, 2024]), ["SECTION_KEY", "AELEC", "PCT_ABSTENCION", "ESPERADA", "JOVENES", "MAYORES"]] \
         .to_parquet(OUT_DATA / "secciones_edad.parquet", index=False)
 
-    # ---------------------------------------------------------------- Lectura
+    # Lectura
     tot = k[k["grupo"].eq("Total")].set_index(["de", "a"])
     pairs_long = [(2009, 2021), (2012, 2024)]
     gap_years = t.pivot(index="anio", columns="grupo", values="abstencion")

@@ -30,9 +30,8 @@ ELECTION_TYPES = {
     "Presidenciales": [2012, 2018, 2024],
 }
 
-# Paleta categórica de referencia en orden fijo (dataviz): pasa en pares
-# adyacentes (líneas y barras apiladas) en ambos modos. En el mapa no pasa con
-# los 5 colores a la vez, por eso ahí se muestra un grupo por vez.
+# Colores en orden fijo. Se distinguen bien de dos en dos (líneas y barras
+# apiladas), pero no los 5 juntos en el mapa: por eso ahí se ve un grupo a la vez.
 GROUP_COLORS = {
     "light": ["#2a78d6", "#eb6834", "#1baf7a", "#eda100", "#e87ba4"],
     "dark": ["#3987e5", "#d95926", "#199e70", "#c98500", "#d55181"],
@@ -162,7 +161,7 @@ k3.metric(
     ),
 )
 
-# ---------------------------------------------------------------- Perfiles
+# Perfiles
 st.subheader("Perfil de los grupos")
 profile = (
     scope.groupby(["GRUPO", "GRUPO_NOMBRE"])
@@ -213,7 +212,7 @@ st.dataframe(
     },
 )
 
-# ---------------------------------------------------------------- Trayectorias
+# Trayectorias
 st.subheader("Abstención de cada grupo en el tiempo")
 years = ELECTION_TYPES[election_type]
 traj = pd.concat(
@@ -256,7 +255,7 @@ st.altair_chart(
     width="stretch",
 )
 
-# ---------------------------------------------------------------- Mapa
+# Mapa
 st.subheader("Dónde está cada grupo")
 m1, m2, _ = st.columns([2, 1.4, 1.6])
 selected = m1.selectbox(
@@ -323,7 +322,7 @@ else:
         width="stretch",
     )
 
-# ---------------------------------------------------------------- Composición
+# Composición
 unit, unit_label = ("EDONOM", "Estado") if edocve is None else ("MPIONOM", "Municipio")
 st.subheader(f"Composición por {unit_label.lower()}")
 comp = scope.groupby([unit, "GRUPO_NOMBRE"]).size().rename("secciones").reset_index()

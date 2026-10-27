@@ -57,7 +57,7 @@ con.execute("CREATE TABLE h AS SELECT * FROM read_parquet(?)", [str(HISTORY_PATH
 HAS_GROUPS = GROUPS_PATH.exists() and CLUSTER_CONFIG.exists()
 if HAS_GROUPS:
     con.execute("CREATE TABLE g AS SELECT * FROM read_parquet(?)", [str(GROUPS_PATH)])
-# ponytail: la tabla se carga al arrancar; reiniciar la API después de correr src/21.
+# La tabla se carga al arrancar: hay que reiniciar la API después de correr src/21.
 
 
 def rows(sql, params=()):
@@ -77,7 +77,7 @@ def inline_hashes(tag):
     return " ".join(sorted(hashes))
 
 
-# ponytail: los hashes se calculan al arrancar; reiniciar la API después de cada pnpm build.
+# Los hashes se calculan al arrancar: hay que reiniciar la API después de cada pnpm build.
 SECURITY_HEADERS = {
     "Content-Security-Policy": (
         f"default-src 'self'; script-src 'self' {inline_hashes('script')}; style-src 'self' {inline_hashes('style')}; "

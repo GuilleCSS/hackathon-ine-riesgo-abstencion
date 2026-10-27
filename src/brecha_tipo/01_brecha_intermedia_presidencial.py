@@ -4,15 +4,9 @@ Brecha = abstención en la intermedia − abstención en la presidencial contigu
 misma sección: mide cuánta gente sólo vota cuando hay elección presidencial. 2027 es
 intermedia, así que importa para el riesgo.
 
-Preguntas:
-1. ¿Qué tan grande es y cómo ha cambiado? (nacional, por tipo de sección, sexo y edad)
-2. ¿Cómo se reparte entre secciones y qué tan persistente es?
-3. ¿Dónde es mayor? (tipo, tamaño, jóvenes, abstención previa, entidad)
-4. ¿La explica la concurrencia con elecciones locales el mismo día?
-   (data/external/calendario_concurrente.csv, pendiente de validar)
-5. ¿Qué implica para 2027? (niveles de riesgo y entidades cuyo calendario cambia)
-
-Sólo lee salidas existentes; no modifica el pipeline.
+Se calcula su evolución (nacional, por tipo de sección, sexo y edad), cómo se reparte
+entre secciones, dónde es mayor, cuánto la explican las elecciones locales del mismo
+día (data/external/calendario_concurrente.csv, falta validarlo) y qué implica para 2027.
 
 Uso:
     python src/brecha_tipo/01_brecha_intermedia_presidencial.py

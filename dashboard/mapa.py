@@ -49,7 +49,7 @@ FORECAST_ALL_PATH = (
     / "forecast_2027_all_comparable.parquet"
 )
 
-# Violeta validado contra el semáforo y el gris (dataviz validate_palette.js).
+# Violeta que se distingue del semáforo y del gris, también con daltonismo.
 HIGH_NS_COLOR = [74, 58, 167, 175]
 
 RISK_COLORS = {
@@ -324,7 +324,7 @@ def high_ns_display(base_scope, high_ns, thresholds):
 
 
 def make_point_layer(df):
-    # IMPORTANT: send only a small table to the browser.
+    # Al navegador sólo se manda una tabla chica.
     cols = [
         "_LON",
         "_LAT",
@@ -364,7 +364,7 @@ def make_point_layer(df):
 
 
 def make_polygon_layer(df):
-    # IMPORTANT: strip the GeoJSON to only the properties needed by the map.
+    # Del GeoJSON sólo se dejan las propiedades que usa el mapa.
     cols = [
         "geometry",
         "SECTION_KEY",

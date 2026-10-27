@@ -48,7 +48,7 @@ COLS = [
 # De menor a mayor NS. Las secciones con NS <= 5% no se grafican.
 NS_BUCKETS = ["5–10%", "10–25%", "25–50%", "50–99%", "100% (sin información)"]
 
-# Rampas ordinales validadas por modo (dataviz validate_palette.js --ordinal).
+# Un solo tono de claro a oscuro, con una versión para cada tema.
 NS_RAMP = {
     "light": ["#86b6ef", "#5598e7", "#2a78d6", "#1c5cab", "#104281"],
     "dark": ["#9ec5f4", "#6da7ec", "#3987e5", "#256abf", "#184f95"],
@@ -58,8 +58,8 @@ SURFACE = {"light": "#ffffff", "dark": "#0e1117"}
 
 COUNT = st.column_config.NumberColumn(format="localized")
 
-# Mapa por año (fondo claro de CARTO en ambos modos). Rampa y gris validados
-# contra ese fondo y entre sí (dataviz validate_palette.js).
+# Mapa por año (fondo claro de CARTO en los dos temas). La rampa y el gris se
+# eligieron para que se distingan sobre ese fondo.
 MAP_RAMP = ["#6da7ec", "#3987e5", "#256abf", "#184f95", "#0d366b"]
 NO_RECORD_COLOR = [208, 208, 206, 200]
 
