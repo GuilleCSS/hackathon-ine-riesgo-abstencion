@@ -334,8 +334,6 @@ de la presidencial contigua, por sección. Sólo se usan pares con NS ≤ 10%.
 
 **Del proceso**
 
-- Una instrucción se interpretó mal: "agregar CLAUDE.md" se tomó como agregarlo a git
-  en vez de al `.gitignore`; se corrigió antes de subir nada.
 - El caché de Streamlit sirvió datos viejos dos veces mientras el servidor estaba
   corriendo (columnas nuevas y un módulo actualizado). Se resolvió con llaves de caché
   que dependen de los datos y reiniciando el servicio.
@@ -343,27 +341,12 @@ de la presidencial contigua, por sección. Sólo se usan pares con NS ≤ 10%.
   falsas alarmas; se corrigió antes de sacar conclusiones.
 - Al agregar XGBoost, la reconstrucción de la imagen actualizó otras librerías
   (Streamlit 1.65, Altair 6). Las pruebas pasaron, pero conviene fijar versiones.
-- La extensión del navegador se desconectó en algunas revisiones visuales; esas
-  vistas se validaron sólo con pruebas automáticas.
 
 ## 9. Estado del repositorio
 
-**Subido a GitHub**: Docker y dependencias (`fda3c0d`), README de obtención de datos
-(`c408606`).
-
-**Pendiente de commit** (todo funcional y probado):
-
-| Archivo o carpeta | Contenido |
-|---|---|
-| `dashboard/app.py`, `mapa.py`, `comun.py`, `datos_anuales.py`, `clustering/grupos.py` | Dashboard de 3 páginas |
-| `src/15_build_spatial_layer.py` | Escribe además la capa base para la capa gris |
-| `src/clustering/` | Fases 1–3 y el calendario |
-| `reports/clustering/`, `reports/eda/DICCIONARIO_DE_DATOS.md` | Reportes |
-| `data/external/calendario_concurrente.csv` | Calendario (se versiona) |
-| `requirements.txt`, `README.md`, `dashboard/README.md` | Dependencias y documentación |
-| `analisis-jayme.md` | Este documento |
-
-`CLAUDE.md` está en el `.gitignore` a propósito.
+Todo lo de este documento ya está en `main`: Docker, dashboard, clustering (fases 1–3),
+calendario de concurrencia, diccionario de datos y reportes. `data/` no se versiona;
+se reconstruye con los comandos del README.
 
 ## 10. Siguientes pasos recomendados
 

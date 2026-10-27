@@ -20,7 +20,6 @@ htmlcov/
 .ipynb_checkpoints/
 .vscode/
 .idea/
-CLAUDE.md
 
 # ============================================================
 # OS
@@ -93,6 +92,7 @@ graphify-out/
 .codex/
 .agents/
 AGENTS.md
+CLAUDE.md
 
 # Sitio web (Astro): dependencias y build se generan con pnpm
 web/node_modules/

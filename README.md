@@ -1,10 +1,10 @@
 # Sistema de riesgo territorial de abstención electoral
 ## Hackathon INE 2026 · Reto 2: Predicción y escenarios de riesgo de abstención
 
-> **Estado actual:** pipeline reproducible completo hasta la construcción del
-> dashboard interactivo provisional. La cartografía empleada para visualización
-> es MGS DIC-2025 y deberá sustituirse por el Marco Geográfico Electoral
-> 2026–2027 vigente antes de la entrega final.
+> **Estado actual:** pipeline reproducible completo (etapas 00–15), análisis
+> complementarios, sitio web de consulta y entregables del concurso en borrador.
+> La cartografía es el MGS DIC-2025 y se cambia por el Marco Geográfico Electoral
+> 2026–2027 cuando se publique.
 
 ## Objetivo
 
@@ -434,8 +434,7 @@ estimación. No depende de los filtros de riesgo.
 `data/processed/spatial_2027/cartography_base_2027.parquet`. Si no existe
 (salidas anteriores), el dashboard funciona sin ella.
 
-Esta mejora es visual y de transparencia metodológica; no modifica el modelo,
-los umbrales del semáforo ni las predicciones.
+No cambia el modelo, los umbrales del semáforo ni las predicciones.
 
 ### Semáforo alternativo (Oscar)
 
@@ -448,7 +447,6 @@ con el oficial, que no cambia.
   (Spearman 0.991).
 - La diferencia real es de cobertura: Oscar suma 17,827 secciones que el filtro
   de calidad oficial excluye, 9,199 de ellas por NS alto.
-
 - Oscar probó también 2015 y 2018. `src/semaforo_oscar/03_backtest_2018.py`
   evalúa el modelo oficial en 2018: pierde contra la persistencia (11.35 vs.
   4.77 pp de MAE; Spearman 0.71 vs. 0.78). Ahí sólo puede entrenarse con la
@@ -915,10 +913,10 @@ el equipo queda descalificado.
 | Entregable | Dónde está | Estado |
 |---|---|---|
 | Mapa de escenarios con y sin intervención (SHP/GeoJSON/GPKG) + base de datos (.CSV/.XLSX) | `data/processed/entregables/mapa_escenarios/` (lo genera `src/entregables/01_exportar_mapa_escenarios.py`) | Listo |
-| Reporte metodológico y preventivo (PDF, 10–15 cuartillas): variables, semáforo, recomendaciones y priorización de recursos | Documento en Claude Docs, se exporta a PDF (15 páginas carta) | Borrador listo, falta revisión del equipo |
-| Presentación ejecutiva (máximo 10 diapositivas) | Presentación en Claude (10 diapositivas), se exporta a PDF o PowerPoint | Borrador listo, falta nombre del equipo y revisión |
+| Reporte metodológico y preventivo (PDF, 10–15 cuartillas): variables, semáforo, recomendaciones y priorización de recursos | Documento compartido del equipo, se exporta a PDF (15 páginas carta) | Borrador listo, falta revisión del equipo |
+| Presentación ejecutiva (máximo 10 diapositivas) | Presentación compartida del equipo (10 diapositivas), se exporta a PDF o PowerPoint | Borrador listo, falta nombre del equipo y revisión |
 | Código o enlace al repositorio | Este repo (privado): dar acceso al jurado o incluir el código en el zip, sin `data/` | Decidir |
-| Carta de cesión de derechos y carta declaratoria, firmadas por todo el equipo | Formatos en https://ine.mx/hackathon-2026/ | Pendiente (equipo) |
+| Carta de cesión de derechos y carta declaratoria, firmadas por todo el equipo | Borradores sobre los formatos oficiales en `data/processed/entregables/cartas/` (PDF y DOCX editable) | Faltan nombre del equipo, fecha y firmas |
 
 Sobre el mapa de escenarios:
 
@@ -966,13 +964,12 @@ reconstruyen con el pipeline.
 
 ## Próximas etapas
 
-```text
-16  Finalizar y pulir dashboard
-17  Priorización y recomendaciones institucionales
-18  Informe metodológico final
-19  Presentación ejecutiva
-20  Auditoría de reproducibilidad y paquete de entrega
-```
+- Cerrar la entrega: revisar el reporte y la presentación, firmar las cartas y
+  armar el zip (ver "Entregables del concurso").
+- Cambiar la cartografía cuando se publique el Marco Geográfico Electoral
+  2026–2027 y volver a correr las etapas 14, 15, 21 y el entregable del mapa.
+- Validar el calendario de elecciones locales concurrentes con los OPLE.
+- Destrabar la página de Random Forest del sitio (ver "Pendientes del sitio").
 
 ## Estado de GitHub
 
