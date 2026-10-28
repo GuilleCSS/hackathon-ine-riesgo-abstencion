@@ -1,10 +1,12 @@
 # Sistema de riesgo territorial de abstención electoral
 ## Hackathon INE 2026 · Reto 2: Predicción y escenarios de riesgo de abstención
 
-> **Estado actual:** pipeline reproducible completo (etapas 00–15), análisis
-> complementarios, sitio web de consulta y entregables del concurso en borrador.
-> La cartografía es el MGS DIC-2025 y se cambia por el Marco Geográfico Electoral
-> 2026–2027 cuando se publique.
+> **Estado actual:** pipeline principal reproducible (etapas 00–15), análisis
+> complementarios, sitio web de consulta y entregables del concurso en revisión final.
+> El INE aprobó el Marco Geográfico Electoral 2026–2027 el 3 de septiembre de 2026,
+> pero el SIGE informa que los productos descargables se publicarán el 12 de noviembre.
+> Por ello, la entrega del 31 de octubre conserva como insumo espacial el MGS DIC-2025.
+> Fuentes oficiales de actualización: [Marco Geográfico Electoral aprobado por el INE](https://www.ine.mx/gaceta-electoral-no-109/), [SIGE](https://cartografia.ine.mx/sige8/) y [Elecciones 2027](https://www.ine.mx/voto-y-elecciones/elecciones-2027/).
 
 ## Objetivo
 
@@ -727,11 +729,13 @@ reescribe completos cada vez que corre. Los datos pesados por sección quedan en
 | Intermedia vs. presidencial | `/brecha/` | `src/brecha_tipo/01_brecha_intermedia_presidencial.py` (~5 s) | `reports/brecha_tipo/`, `data/processed/brecha_tipo/` | Las tablas ya están en el repo; la capa del mapa sí lo necesita |
 
 Si falta lo de una página, esa página muestra un aviso o su mapa sale vacío; las
-demás funcionan igual.
+demás funcionan igual. La etapa 21 tolera que falten clustering u Oscar: exporta
+el mapa principal y deja vacías sus columnas auxiliares. Para reproducir **todo**
+el sitio, sí conviene ejecutar los análisis complementarios antes de la etapa 21.
 
 **Orden completo desde cero, con Docker (recomendado).** No hace falta instalar
-Node ni Python en la máquina. Los análisis van **antes** de la etapa 21, porque
-ésta une sus resultados por sección a las teselas del mapa.
+Node ni Python en la máquina. Los análisis se ejecutan antes de la etapa 21 cuando
+se desea poblar todas las páginas auxiliares del sitio.
 
 ```bash
 # 0. Imágenes: una vez, o cuando cambie requirements.txt, un Dockerfile o api/requirements.txt
@@ -904,6 +908,21 @@ metodología, descartarlas antes de hacer commit:
 git checkout -- reports/
 ```
 
+## Validación reproducible de cierre (27 de octubre de 2026)
+
+Se ejecutó el proyecto desde los datos RAW dentro de Docker antes de la revisión final:
+
+- etapas 00–15 completas;
+- arquitectura seleccionada nuevamente: `two_history_linear`;
+- MAE reproducido: 7.69 pp (2021) y 4.36 pp (2024);
+- universo primario: 54,772 secciones; 54,448 con geometría;
+- escenarios S0–S3 y entregable cartográfico regenerados;
+- frontend Astro compilado (7 rutas);
+- API FastAPI iniciada y `python api/test_api.py` terminó con `API OK`.
+
+Las diferencias en reportes regenerados se limitaron a redondeo de punto flotante
+y finales de línea; se descartaron antes de continuar la revisión.
+
 ## Entregables del concurso (Reto 2)
 
 La convocatoria pide entregar a más tardar a las 23:59 del 31 de octubre de 2026, en un zip con el
@@ -913,8 +932,8 @@ el equipo queda descalificado.
 | Entregable | Dónde está | Estado |
 |---|---|---|
 | Mapa de escenarios con y sin intervención (SHP/GeoJSON/GPKG) + base de datos (.CSV/.XLSX) | `data/processed/entregables/mapa_escenarios/` (lo genera `src/entregables/01_exportar_mapa_escenarios.py`) | Listo |
-| Reporte metodológico y preventivo (PDF, 10–15 cuartillas): variables, semáforo, recomendaciones y priorización de recursos | Documento compartido del equipo, se exporta a PDF (15 páginas carta) | Borrador listo, falta revisión del equipo |
-| Presentación ejecutiva (máximo 10 diapositivas) | Presentación compartida del equipo (10 diapositivas), se exporta a PDF o PowerPoint | Borrador listo, falta nombre del equipo y revisión |
+| Reporte metodológico y preventivo (PDF, 10–15 cuartillas): variables, semáforo, recomendaciones y priorización de recursos | Documento compartido del equipo; el PDF de revisión actual tiene 12 páginas | Revisión final de redacción y consistencia |
+| Presentación ejecutiva (máximo 10 diapositivas) | Presentación compartida del equipo (10 diapositivas), se exporta a PDF o PowerPoint | Falta nombre del equipo, correo de contacto y revisión final |
 | Código o enlace al repositorio | Este repo (privado): dar acceso al jurado o incluir el código en el zip, sin `data/` | Decidir |
 | Carta de cesión de derechos y carta declaratoria, firmadas por todo el equipo | Borradores sobre los formatos oficiales en `data/processed/entregables/cartas/` (PDF y DOCX editable) | Faltan nombre del equipo, fecha y firmas |
 
@@ -945,7 +964,7 @@ reconstruyen con el pipeline.
 
 ## Limitaciones actuales
 
-1. La cartografía visual es provisional MGS DIC-2025.
+1. La cartografía visual usa MGS DIC-2025. El MGE 2026–2027 ya fue aprobado por el INE, pero el SIGE anuncia la publicación de sus productos descargables para el 12 de noviembre de 2026, después del cierre del hackathon.
 2. El universo forecast es una cohorte comparable filtrada, no el universo
    electoral oficial futuro completo.
 3. Los intervalos de incertidumbre son empíricos.
@@ -966,9 +985,11 @@ reconstruyen con el pipeline.
 
 - Cerrar la entrega: revisar el reporte y la presentación, firmar las cartas y
   armar el zip (ver "Entregables del concurso").
-- Cambiar la cartografía cuando se publique el Marco Geográfico Electoral
-  2026–2027 y volver a correr las etapas 14, 15, 21 y el entregable del mapa.
-- Validar el calendario de elecciones locales concurrentes con los OPLE.
+- Después del envío, cambiar la cartografía cuando el SIGE publique los productos
+  descargables del Marco Geográfico Electoral 2026–2027 (12 de noviembre de 2026)
+  y volver a correr las etapas 14, 15, 21 y el entregable del mapa.
+- Mantener el calendario 2027 contrastado con INE/OPLE si hubiera ajustes; el INE
+  ya confirma concurrencia local en las 32 entidades y 17 gubernaturas.
 - Destrabar la página de Random Forest del sitio (ver "Pendientes del sitio").
 
 ## Estado de GitHub

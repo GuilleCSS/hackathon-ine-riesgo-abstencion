@@ -137,6 +137,17 @@ def build_table(carto, history, attrs):
     carto_idx[["BBOX_MINX", "BBOX_MINY", "BBOX_MAXX", "BBOX_MAXY"]] = carto.geometry.bounds.round(5).to_numpy()
     table = pd.DataFrame(index=keys).join(history).join(attrs).join(carto_idx)
     table.index.name = "SECTION_KEY"
+
+    # Las capas auxiliares (clustering y semáforo alternativo) son opcionales.
+    # Si no se han generado, el mapa principal y la API deben seguir exportándose
+    # con esas columnas vacías en lugar de fallar con KeyError.
+    for col in [
+        "GRUPO", "GRUPO_NOMBRE",
+        "NIVEL_OSCAR", "PRED_OSCAR", "COMPARACION_OSCAR", "MOTIVO_SOLO_OSCAR",
+    ]:
+        if col not in table.columns:
+            table[col] = pd.NA
+
     table["EN_CARTOGRAFIA"] = table.index.isin(carto["SECTION_KEY"])
     table["CAPA"] = table["CAPA"].fillna("sin_estimacion")
     # Secciones nuevas en la cartografía no tienen historia: se completan con sus claves.

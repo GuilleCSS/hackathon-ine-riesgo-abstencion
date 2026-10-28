@@ -100,14 +100,13 @@ export default function BrechaTipo() {
                 presidencial de 2024 que en la intermedia de 2021. Es grande en secciones urbanas y casi nula en las rurales.</li>
               <li><strong>Es poco persistente</strong> (Spearman {r.persistencia_15_18_vs_21_24.toFixed(2)}): depende más del contexto de
                 cada elección que de la sección.</li>
-              <li><strong>El calendario local la explica en buena medida:</strong> elecciones locales el mismo día que la intermedia
-                la reducen {fmt.pp(r.efecto_local_intermedia_pp)} y una gubernatura {fmt.pp(r.efecto_gob_intermedia_pp)} más. Que más
-                entidades empataran sus elecciones locales con las federales explicaría cerca de{" "}
-                {fmt.share(r.cierre_por_calendario.parte_por_calendario)} del cierre.</li>
+              <li><strong>El calendario local está asociado con una brecha menor:</strong> en el modelo descriptivo, la concurrencia
+                con elecciones locales se asocia con {fmt.pp(r.efecto_local_intermedia_pp)} y la concurrencia con gubernatura con
+                {fmt.pp(r.efecto_gob_intermedia_pp)} adicionales. Es una asociación observacional, no un efecto causal.</li>
               <li><strong>Para 2027:</strong> las secciones ALTO del semáforo son las de mayor brecha, lo que refuerza su riesgo en una
                 intermedia. Aguascalientes y Quintana Roo tendrán gubernatura el mismo día y en 2021 no; el modelo no usa concurrencia.</li>
             </ol>
-            <p className="muted">El calendario de concurrencia está pendiente de validar contra el INE y los institutos locales.</p>
+            <p className="muted">El resumen 2027 se contrasta con la información oficial del INE; las asociaciones históricas no se interpretan como causalidad.</p>
           </section>
 
           <section className="card">
@@ -157,12 +156,12 @@ export default function BrechaTipo() {
               </table>
             </section>
             <section className="card">
-              <h2>¿La explica la concurrencia local?</h2>
+              <h2>¿Cómo se asocia con la concurrencia local?</h2>
               <p className="muted">
                 MCO de la brecha por entidad y par (32 × 5) con efectos fijos de par; intervalo al 90% por bootstrap de entidades.
               </p>
               <table className="tabla">
-                <thead><tr><th>Variable</th><th className="num">Efecto</th><th className="num">IC 90%</th></tr></thead>
+                <thead><tr><th>Variable</th><th className="num">Coef. asociado</th><th className="num">IC 90%</th></tr></thead>
                 <tbody>
                   {Object.entries(VARIABLES).map(([k, texto]) => {
                     const e = efecto(k);
@@ -183,7 +182,7 @@ export default function BrechaTipo() {
               </table>
               <p className="muted">
                 Entre 2009–2012 y 2021–2024 la brecha promedio de las entidades cambió {fmt.pp(r.cierre_por_calendario.cambio_observado_pp)};
-                el cambio de calendario explicaría {fmt.pp(r.cierre_por_calendario.cambio_por_calendario_pp)}.
+                bajo este modelo descriptivo, el cambio asociado al calendario equivale a {fmt.pp(r.cierre_por_calendario.cambio_por_calendario_pp)}.
               </p>
             </section>
           </div>

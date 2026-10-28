@@ -77,8 +77,8 @@ Error estándar e intervalo al 90% por bootstrap de entidades (1,000 réplicas).
 | local_intermedia | -10.41 | 1.88 | [-13.73, -7.55] |
 | local_presidencial | +2.98 | 1.40 | [+0.67, +5.25] |
 
-Las banderas se traslapan (toda gubernatura concurrente implica elección local concurrente): una entidad
-con elecciones locales y gubernatura el mismo día que la intermedia tiene una brecha 15.9 pp menor.
+Las banderas se traslapan (toda gubernatura concurrente implica elección local concurrente): en el modelo descriptivo, una entidad
+con elecciones locales y gubernatura el mismo día que la intermedia se asocia con una brecha 15.9 pp menor.
 
 Entidades con elecciones locales y gubernaturas el mismo día que la federal:
 
@@ -87,10 +87,10 @@ Entidades con elecciones locales y gubernaturas el mismo día que la federal:
 | Locales | 11 | 15 | 16 | 30 | 32 | 32 | 32 |
 | Gubernaturas | 6 | 7 | 9 | 9 | 15 | 9 | 17 |
 
-Entre 2009–2012 y 2021–2024 la brecha promedio de las entidades cambió -10.6 pp; los
-coeficientes atribuyen -6.8 pp (64%) a que más entidades
+Entre 2009–2012 y 2021–2024 la brecha promedio de las entidades cambió -10.6 pp;
+bajo este modelo descriptivo, -6.8 pp (64%) se asocian con que más entidades
 empataron sus elecciones locales con las federales. Es una estimación gruesa (32 entidades × 5 pares, sin ponderar
-por población), pero indica que el calendario explica buena parte del cierre.
+por población) y no identifica un efecto causal del calendario.
 
 ## 5. Implicaciones para 2027
 
@@ -117,11 +117,11 @@ no usa concurrencia, así que ahí el contexto de 2027 será distinto al de la i
 2. **Ya no es universal:** en 2021–2024, 20% de las secciones se abstuvieron más en la presidencial
    que en la intermedia. La brecha es grande en secciones urbanas y casi nula en las rurales.
 3. **Es poco persistente** (Spearman 0.33): depende más del contexto de cada elección que de la sección.
-4. **El calendario local la explica en buena medida.** Elecciones locales el mismo día que la intermedia
-   reducen la brecha 10.4 pp y una gubernatura, 5.5 pp más;
-   que más entidades empataran sus elecciones locales con las federales explicaría cerca de 64% del cierre.
+4. **El calendario local está asociado con la brecha.** En el modelo descriptivo, elecciones locales el mismo día que la intermedia
+   se asocian con una brecha 10.4 pp menor y una gubernatura con 5.5 pp adicionales;
+   la fracción asociada al cambio de calendario equivale a cerca de 64% del cierre observado. No es una estimación causal.
 5. **Para 2027:** las secciones ALTO del semáforo son las de mayor brecha (votan sobre todo en presidenciales),
    lo que refuerza su riesgo en una intermedia. Habrá 17 gubernaturas concurrentes (15 en 2021); Aguascalientes
    y Quintana Roo tendrán gubernatura el mismo día y en 2021 no; el modelo no usa concurrencia.
 
-El calendario de concurrencia está pendiente de validar contra el INE y los institutos locales.
+El resumen del calendario 2027 debe mantenerse contrastado con la información oficial del INE y los OPLE; las asociaciones históricas no son causales.
