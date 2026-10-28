@@ -113,6 +113,7 @@ secciones que ya no existen con la misma clave no aparecen (en 2024 se dibujan
 
 ## Nota
 
-La cartografía utilizada en esta versión es MGS DIC-2025 y se considera
-provisional. Debe sustituirse por el Marco Geográfico Electoral 2026–2027
-oficial antes de la entrega final.
+La cartografía utilizada en esta versión es MGS DIC-2025. El MGE 2026–2027
+ya fue aprobado por el INE, pero el SIGE anuncia que sus productos descargables
+se publicarán el 12 de noviembre de 2026, después del cierre del Hackathon.
+El dashboard queda preparado para actualizar la fuente cuando estén disponibles.

@@ -32,5 +32,5 @@
     "geojson_full": "data\\processed\\spatial_2027\\risk_2027_provisional.geojson",
     "geojson_dashboard_simplified": "data\\processed\\spatial_2027\\risk_2027_dashboard_simplified.geojson"
   },
-  "warning": "Esta capa es provisional. Debe reconstruirse con la cartografía oficial del MGE 2026-2027 antes de la entrega final."
+  "warning": "Esta entrega usa MGS DIC-2025. El MGE 2026-2027 ya fue aprobado por el INE, pero el SIGE anuncia la publicación de sus productos descargables para el 12 de noviembre de 2026, después del cierre del Hackathon. La capa debe regenerarse cuando estén disponibles."
 }

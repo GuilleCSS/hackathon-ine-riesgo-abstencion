@@ -266,7 +266,7 @@ supuestos de sensibilidad, no efectos causales estimados.
 | PERSISTENCIA, PP_SOBRE_UMBRAL_ALTO | Qué tanto le falta para salir de ALTO |
 | SITUACION, CON_POLIGONO | En el semáforo o motivo de exclusión; si tiene polígono en la cartografía |
 
-Cartografía provisional MGS DIC-2025: debe sustituirse por el Marco Geográfico Electoral 2026–2027 oficial.
+Cartografía usada en esta entrega: MGS DIC-2025. El MGE 2026–2027 ya fue aprobado por el INE, pero el SIGE anuncia sus productos descargables para el 12 de noviembre de 2026, después del cierre del Hackathon; el pipeline queda listo para actualizarla cuando estén disponibles.
 """, encoding="utf-8")
     for p in sorted(OUT.iterdir()):
         print(f"  {p.name}: {p.stat().st_size / 1e6:.1f} MB")

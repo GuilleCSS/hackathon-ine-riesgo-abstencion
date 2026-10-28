@@ -121,7 +121,7 @@ Distribución de `SEXO` y `TIPOSEC` (renglones):
 
 ### 1.2 Marco Geográfico Seccional (cartografía)
 
-- **Fuente:** SIGE del INE (<https://cartografia.ine.mx/sige8/>), Marco Geográfico Seccional en Shapefile, corte 15-DIC-2025. Es provisional: debe sustituirse por el Marco Geográfico Electoral 2026–2027.
+- **Fuente:** SIGE del INE (<https://cartografia.ine.mx/sige8/>), Marco Geográfico Seccional en Shapefile, corte 15-DIC-2025. El MGE 2026–2027 ya fue aprobado por el INE, pero el SIGE anuncia la publicación de sus productos descargables para el 12-NOV-2026, después del cierre del Hackathon; el pipeline queda preparado para actualizar la cartografía cuando estén disponibles.
 - **Archivos:** `data/raw/cartography_2027/mgs_{N}_Shapefile.zip`, 32 ZIP (uno por estado). Cada uno trae las capas `DISTRITO_FEDERAL.shp`, `DISTRITO_LOCAL.shp`, `ENTIDAD.shp`, `MUNICIPIO.shp`, `SECCION.shp`; el pipeline solo usa `SECCION.shp`.
 - **Unidad de registro:** un polígono por sección vigente en el corte.
 
