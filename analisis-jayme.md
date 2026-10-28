@@ -300,10 +300,11 @@ de la presidencial contigua, por sección. Sólo se usan pares con NS ≤ 10%.
 - **Poco persistente.** La correlación de Spearman entre la brecha 2015–2018 y la
   2021–2024 de la misma sección es 0.33.
 - **Calendario local.** En el MCO por entidad y par con efectos fijos de par,
-  elecciones locales el mismo día que la intermedia restan −10.4 pp
-  (IC 90% −13.7 a −7.5) y una gubernatura −5.5 pp más. Entre 2009 y 2021 las
-  locales concurrentes pasaron de 11 a 32 entidades; eso explicaría ~64% del
-  cierre. El calendario está pendiente de validar.
+  la concurrencia con elecciones locales se asocia con una brecha 10.4 pp menor
+  (IC 90% −13.7 a −7.5) y la concurrencia con gubernatura con 5.5 pp adicionales.
+  Entre 2009 y 2021 las locales concurrentes pasaron de 11 a 32 entidades; bajo
+  este modelo descriptivo, la fracción asociada al calendario equivale a ~64%
+  del cierre observado. No se interpreta como efecto causal.
 - **2027.** Las secciones ALTO tienen la mayor brecha. Habrá 17 gubernaturas
   concurrentes; Aguascalientes y Quintana Roo no la tuvieron en 2021.
 

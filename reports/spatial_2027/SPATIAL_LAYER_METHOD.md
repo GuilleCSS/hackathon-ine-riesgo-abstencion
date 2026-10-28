@@ -5,8 +5,9 @@
 **PROVISIONAL**
 
 La geometría utilizada corresponde al MGS por entidad federativa con corte
-DIC-2025. La capa deberá regenerarse con el Marco Geográfico Electoral
-2026-2027 vigente antes de la entrega final.
+DIC-2025. El MGE 2026-2027 ya fue aprobado por el INE, pero el SIGE anuncia
+la publicación de sus productos descargables para el 12 de noviembre de 2026,
+después del cierre del Hackathon. La capa deberá regenerarse cuando estén disponibles.
 
 ## Unión
 

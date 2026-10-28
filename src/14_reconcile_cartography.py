@@ -582,9 +582,10 @@ nuevas debe documentarse explícitamente.
 
 ## Uso
 
-Si esta corrida usa MGS DIC-2025, los resultados son de validación provisional.
-Antes de la entrega final deberá repetirse con la capa oficial del MGE
-2026-2027 cuando esté disponible para descarga.
+Esta entrega usa MGS DIC-2025. El MGE 2026-2027 ya fue aprobado por el INE,
+pero el SIGE anuncia la publicación de sus productos cartográficos descargables
+para el 12 de noviembre de 2026, después del cierre del Hackathon. La conciliación
+debe repetirse cuando esos productos estén disponibles.
 """
     (OUT_REPORT / "CARTOGRAPHY_RECONCILIATION.md").write_text(
         report, encoding="utf-8"

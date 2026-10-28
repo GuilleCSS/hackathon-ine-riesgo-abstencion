@@ -85,8 +85,8 @@ export default function Edad() {
             </div>
           </section>
           <div className="note">
-            Rojo: la sección se abstiene más de lo que esperaría su pirámide de edad; azul: menos. La diferencia es
-            el efecto del lugar, no de la edad.
+            Rojo: la sección se abstiene más de lo que esperaría su estructura de edad; azul: menos. La diferencia
+            es la parte no explicada por la composición etaria; no identifica por sí sola una causa territorial.
           </div>
           {error && <div className="error" role="alert">No se pudo cargar la descomposición: {error}</div>}
         </aside>
@@ -112,7 +112,7 @@ export default function Edad() {
                 {fmt.pp(r.largo_plazo["2012-2024"].comportamiento_pp)} de 2012 a 2024, disimulado por el envejecimiento.</li>
               <li><strong>Los hombres se abstienen más que las mujeres:</strong> {fmt.pp(r.brecha_hombres_menos_mujeres_pp["2024"])} en
                 2024, hasta {fmt.pp(r.brecha_sexo_max_2024.pp)} a los {r.brecha_sexo_max_2024.edad} años.</li>
-              <li><strong>La edad casi no explica el riesgo territorial:</strong> de los {r.brecha_alto_bajo_pp.toFixed(1)} pp entre
+              <li><strong>La composición por edad explica poco de la brecha territorial:</strong> de los {r.brecha_alto_bajo_pp.toFixed(1)} pp entre
                 secciones ALTO y BAJO de 2027, explica {r.brecha_explicada_por_edad_pp.toFixed(1)} pp
                 ({fmt.share(r.parte_explicada_por_edad)}).</li>
               <li><strong>La abstención cae de golpe a los 65 años desde 2021</strong> ({fmt.pp(data.salto_65.find((s) => s.anio === 2024 && s.grupo === "Total")?.salto_65_pp)} en

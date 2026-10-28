@@ -6,7 +6,7 @@
   "source_url": "URL de Productos Cartográficos INE",
   "download_date": "2026-10-02",
   "declared_vigencia": "DIC 2025",
-  "notes": "Cartografía provisional para validar la conciliación. Debe sustituirse por el MGE 2026-2027 antes de la entrega final.",
+  "notes": "Se usa MGS DIC-2025 para esta entrega. El MGE 2026-2027 ya fue aprobado por el INE; el SIGE anuncia la publicación de sus productos descargables para el 12 de noviembre de 2026, después del cierre del Hackathon. El pipeline queda listo para actualizar la cartografía cuando estén disponibles.",
   "metadata_present": true,
   "source_files_count": 32,
   "source_files": [

@@ -925,8 +925,10 @@ with st.expander("Metodología y limitaciones"):
         estructurales futuros.
 
         **Cartografía:** esta versión utiliza MGS por entidad federativa con
-        corte DIC-2025 y es provisional. Debe sustituirse por la cartografía
-        oficial 2026–2027 antes de la entrega final.
+        corte DIC-2025. El MGE 2026–2027 ya fue aprobado por el INE, pero el SIGE
+        anuncia que sus productos descargables se publicarán el 12 de noviembre
+        de 2026, después del cierre del Hackathon. El pipeline queda preparado
+        para actualizar la fuente cuando estén disponibles.
 
         **Capa gris:** todas las secciones de la cartografía. Las que no se
         colorean no tienen estimación (no forman parte del universo
