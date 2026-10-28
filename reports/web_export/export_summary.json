@@ -15,5 +15,6 @@
   "municipio_ccpc_igual_a_mgs": 1.0,
   "pmtiles_mb": 127.1,
   "parquet_mb": 16.0,
-  "segundos": 108
+  "segundos": 397,
+  "medicion_tiempo": "generación final de teselas desde geometrías verificadas"
 }
