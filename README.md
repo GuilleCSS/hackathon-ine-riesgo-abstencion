@@ -1,12 +1,223 @@
 # Sistema de riesgo territorial de abstención electoral
 ## Hackathon INE 2026 · Reto 2: Predicción y escenarios de riesgo de abstención
 
-> **Estado actual:** pipeline principal reproducible (etapas 00–15), análisis
-> complementarios, sitio web de consulta y entregables del concurso en revisión final.
+> **Estado final de entrega:** pipeline oficial reproducible, análisis complementarios,
+> sitio web de consulta, entregables del Reto 2 y validación técnica final completados.
+> La revisión final fue integrada a `main` mediante el PR #1 y posteriormente se
+> regeneraron los reportes auxiliares y se validaron la API y el sitio desde `main`.
 > El INE aprobó el Marco Geográfico Electoral 2026–2027 el 3 de septiembre de 2026,
-> pero el SIGE informa que los productos descargables se publicarán el 12 de noviembre.
+> pero el SIGE informa que sus productos descargables se publicarán el 12 de noviembre.
 > Por ello, la entrega del 31 de octubre conserva como insumo espacial el MGS DIC-2025.
 > Fuentes oficiales de actualización: [Marco Geográfico Electoral aprobado por el INE](https://www.ine.mx/gaceta-electoral-no-109/), [SIGE](https://cartografia.ine.mx/sige8/) y [Elecciones 2027](https://www.ine.mx/voto-y-elecciones/elecciones-2027/).
+
+## Inicio rápido: ejecutar todo el proyecto
+
+La forma recomendada de reproducir el proyecto completo es **Docker**. Los comandos
+siguientes fueron validados durante la revisión final.
+
+### Requisitos
+
+- Git.
+- Docker Desktop con contenedores Linux activos.
+- Al menos 8 GB de memoria disponibles para Docker.
+- Los seis ZIP oficiales de los CCPC 2009, 2012, 2015, 2018, 2021 y 2024.
+- La cartografía MGS DIC-2025 de las 32 entidades.
+
+> `data/` no se versiona en GitHub. Las rutas y comandos de descarga se documentan
+> en [Obtención de datos](#obtención-de-datos).
+
+### 1. Clonar y preparar
+
+```powershell
+git clone <URL_DEL_REPOSITORIO>
+cd hackathon-ine-riesgo-abstencion
+git checkout main
+git pull origin main
+```
+
+Construir las imágenes:
+
+```powershell
+docker compose build app api
+docker compose --profile web build web
+```
+
+Comprobar que los datos requeridos están en su sitio:
+
+```powershell
+docker compose run --rm app python src/00_check_setup.py
+```
+
+Debe terminar indicando que la estructura básica está lista.
+
+### 2. Ejecutar el pipeline oficial 00–15
+
+En PowerShell:
+
+```powershell
+docker compose run --rm app sh -c 'for s in src/0*.py src/1[0-5]*.py; do python "$s" || exit 1; done'
+```
+
+Este bloque reconstruye, entre otros productos:
+
+- auditoría y base maestra;
+- features;
+- backtesting temporal;
+- selección de arquitectura;
+- modelo final `two_history_linear`;
+- forecast 2027;
+- semáforo BAJO/MEDIO/ALTO/Top10;
+- escenarios S0–S3;
+- sensibilidad;
+- conciliación cartográfica;
+- capa espacial.
+
+### 3. Ejecutar los análisis complementarios del sitio
+
+Para poblar todas las páginas auxiliares:
+
+```powershell
+docker compose run --rm app python src/clustering/01_build_section_clusters.py
+
+docker compose run --rm app python src/semaforo_oscar/01_generar_csv_oscar.py
+
+docker compose run --rm -e OSCAR_DATA_DIR=data/interim/oscar_tableau app sh -c 'python st_gcn_participation/analyze_participation.py && python st_gcn_participation/modeling/run_models.py && python st_gcn_participation/modeling/risk_scenarios.py'
+
+git checkout -- st_gcn_participation/outputs st_gcn_participation/modeling
+
+docker compose run --rm app python src/semaforo_oscar/02_comparar_semaforos.py
+docker compose run --rm app python src/semaforo_oscar/03_backtest_2018.py
+
+docker compose run --rm app python src/auditoria_ns/01_auditar_ns.py
+docker compose run --rm app python src/descomposicion_edad/01_descomponer_edad.py
+docker compose run --rm app python src/brecha_tipo/01_brecha_intermedia_presidencial.py
+```
+
+La elección judicial 2025 es una comprobación externa opcional y requiere un ZIP
+adicional:
+
+```powershell
+docker compose run --rm app python src/eleccion_judicial/01_participacion_judicial_2025.py
+```
+
+### 4. Generar datos del sitio web
+
+```powershell
+docker compose run --rm app python src/21_export_web.py
+```
+
+Debe generar principalmente:
+
+```text
+data/processed/web/secciones.parquet
+data/processed/web/historico.parquet
+data/processed/web/secciones.pmtiles
+reports/web_export/export_summary.json
+```
+
+### 5. Generar el entregable cartográfico del Reto 2
+
+```powershell
+docker compose run --rm app python src/entregables/01_exportar_mapa_escenarios.py
+```
+
+La salida queda en:
+
+```text
+data/processed/entregables/mapa_escenarios/
+```
+
+con:
+
+```text
+mapa_escenarios_2027.gpkg
+mapa_escenarios_2027_ligero.gpkg
+base_secciones_2027.csv
+resumen_entidades.csv
+resumen_distritos.csv
+resumen_municipios.csv
+mapa_sin_vs_con_intervencion.png
+LEEME.md
+```
+
+### 6. Instalar y compilar el frontend
+
+```powershell
+docker compose run --rm web pnpm install
+docker compose run --rm web pnpm build
+```
+
+El build debe terminar con siete rutas generadas.
+
+### 7. Levantar todos los servicios
+
+```powershell
+docker compose --profile web up -d app api web
+docker compose --profile web ps
+```
+
+Servicios:
+
+```text
+http://localhost:8000  → sitio final servido por FastAPI
+http://localhost:4321  → frontend Astro en modo desarrollo
+http://localhost:8501  → dashboard Streamlit de exploración
+```
+
+Para revisar los logs:
+
+```powershell
+docker compose --profile web logs --tail 80 app api web
+```
+
+En la API debe aparecer:
+
+```text
+Application startup complete.
+Uvicorn running on http://0.0.0.0:8000
+```
+
+### 8. Pruebas de funcionamiento
+
+```powershell
+Invoke-RestMethod http://localhost:8000/api/salud
+Invoke-RestMethod http://localhost:8000/api/resumen
+python api/test_api.py
+```
+
+La prueba oficial debe terminar con:
+
+```text
+API OK
+```
+
+Rutas web que deben abrir correctamente:
+
+```text
+/
+ /historico/
+ /grupos/
+ /semaforo-alternativo/
+ /auditoria-ns/
+ /edad/
+ /brecha/
+```
+
+### 9. Apagar los servicios
+
+```powershell
+docker compose --profile web down
+```
+
+### 10. Comprobar que la reproducción no dejó cambios accidentales
+
+```powershell
+git status --short
+```
+
+Al regenerar `reports/` pueden aparecer diferencias por tiempos de ejecución,
+finales de línea o redondeo de punto flotante. Si no se modificó la metodología,
+revísalas antes de versionarlas.
 
 ## Objetivo
 
@@ -505,19 +716,20 @@ sólo vota cuando hay elección presidencial. 2027 es intermedia. Reporte en
 - La brecha nacional se cerró de +18.0 pp (2009–2012) a +7.8 pp (2021–2024). En
   2021–2024, 20% de las secciones se abstuvieron más en la presidencial. Es
   grande en secciones urbanas y casi nula en las rurales.
-- Elecciones locales el mismo día que la intermedia reducen la brecha 10.4 pp, y
-  una gubernatura 5.5 pp más. Que más entidades empataran sus elecciones locales
-  con las federales explicaría cerca de 64% del cierre. El calendario está
-  pendiente de validar.
+- En elecciones intermedias, la concurrencia con una elección local se asocia con
+  una brecha 10.4 pp menor; la coincidencia con una gubernatura se asocia con
+  5.5 pp adicionales. El cambio en la composición del calendario es consistente
+  con cerca de 64% del cierre observado, sin implicar causalidad.
 - Las secciones ALTO del semáforo 2027 tienen la brecha más grande (+10.9 pp,
   contra +3.6 pp en BAJO).
 - Aguascalientes y Quintana Roo tendrán gubernatura concurrente en 2027 y en 2021
   no; el modelo no usa concurrencia.
 
-## Sitio web (Astro + FastAPI, en construcción)
+## Sitio web (Astro + FastAPI)
 
-Migración del dashboard de Streamlit a un sitio con frontend estático y API de
-sólo lectura. Streamlit sigue disponible para exploración interna.
+El producto de consulta principal utiliza un frontend estático en Astro + React y
+una API FastAPI de sólo lectura. Streamlit se conserva como herramienta de
+exploración interna y para análisis complementarios.
 
 ```text
 FastAPI (api/main.py, puerto 8000)
@@ -545,9 +757,10 @@ sección al hacer clic. El mapa de riesgo guarda sus filtros en la URL para
 compartir una vista. Las gráficas son SVG propias (sin librería): Plot o Vega
 insertan estilos en línea que la CSP bloquearía.
 
-La página de Random Forest M17 todavía no se migra: depende de
-`data/processed/rf_dashboard/`, que generan `src/16`–`20`, y esa cadena no corre
-en una copia limpia del repo (ver "Limitaciones actuales").
+Random Forest M17 se conserva como análisis experimental en Streamlit. No forma
+parte del modelo oficial ni es necesario para reproducir el semáforo, los escenarios
+o el entregable cartográfico principal. Su cadena experimental `src/16`–`20` debe
+considerarse separada del pipeline oficial 00–15.
 
 Seguridad:
 
@@ -562,29 +775,17 @@ Seguridad:
 - `pip-audit` y `pnpm audit` sin vulnerabilidades conocidas (oct-2026).
 - Antes de publicar falta poner HTTPS con un proxy (Caddy o el del hosting).
 
-### Pendientes del sitio
+### Mejoras futuras no bloqueantes
 
-1. **Página Random Forest M17.** Está bloqueada porque `src/16`–`20` no corren en
-   una copia limpia (ver "Limitaciones actuales", punto 7). Hay dos formas de
-   destrabarla:
-   - que se comparta `data/processed/rf_dashboard/` de la corrida original;
-   - corregir las etapas 18 y 19 para que elijan del registro la predicción que
-     sí existe, y correr la cadena (unos 90 minutos de cómputo).
-2. **Nombres de entidad.** Salen en mayúsculas y sin acentos ("CIUDAD DE
-   MEXICO"), como vienen en los CCPC. Falta un catálogo con los nombres oficiales.
-3. **Modo oscuro.** Los colores ya son variables CSS
-   (`web/src/styles/global.css`); falta definir la paleta oscura y validarla.
-4. **Mapa base con nombres de lugares.** Hoy sólo hay contornos de entidades y
-   municipios. Para no depender de terceros, la opción es un mapa base de
-   Protomaps autoalojado.
-5. **Publicación.** Falta HTTPS con un proxy (Caddy o el del hosting) y acceso
-   restringido mientras se revisan los términos del concurso.
-6. **CI.** Falta correr `pip-audit`, `pnpm audit` y OSV-Scanner en cada PR, y
-   automatizar el build y el despliegue.
-7. **Pruebas del frontend.** Hoy sólo existe la prueba de humo de la API
-   (`api/test_api.py`).
-8. **Carga de datos (más adelante).** Requiere autenticación, escritura,
-   PostgreSQL y una cola para correr el pipeline.
+Estas mejoras no forman parte de los requisitos obligatorios del Reto 2:
+
+1. Publicación con HTTPS y dominio institucional.
+2. Automatización de CI para auditoría de dependencias y build.
+3. Pruebas automatizadas adicionales del frontend.
+4. Modo oscuro y catálogo oficial de nombres con acentos.
+5. Actualización de cartografía cuando el SIGE publique el MGE 2026–2027.
+6. Integración futura de experimentos complementarios, como Random Forest M17, al
+   sitio Astro si se considera útil.
 
 ## Pipeline
 
@@ -908,41 +1109,86 @@ metodología, descartarlas antes de hacer commit:
 git checkout -- reports/
 ```
 
-## Validación reproducible de cierre (27 de octubre de 2026)
+## Validación reproducible de cierre
 
-Se ejecutó el proyecto desde los datos RAW dentro de Docker antes de la revisión final:
+La revisión final se ejecutó dentro de Docker y después se verificó desde `main`:
 
 - etapas 00–15 completas;
 - arquitectura seleccionada nuevamente: `two_history_linear`;
 - MAE reproducido: 7.69 pp (2021) y 4.36 pp (2024);
 - universo primario: 54,772 secciones; 54,448 con geometría;
 - escenarios S0–S3 y entregable cartográfico regenerados;
-- frontend Astro compilado (7 rutas);
-- API FastAPI iniciada y `python api/test_api.py` terminó con `API OK`.
+- `src/21_export_web.py` ejecutado correctamente;
+- frontend Astro compilado con 7 rutas;
+- servicios `app`, `api` y `web` levantados simultáneamente;
+- revisión visual del mapa, histórico, grupos, semáforo alternativo, auditoría NS,
+  edad, brecha y metodología;
+- `python api/test_api.py` terminó con `API OK`;
+- PR #1 (`revision-final-entrega` → `main`) integrado;
+- commit posterior `c1c2ec9` regeneró reportes auxiliares y registró la validación
+  final de API y sitio desde `main`.
 
-Las diferencias en reportes regenerados se limitaron a redondeo de punto flotante
-y finales de línea; se descartaron antes de continuar la revisión.
+Las diferencias numéricas observadas al regenerar reportes fueron de redondeo de
+punto flotante y no modificaron el modelo oficial ni los resultados centrales.
 
 ## Entregables del concurso (Reto 2)
 
-La convocatoria pide entregar a más tardar a las 23:59 del 31 de octubre de 2026, en un zip con el
-nombre del equipo y el eje, enviado a los correos que indica. Si falta cualquier entregable obligatorio,
-el equipo queda descalificado.
+> **Nota documental:** la convocatoria no exige incluir un correo de contacto dentro del
+> reporte ni de la presentación. La presentación final puede cerrar simplemente con el
+> nombre del equipo `INAI` y la identificación del Reto 2.
+
+
+La convocatoria exige que la propuesta incluya la totalidad de los entregables
+obligatorios. Para el equipo **INAI**, el estado final es:
 
 | Entregable | Dónde está | Estado |
 |---|---|---|
-| Mapa de escenarios con y sin intervención (SHP/GeoJSON/GPKG) + base de datos (.CSV/.XLSX) | `data/processed/entregables/mapa_escenarios/` (lo genera `src/entregables/01_exportar_mapa_escenarios.py`) | Listo |
-| Reporte metodológico y preventivo (PDF, 10–15 cuartillas): variables, semáforo, recomendaciones y priorización de recursos | Documento compartido del equipo; el PDF de revisión actual tiene 12 páginas | Revisión final de redacción y consistencia |
-| Presentación ejecutiva (máximo 10 diapositivas) | Presentación compartida del equipo (10 diapositivas), se exporta a PDF o PowerPoint | Falta nombre del equipo, correo de contacto y revisión final |
-| Código o enlace al repositorio | Este repo (privado): dar acceso al jurado o incluir el código en el zip, sin `data/` | Decidir |
-| Carta de cesión de derechos y carta declaratoria, firmadas por todo el equipo | Borradores sobre los formatos oficiales en `data/processed/entregables/cartas/` (PDF y DOCX editable) | Faltan nombre del equipo, fecha y firmas |
+| Mapa de escenarios con y sin intervención (GPKG) + base anonimizada CSV | `data/processed/entregables/mapa_escenarios/` | **LISTO** |
+| Reporte metodológico y preventivo (10–15 cuartillas) | Documento final del equipo, 12 páginas | **LISTO** |
+| Presentación ejecutiva (máximo 10 diapositivas) | Presentación final del equipo, 10 diapositivas | **LISTO** |
+| Código o enlace al repositorio | `main`, validado después del PR #1 | **LISTO** |
+| Carta de cesión de derechos | Formato oficial preparado | **Sólo fecha, firmas y verificación final de nombres** |
+| Carta declaratoria | Formato oficial preparado | **Sólo fecha, firmas y verificación final de nombres** |
 
-Sobre el mapa de escenarios:
+### Archivos del mapa que deben conservarse juntos
 
-- `mapa_escenarios_2027.gpkg` (~70 MB) es la versión completa: se sube a Drive y se manda el enlace.
-- `mapa_escenarios_2027_ligero.gpkg` (~35 MB; el zip con la base y los resúmenes pesa ~20 MB) es para el
-  correo.
-- Antes de enviar, confirmen el límite de adjuntos. Si no cabe, manden sólo enlaces.
+La carpeta final es:
+
+```text
+data/processed/entregables/mapa_escenarios/
+```
+
+y contiene:
+
+```text
+mapa_escenarios_2027.gpkg
+mapa_escenarios_2027_ligero.gpkg
+base_secciones_2027.csv
+resumen_entidades.csv
+resumen_distritos.csv
+resumen_municipios.csv
+mapa_sin_vs_con_intervencion.png
+LEEME.md
+```
+
+Para cumplir estrictamente el Reto 2, el mínimo indispensable es:
+
+```text
+mapa_escenarios_2027.gpkg
++
+base_secciones_2027.csv
+```
+
+Sin embargo, se recomienda entregar **la carpeta completa**, porque el `LEEME.md`,
+los resúmenes y el PNG facilitan la revisión del jurado.
+
+- `mapa_escenarios_2027.gpkg` (~70 MB): versión completa, con S0–S3.
+- `mapa_escenarios_2027_ligero.gpkg` (~35 MB): versión simplificada para
+  transferencia más fácil.
+- `base_secciones_2027.csv` (~14 MB): base anonimizada empleada por el mapa.
+
+Si el ZIP o el correo exceden el límite de adjuntos, los archivos pesados deben
+subirse a Drive y compartirse mediante un enlace sin necesidad de iniciar sesión.
 
 ## Archivos que no deben subirse
 
@@ -958,6 +1204,11 @@ web/dist/
 web/.astro/
 ```
 
+**Importante:** esta lista se refiere al **repositorio GitHub**, no al paquete que
+se envía al INE. Aunque `data/processed/` no se versiona, la carpeta
+`data/processed/entregables/mapa_escenarios/` **sí forma parte del entregable**
+y debe incluirse en el ZIP final o compartirse por Drive.
+
 La cartografía y los CCPC originales se descargan desde sus fuentes oficiales
 (ver [Obtención de datos](#obtención-de-datos)) y los productos derivados se
 reconstruyen con el pipeline.
@@ -972,38 +1223,56 @@ reconstruyen con el pipeline.
 5. Las secciones sin correspondencia cartográfica no reciben interpolación
    automática.
 6. El semáforo representa prioridad relativa territorial.
-7. Los experimentos de Random Forest (`src/16`–`20`) no se reproducen en una
-   copia limpia. Las etapas 16 y 17 corren (la 16 reproduce sus resultados al
-   decimal), pero la 18 toma del registro versionado
-   (`reports/experiment_rf_improved/registro_pruebas.json`) la primera
-   predicción que coincide. Esa es la de la corrida original, cuyo archivo sólo
-   existe en la máquina donde se generó, y la etapa falla con
-   `FileNotFoundError`. La 19 tiene el mismo problema: exige una sola
-   coincidencia en el registro.
+7. Random Forest M17 y otros experimentos complementarios no forman parte de la
+   arquitectura oficial seleccionada. El pipeline oficial reproducible y necesario
+   para la entrega es 00–15, seguido de los análisis complementarios requeridos por
+   el sitio y la etapa 21 de exportación web.
 
 ## Próximas etapas
 
-- Cerrar la entrega: revisar el reporte y la presentación, firmar las cartas y
-  armar el zip (ver "Entregables del concurso").
-- Después del envío, cambiar la cartografía cuando el SIGE publique los productos
-  descargables del Marco Geográfico Electoral 2026–2027 (12 de noviembre de 2026)
-  y volver a correr las etapas 14, 15, 21 y el entregable del mapa.
-- Mantener el calendario 2027 contrastado con INE/OPLE si hubiera ajustes; el INE
-  ya confirma concurrencia local en las 32 entidades y 17 gubernaturas.
-- Destrabar la página de Random Forest del sitio (ver "Pendientes del sitio").
+Antes del envío oficial:
+
+- colocar fecha y firmas autógrafas de los cuatro integrantes en ambas cartas;
+- verificar acceso público o autorizado al enlace de los archivos pesados;
+- crear y revisar el ZIP definitivo de entrega;
+- confirmar que el repositorio compartido apunta a `main`.
+
+Después del envío:
+
+- actualizar la cartografía cuando el SIGE publique el MGE 2026–2027 el
+  12 de noviembre de 2026;
+- contrastar cualquier ajuste posterior del calendario 2027 con INE/OPLE;
+- continuar, si se desea, con mejoras no bloqueantes del sitio.
 
 ## Estado de GitHub
 
-El repositorio debe mantenerse actualizado después de cada etapa estable.
+La versión final validada se encuentra en `main`.
 
-Flujo:
+Cierre realizado:
 
-```powershell
-git status
-git add .
-git commit -m "Descripción del cambio"
-git push
+```text
+PR #1: revision-final-entrega → main
+a438d8e  Final review: improve reproducibility and clarify analytical claims
+c9c3ab2  Update cartography availability note for final delivery
+b0d8b27  Merge pull request #1
+c1c2ec9  Actualiza reportes regenerados tras validar la API
 ```
 
-Durante el desarrollo se recomienda mantenerlo privado y revisar las condiciones
-del concurso antes de asignar una licencia pública.
+La validación final desde `main` confirmó el smoke test oficial de la API y el
+funcionamiento local del sitio web.
+
+Para futuras modificaciones:
+
+```powershell
+git checkout main
+git pull origin main
+git checkout -b <rama>
+# cambios + pruebas
+git add .
+git commit -m "Descripción del cambio"
+git push -u origin <rama>
+# Pull Request hacia main
+```
+
+Durante el desarrollo y la revisión conviene mantener el repositorio privado y
+dar acceso únicamente a las personas autorizadas para evaluar la propuesta.
